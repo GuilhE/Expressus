@@ -1,0 +1,58 @@
+package com.expressus.domain.viewModels
+
+import com.expressus.domain.stateMachines.ExpressusState
+import com.expressus.domain.stateMachines.ExpressusStateMachineWithSavedState
+import com.expressus.domain.stateMachines.ExpressusUiState
+import com.expressus.domain.viewModels.base.containerHostVisibilityWrapper
+import com.expressus.domain.viewModels.base.stateHolderVisibilityWrapper
+import dev.icerock.moko.mvvm.viewmodel.ViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.orbitmvi.orbit.syntax.simple.intent
+import org.orbitmvi.orbit.syntax.simple.reduce
+
+class ExpressusViewModel : ViewModel() {
+
+    private val host = viewModelScope.containerHostVisibilityWrapper<ExpressusUiState, Nothing>(ExpressusUiState())
+    private val containerStateHolder = viewModelScope.stateHolderVisibilityWrapper(host.container.stateFlow) { state ->
+        host.intent { reduce { state } }
+    }
+    val state = host.container.stateFlow
+
+    private val stateMachine = ExpressusStateMachineWithSavedState {
+        host.intent {
+            reduce {
+                when (it) {
+                    is ExpressusState.SideEffect.Brewing -> ExpressusUiState(brewing = true).also { brew() }
+                    is ExpressusState.SideEffect.Pouring -> ExpressusUiState(pouring = true).also { pour() }
+                    is ExpressusState.SideEffect.Served -> ExpressusUiState()
+                }
+            }
+        }
+    }
+
+    private fun brew() {
+        viewModelScope.launch {
+            delay(5000)
+            stateMachine.transitionOn(ExpressusState.Event.OnStartPouring)
+        }
+    }
+
+    private fun pour() {
+        viewModelScope.launch {
+            delay(5000)
+            stateMachine.transitionOn(ExpressusState.Event.OnFinishPouring)
+        }
+    }
+
+    fun makeCoffee() {
+        if (state.value.isOnStandBy()) {
+            stateMachine.transitionOn(ExpressusState.Event.OnStartBrewing)
+        }
+    }
+
+    fun handleSavedState(restore: Boolean) {
+        stateMachine.handleSavedState(restore)
+        containerStateHolder.handleSavedState(restore)
+    }
+}
