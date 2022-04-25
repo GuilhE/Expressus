@@ -23,6 +23,8 @@ import ui.composables.leftPanel.CoffeeSlot
 import ui.composables.leftPanel.MachineLeftFrame
 import ui.composables.leftPanel.TopPanel
 import ui.composables.rightPanel.*
+import utils.SoundPlayer
+import java.io.File
 
 fun main() = application {
     val koin: Koin = DependencyInjection.initKoinAndReturnInstance()
@@ -42,6 +44,10 @@ fun main() = application {
 
 @Composable
 private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
+    when {
+        state.brewing -> SoundPlayer.playBrewingSound()
+        state.pouring -> SoundPlayer.playPouringSound()
+    }
     Row {
         LeftPanel(Modifier.weight(3f), state)
         RightPanel(Modifier.weight(2f).padding(top = 10.dp), state, makeCoffee)
