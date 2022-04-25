@@ -20,7 +20,7 @@ fun MachineTheme(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun PanelTheme(content: @Composable () -> Unit) {
+fun CoffeeTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = darkColors(
             primary = brown,

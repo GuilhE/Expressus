@@ -26,7 +26,7 @@ fun MachineLeftFrame(modifier: Modifier, content: @Composable ColumnScope.() -> 
             )
         )
 
-        Panel(modifier = modifier, brush = gradient, topOffset = 20.dp, bottomOffset = 0.dp) {
+        Panel(modifier = modifier, brush = gradient, topOffset = 10.dp, bottomOffset = 0.dp) {
             Column(
                 modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,

@@ -7,16 +7,31 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 import themes.CoffeeSlotTheme
 import ui.composables.Slot
 
 @Composable
 fun CoffeeSlot(modifier: Modifier, isBrewing: Boolean = false, isPouring: Boolean = false) {
+    var cupVrtPadding: Dp by remember { mutableStateOf(0.dp) }
+    var cupHrzPadding: Dp by remember { mutableStateOf(0.dp) }
+
+    LaunchedEffect(isBrewing) {
+        cupVrtPadding = 0.dp
+        cupHrzPadding = 0.dp
+        while (isBrewing) {
+            cupVrtPadding = (-1..1).random().dp
+            cupHrzPadding = (0..1).random().dp
+            delay(50)
+        }
+    }
+
     CoffeeSlotTheme {
         Box(contentAlignment = Alignment.Center) {
             Slot(
@@ -35,20 +50,17 @@ fun CoffeeSlot(modifier: Modifier, isBrewing: Boolean = false, isPouring: Boolea
                 end = MaterialTheme.colors.primary,
                 bottom = MaterialTheme.colors.primaryVariant
             )
+            CoffeeStream(5.dp, 100.dp, isPouring)
             Box(
                 Modifier
                     .align(Alignment.TopCenter)
                     .padding(top = 8.dp)
-            ) {
-                CoffeeFauler(40.dp)
-            }
+            ) { CoffeeFauler(40.dp) }
             Box(
                 Modifier
                     .align(Alignment.BottomCenter)
-                    .padding(bottom = 5.dp)
-            ) {
-                Cup(50.dp)
-            }
+                    .padding(bottom = 5.dp + cupVrtPadding, start = cupHrzPadding)
+            ) { Cup(50.dp) }
         }
     }
 }

@@ -8,13 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
-import themes.PanelTheme
+import themes.CoffeeTheme
 import ui.composables.Panel
 
 @Composable
 @Preview
 fun BottomPanel() {
-    PanelTheme {
+    CoffeeTheme {
         val gradient = Brush.horizontalGradient(
             colors = listOf(
                 MaterialTheme.colors.primary,
