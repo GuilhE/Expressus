@@ -9,6 +9,10 @@ object SDK {
 
 object Versions {
 
+    object Compose {
+        const val desktop = "1.0.1"
+    }
+
     object Jetbrains {
         const val kotlin = "1.6.10"
         const val kotlinxSerialization = "1.3.2"
@@ -17,7 +21,7 @@ object Versions {
     }
 
     object Multiplatform {
-        const val kermit = "1.1.0"
+        const val kermit = "1.1.1"
         const val koin = "3.2.0-beta-1"
         const val multiplatformSettings = "0.8.1"
         const val mokoMvvm = "0.12.0"
