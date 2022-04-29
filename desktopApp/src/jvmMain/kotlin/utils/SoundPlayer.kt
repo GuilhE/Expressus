@@ -17,8 +17,8 @@ object SoundPlayer {
         }
     }
 
-    fun playBrewingSound() {
-        playSound(File("src/jvmMain/resources/brewing.wav"))
+    fun playGrindingSound() {
+        playSound(File("src/jvmMain/resources/grinding.wav"))
     }
 
     fun playPouringSound() {

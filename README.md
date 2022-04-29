@@ -1,6 +1,8 @@
 <img src="/media/icon.png" width="100" align="right">
 
 # Expressus
+[![Android Weekly](https://androidweekly.net/issues/issue-515/badge)](https://androidweekly.net/issues/issue-515) [![Featured in Kotlin Weekly - Issue #299](https://img.shields.io/badge/Featured_in_Kotlin_Weekly-Issue_%23299-7878b4)](https://mailchi.mp/kotlinweekly/kotlin-weekly-299)
+
 KMM sample project acting as a playground to illustrate what's discussed in these articles: 
 <p>
  <a href="https://guidelgado.medium.com/36d84056c616"><img src="/media/banner1.png"></a></br>
@@ -14,9 +16,14 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
 - Finite State Machine to validate state transitions
 - State restoration (both for UI State and FSM State)
 
-### Platform
+### Platforms
 - UI State emissions using Kotlin Flow and Swift Combine Publisher
+  
+#### Mobile
 - Jetpack Compose + SwiftUI
+
+#### Desktop
+- Compose Multiplatform
 
 ## Output
 <p align="center">

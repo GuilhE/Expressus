@@ -14,7 +14,7 @@ import ui.composables.Panel
 
 @Composable
 @Preview
-fun CoffeeFauler(width: Dp) {
+fun CoffeeFaucet(width: Dp) {
     val gradient = Brush.verticalGradient(
         colors = listOf(
             MaterialTheme.colors.primary,
@@ -47,10 +47,10 @@ fun CoffeeFauler(width: Dp) {
 
 @Composable
 @Preview
-fun CoffeeFaulerPreview() {
+fun CoffeeFaucetPreview() {
     CoffeeSlotTheme {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            CoffeeFauler(250.dp)
+            CoffeeFaucet(250.dp)
         }
     }
 }

@@ -62,6 +62,7 @@ fun CoffeeSelectorsTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = darkColors(
             primary = redCandy.copy(0.5f),
+            primaryVariant = yellow,
             secondary = redCandy,
             surface = whiteDirty,
             background = Color.DarkGray.copy(0.7f)

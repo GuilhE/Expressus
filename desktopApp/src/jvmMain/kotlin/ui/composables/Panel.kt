@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.center
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
@@ -30,21 +31,15 @@ fun Panel(
                 path = Path().apply {
                     moveTo(0f, if (convexTop) topOffset.value else 0f)
                     cubicTo(
-                        x1 = 0f,
-                        y1 = if (convexTop) topOffset.value else 0f,
-                        x2 = size.width / 2,
-                        y2 = if (convexTop) -topOffset.value else topOffset.value,
-                        x3 = size.width,
-                        y3 = if (convexTop) topOffset.value else 0f
+                        x1 = 0f, y1 = if (convexTop) topOffset.value else 0f,
+                        x2 = size.center.x, y2 = if (convexTop) -topOffset.value else topOffset.value,
+                        x3 = size.width, y3 = if (convexTop) topOffset.value else 0f
                     )
                     lineTo(size.width, size.height - if (convexBottom) bottomOffset.value else 0f)
                     cubicTo(
-                        x1 = size.width,
-                        y1 = size.height - if (convexBottom) bottomOffset.value else 0f,
-                        x2 = size.width / 2 + size.width / 16f,
-                        y2 = size.height + if (convexBottom) bottomOffset.value else -bottomOffset.value,
-                        x3 = 0f,
-                        y3 = size.height - if (convexBottom) bottomOffset.value else 0f
+                        x1 = size.width, y1 = size.height - if (convexBottom) bottomOffset.value else 0f,
+                        x2 = size.center.x + size.width / 16f, y2 = size.height + if (convexBottom) bottomOffset.value else -bottomOffset.value,
+                        x3 = 0f, y3 = size.height - if (convexBottom) bottomOffset.value else 0f
                     )
                     close()
                 }

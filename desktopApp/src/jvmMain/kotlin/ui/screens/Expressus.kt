@@ -6,9 +6,11 @@ import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
@@ -16,7 +18,6 @@ import androidx.compose.ui.window.rememberWindowState
 import com.expressus.domain.DependencyInjection
 import com.expressus.domain.stateMachines.ExpressusUiState
 import com.expressus.domain.viewModels.ExpressusViewModel
-import kotlinx.coroutines.delay
 import org.koin.core.Koin
 import ui.composables.leftPanel.BottomPanel
 import ui.composables.leftPanel.CoffeeSlot
@@ -24,46 +25,57 @@ import ui.composables.leftPanel.MachineLeftFrame
 import ui.composables.leftPanel.TopPanel
 import ui.composables.rightPanel.*
 import utils.SoundPlayer
-import java.io.File
 
 fun main() = application {
-    val koin: Koin = DependencyInjection.initKoinAndReturnInstance()
-    val viewModel = koin.get<ExpressusViewModel>()
+    val koin: Koin = remember { DependencyInjection.initKoinAndReturnInstance() }
+    val viewModel = remember { koin.get<ExpressusViewModel>() }
+    var resizable by remember { mutableStateOf(true) }
+
     Window(
         title = "Expressus",
         onCloseRequest = ::exitApplication,
         icon = painterResource("icon.png"),
-        state = rememberWindowState(width = 600.dp, height = 1024.dp),
-        resizable = false
+        state = rememberWindowState(size = DpSize(600.dp, 1024.dp)),
+        resizable = resizable
     ) {
         with(viewModel) {
-            Expressus(state.collectAsState().value) { makeCoffee() }
+            Expressus(state.collectAsState().value, onRendered = { resizable = false }) { makeCoffee() }
         }
     }
 }
 
 @Composable
-private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
+private fun Expressus(state: ExpressusUiState, onRendered: () -> Unit, makeCoffee: () -> Unit) {
     when {
-        state.brewing -> SoundPlayer.playBrewingSound()
+        state.brewing -> SoundPlayer.playGrindingSound()
         state.pouring -> SoundPlayer.playPouringSound()
     }
-    Row {
-        LeftPanel(Modifier.weight(3f), state)
-        RightPanel(Modifier.weight(2f).padding(top = 10.dp), state, makeCoffee)
+    BoxWithConstraints {
+        val desiredRatio = rememberSaveable { 600.dp / 1024.dp }
+        println("$maxWidth $maxHeight")
+        Row(Modifier.size(maxHeight / desiredRatio, maxWidth / desiredRatio)) {
+            LeftPanel(Modifier.weight(3f), state)
+            RightPanel(Modifier.weight(2f).padding(top = 10.dp), state, makeCoffee)
+        }
+        LaunchedEffect(desiredRatio) {
+            onRendered()
+        }
     }
 }
 
 @Composable
 @Preview
 private fun ExpressusPreview() {
-    Expressus(ExpressusUiState()) {}
+    Expressus(ExpressusUiState(), {}, {})
 }
 
 @Composable
 private fun LeftPanel(modifier: Modifier, state: ExpressusUiState) {
     MachineLeftFrame(modifier) {
-        Box(Modifier.weight(2.8f)) {
+        Box(
+            Modifier.weight(2.8f),
+            contentAlignment = Alignment.Center
+        ) {
             TopPanel()
         }
         Box(
@@ -86,14 +98,6 @@ private fun LeftPanelPreview() {
 
 @Composable
 private fun RightPanel(modifier: Modifier, state: ExpressusUiState, makeCoffee: () -> Unit) {
-    var toggle by remember { mutableStateOf(false) }
-    LaunchedEffect(state.isMakingCoffee()) {
-        while (state.isMakingCoffee()) {
-            toggle = !toggle
-            delay(250)
-        }
-    }
-
     MachineRightFrame(modifier) {
         Column(
             Modifier.weight(1.5f),
@@ -106,7 +110,7 @@ private fun RightPanel(modifier: Modifier, state: ExpressusUiState, makeCoffee: 
                     .fillMaxWidth()
                     .padding(10.dp),
                 count = 10,
-                toggle = toggle,
+                isMakingCoffee = state.isMakingCoffee(),
                 onClick = {
                     if (state.isOnStandBy()) {
                         makeCoffee()
