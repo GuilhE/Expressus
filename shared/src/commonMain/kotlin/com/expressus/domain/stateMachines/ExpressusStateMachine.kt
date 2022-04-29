@@ -23,15 +23,15 @@ internal class ExpressusStateMachine(
         initialState(initialState).apply { logInitState(initialState) }
 
         state<ExpressusState.State.Idle> {
-            on<ExpressusState.Event.OnStartBrewing> {
-                logState(ExpressusState.State.Idle, ExpressusState.Event.OnStartBrewing)
-                transitionTo(ExpressusState.State.Brewing, ExpressusState.SideEffect.Brewing)
+            on<ExpressusState.Event.OnStartGrinding> {
+                logState(ExpressusState.State.Idle, ExpressusState.Event.OnStartGrinding)
+                transitionTo(ExpressusState.State.Grinding, ExpressusState.SideEffect.Grinding)
             }
         }
 
-        state<ExpressusState.State.Brewing> {
+        state<ExpressusState.State.Grinding> {
             on<ExpressusState.Event.OnStartPouring> {
-                logState(ExpressusState.State.Brewing, ExpressusState.Event.OnStartPouring)
+                logState(ExpressusState.State.Grinding, ExpressusState.Event.OnStartPouring)
                 transitionTo(ExpressusState.State.Pouring, ExpressusState.SideEffect.Pouring)
             }
         }

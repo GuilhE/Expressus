@@ -23,7 +23,7 @@ class ExpressusViewModel : ViewModel() {
         host.intent {
             reduce {
                 when (it) {
-                    is ExpressusState.SideEffect.Brewing -> ExpressusUiState(brewing = true).also { brew() }
+                    is ExpressusState.SideEffect.Grinding -> ExpressusUiState(grinding = true).also { grind() }
                     is ExpressusState.SideEffect.Pouring -> ExpressusUiState(pouring = true).also { pour() }
                     is ExpressusState.SideEffect.Served -> ExpressusUiState()
                 }
@@ -31,7 +31,7 @@ class ExpressusViewModel : ViewModel() {
         }
     }
 
-    private fun brew() {
+    private fun grind() {
         viewModelScope.launch {
             delay(5000)
             stateMachine.transitionOn(ExpressusState.Event.OnStartPouring)
@@ -47,7 +47,7 @@ class ExpressusViewModel : ViewModel() {
 
     fun makeCoffee() {
         if (state.value.isOnStandBy()) {
-            stateMachine.transitionOn(ExpressusState.Event.OnStartBrewing)
+            stateMachine.transitionOn(ExpressusState.Event.OnStartGrinding)
         }
     }
 
