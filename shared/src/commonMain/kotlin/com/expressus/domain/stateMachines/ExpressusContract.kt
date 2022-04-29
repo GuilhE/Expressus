@@ -6,17 +6,17 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ExpressusUiState(
-    val brewing: Boolean = false,
+    val grinding: Boolean = false,
     val pouring: Boolean = false
 ) {
-    fun isMakingCoffee() = brewing || pouring
+    fun isMakingCoffee() = grinding || pouring
     fun isOnStandBy() = !isMakingCoffee()
     fun label() = toString() //for iOS since toString() wont be visible
 
     override fun toString(): String {
         return if (isMakingCoffee()) {
             when {
-                brewing -> "Brewing"
+                grinding -> "Grinding"
                 pouring -> "Pouring"
                 else -> "Stand by"
             }
@@ -34,8 +34,8 @@ sealed class ExpressusState {
         }
 
         @Serializable
-        object Brewing : State() {
-            override fun toString(): String = "Brewing"
+        object Grinding : State() {
+            override fun toString(): String = "Grinding"
         }
 
         @Serializable
@@ -47,8 +47,8 @@ sealed class ExpressusState {
     @Serializable
     sealed class Event : ExpressusState() {
         @Serializable
-        object OnStartBrewing : Event() {
-            override fun toString(): String = "OnStartBrewing"
+        object OnStartGrinding : Event() {
+            override fun toString(): String = "OnStartGrinding"
         }
 
         @Serializable
@@ -63,8 +63,8 @@ sealed class ExpressusState {
     }
 
     sealed class SideEffect : ExpressusState() {
-        object Brewing : SideEffect() {
-            override fun toString(): String = "Brewing"
+        object Grinding : SideEffect() {
+            override fun toString(): String = "Grinding"
         }
 
         object Pouring : SideEffect() {
