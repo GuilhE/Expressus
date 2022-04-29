@@ -6,7 +6,6 @@ import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -47,20 +46,14 @@ fun main() = application {
 @Composable
 private fun Expressus(state: ExpressusUiState, onRendered: () -> Unit, makeCoffee: () -> Unit) {
     when {
-        state.brewing -> SoundPlayer.playGrindingSound()
+        state.grinding -> SoundPlayer.playGrindingSound()
         state.pouring -> SoundPlayer.playPouringSound()
     }
-    BoxWithConstraints {
-        val desiredRatio = rememberSaveable { 600.dp / 1024.dp }
-        println("$maxWidth $maxHeight")
-        Row(Modifier.size(maxHeight / desiredRatio, maxWidth / desiredRatio)) {
-            LeftPanel(Modifier.weight(3f), state)
-            RightPanel(Modifier.weight(2f).padding(top = 10.dp), state, makeCoffee)
-        }
-        LaunchedEffect(desiredRatio) {
-            onRendered()
-        }
+    Row {
+        LeftPanel(Modifier.weight(3f), state)
+        RightPanel(Modifier.weight(2f).padding(top = 10.dp), state, makeCoffee)
     }
+    LaunchedEffect(Unit) { onRendered() }
 }
 
 @Composable
@@ -82,7 +75,7 @@ private fun LeftPanel(modifier: Modifier, state: ExpressusUiState) {
             Modifier.weight(1f),
             contentAlignment = Alignment.Center
         ) {
-            CoffeeSlot(Modifier.size(150.dp), state.brewing, state.pouring)
+            CoffeeSlot(Modifier.size(150.dp), state.grinding, state.pouring)
         }
         Box(Modifier.weight(1.5f)) {
             BottomPanel()
@@ -100,7 +93,7 @@ private fun LeftPanelPreview() {
 private fun RightPanel(modifier: Modifier, state: ExpressusUiState, makeCoffee: () -> Unit) {
     MachineRightFrame(modifier) {
         Column(
-            Modifier.weight(1.5f),
+            Modifier.weight(2f),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
@@ -109,7 +102,7 @@ private fun RightPanel(modifier: Modifier, state: ExpressusUiState, makeCoffee: 
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(10.dp),
-                count = 10,
+                count = 7,
                 isMakingCoffee = state.isMakingCoffee(),
                 onClick = {
                     if (state.isOnStandBy()) {
@@ -134,5 +127,5 @@ private fun RightPanel(modifier: Modifier, state: ExpressusUiState, makeCoffee: 
 @Composable
 @Preview
 private fun RightPanelPreview() {
-    RightPanel(Modifier, ExpressusUiState()) {}
+    RightPanel(Modifier, state = ExpressusUiState()) {}
 }

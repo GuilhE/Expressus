@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 import themes.CoffeeTheme
@@ -26,6 +27,7 @@ fun BottomPanel() {
         Panel(
             modifier = Modifier
                 .fillMaxSize()
+                .blur(0.5.dp)
                 .padding(start = 30.dp, end = 30.dp, top = 30.dp),
             brush = gradient,
             convexTop = false,

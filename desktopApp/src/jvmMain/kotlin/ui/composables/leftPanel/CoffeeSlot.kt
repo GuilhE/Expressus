@@ -38,10 +38,9 @@ fun CoffeeSlot(modifier: Modifier, isGrinding: Boolean = false, isPouring: Boole
                     .fillMaxSize()
                     .background(
                         brush = Brush.verticalGradient(
-                            colors = listOf(
+                            listOf(
                                 MaterialTheme.colors.primary,
                                 MaterialTheme.colors.secondary,
-                                MaterialTheme.colors.secondaryVariant
                             )
                         )
                     ),
@@ -63,6 +62,19 @@ fun CoffeeSlot(modifier: Modifier, isGrinding: Boolean = false, isPouring: Boole
                     .align(Alignment.BottomCenter)
                     .padding(bottom = 5.dp + cupVrtPadding, start = cupHrzPadding)
             ) { Cup(50.dp) }
+
+            Box(
+                Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.horizontalGradient(
+                            0.0f to Color.Black.copy(0.85f),
+                            0.4f to Color.Transparent,
+                            0.5f to Color.Transparent,
+                            1.0f to Color.Black.copy(0.85f)
+                        )
+                    )
+            )
         }
     }
 }
