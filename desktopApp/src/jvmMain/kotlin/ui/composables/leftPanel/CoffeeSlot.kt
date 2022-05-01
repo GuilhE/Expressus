@@ -1,7 +1,6 @@
 package ui.composables.leftPanel
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
@@ -16,7 +15,7 @@ import themes.CoffeeSlotTheme
 import ui.composables.Slot
 
 @Composable
-fun CoffeeSlot(modifier: Modifier, isGrinding: Boolean = false, isPouring: Boolean = false) {
+fun CoffeeSlot(size: Dp, isGrinding: Boolean = false, isPouring: Boolean = false) {
     var cupVrtPadding: Dp by remember { mutableStateOf(0.dp) }
     var cupHrzPadding: Dp by remember { mutableStateOf(0.dp) }
 
@@ -31,24 +30,23 @@ fun CoffeeSlot(modifier: Modifier, isGrinding: Boolean = false, isPouring: Boole
     }
 
     CoffeeSlotTheme {
-        BoxWithConstraints(modifier, contentAlignment = Alignment.Center) {
+        BoxWithConstraints(
+            Modifier.size(size),
+            contentAlignment = Alignment.Center
+        ) {
             val maxH = maxHeight
             Slot(
-                Modifier
-                    .fillMaxSize()
-                    .background(
-                        brush = Brush.verticalGradient(
-                            listOf(
-                                MaterialTheme.colors.primary,
-                                MaterialTheme.colors.secondary,
-                            )
-                        )
-                    ),
+                width = maxH,
                 strokeWidth = 30.dp,
+                topOffset = 10.dp,
+                convexTop = false,
+                convexBottom = true,
+                flatBottom = true,
                 top = MaterialTheme.colors.primary,
                 start = MaterialTheme.colors.primary,
                 end = MaterialTheme.colors.primary,
-                bottom = MaterialTheme.colors.primaryVariant
+                bottom = MaterialTheme.colors.primaryVariant,
+                background = Brush.verticalGradient(listOf(MaterialTheme.colors.primary, MaterialTheme.colors.secondary))
             )
             Box(
                 Modifier.fillMaxSize(),
@@ -63,17 +61,23 @@ fun CoffeeSlot(modifier: Modifier, isGrinding: Boolean = false, isPouring: Boole
                     .padding(bottom = 5.dp + cupVrtPadding, start = cupHrzPadding)
             ) { Cup(50.dp) }
 
-            Box(
-                Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.horizontalGradient(
-                            0.0f to Color.Black.copy(0.85f),
-                            0.4f to Color.Transparent,
-                            0.5f to Color.Transparent,
-                            1.0f to Color.Black.copy(0.85f)
-                        )
-                    )
+            Slot(
+                width = maxH,
+                strokeWidth = 30.dp,
+                topOffset = 10.dp,
+                convexTop = false,
+                convexBottom = true,
+                flatBottom = true,
+                top = MaterialTheme.colors.primary,
+                start = MaterialTheme.colors.primary,
+                end = MaterialTheme.colors.primary,
+                bottom = Color.Transparent,
+                background = Brush.horizontalGradient(
+                    0.0f to Color.Black.copy(0.85f),
+                    0.4f to Color.Transparent,
+                    0.5f to Color.Transparent,
+                    1.0f to Color.Black.copy(0.85f)
+                )
             )
         }
     }
@@ -82,7 +86,10 @@ fun CoffeeSlot(modifier: Modifier, isGrinding: Boolean = false, isPouring: Boole
 @Composable
 @Preview
 private fun CoffeeSlotPreview() {
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        CoffeeSlot(Modifier.size(150.dp))
+    Box(
+        Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        CoffeeSlot(150.dp)
     }
 }

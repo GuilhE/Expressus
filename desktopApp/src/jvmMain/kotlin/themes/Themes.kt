@@ -88,6 +88,7 @@ fun PaymentSocketTheme(content: @Composable () -> Unit) {
         colors = darkColors(
             primary = yellow,
             secondary = orange,
+            background = Color.Black
         ),
         content = content
     )

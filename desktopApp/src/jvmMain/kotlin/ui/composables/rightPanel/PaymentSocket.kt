@@ -8,7 +8,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.*
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import themes.PaymentSocketTheme
 import ui.composables.PlasticTile
@@ -52,17 +54,22 @@ fun PaymentSocket(padding: PaddingValues = PaddingValues(0.dp)) {
                 withGlossy = false
             )
             Spacer(Modifier.size(6.dp))
-            Slot(
-                modifier = Modifier
+            BoxWithConstraints(
+                Modifier
                     .fillMaxWidth()
                     .height(15.dp)
-                    .background(Color.Black),
-                strokeWidth = 6.dp,
-                top = Color.DarkGray,
-                start= Color.DarkGray,
-                end = Color.DarkGray,
-                bottom = Color.Gray
-            )
+                    .background(MaterialTheme.colors.background)
+            ) {
+                Slot(
+                    width = maxWidth,
+                    height = maxHeight,
+                    strokeWidth = 6.dp,
+                    top = Color.DarkGray,
+                    start = Color.DarkGray,
+                    end = Color.DarkGray,
+                    bottom = Color.Gray
+                )
+            }
         }
     }
 }

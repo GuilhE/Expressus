@@ -75,7 +75,7 @@ private fun LeftPanel(modifier: Modifier, state: ExpressusUiState) {
             Modifier.weight(1f),
             contentAlignment = Alignment.Center
         ) {
-            CoffeeSlot(Modifier.size(150.dp), state.grinding, state.pouring)
+            CoffeeSlot(150.dp, state.grinding, state.pouring)
         }
         Box(Modifier.weight(1.5f)) {
             BottomPanel()
