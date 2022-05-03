@@ -13,7 +13,7 @@
             tools:ignore="LockedOrientationActivity">
 
         <activity
-                android:name=".presentation.ui.screens.ExpressusActivity"
+                android:name=".presentation.ExpressusActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
