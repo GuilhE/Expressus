@@ -11,17 +11,28 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.expressus.compose.components.Slot
 import com.expressus.compose.themes.CoffeeSlotTheme
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.yield
 
 @Composable
-fun CoffeeSlot(size: Dp, isGrinding: Boolean = false, isPouring: Boolean = false) {
+fun CoffeeSlot(
+    size: Dp,
+    faucetSize: Dp,
+    cupSize: Dp,
+    coffeeStreamSize: DpSize,
+    coffeePouringSpeed: Long = 10L,
+    isGrinding: Boolean = false,
+    isPouring: Boolean = false
+) {
     var cupVrtPadding: Dp by remember { mutableStateOf(0.dp) }
     var cupHrzPadding: Dp by remember { mutableStateOf(0.dp) }
 
     LaunchedEffect(isGrinding) {
+        yield()
         cupVrtPadding = 0.dp
         cupHrzPadding = 0.dp
         while (isGrinding) {
@@ -54,8 +65,8 @@ fun CoffeeSlot(size: Dp, isGrinding: Boolean = false, isPouring: Boolean = false
                 Modifier.fillMaxSize(),
                 contentAlignment = Alignment.TopCenter
             ) {
-                CoffeeStream(5.dp, maxH, PaddingValues(vertical = 15.dp), isPouring)
-                CoffeeFaucet(40.dp)
+                CoffeeStream(coffeeStreamSize.width, coffeeStreamSize.height, PaddingValues(vertical = 15.dp), coffeePouringSpeed, isPouring)
+                CoffeeFaucet(faucetSize)
             }
             Box(
                 Modifier
@@ -63,14 +74,14 @@ fun CoffeeSlot(size: Dp, isGrinding: Boolean = false, isPouring: Boolean = false
                     .padding(bottom = 10.dp + cupVrtPadding, start = cupHrzPadding)
             ) {
                 //shadow
-                Canvas(Modifier.size(50.dp)) {
+                Canvas(Modifier.size(cupSize)) {
                     drawOval(
                         color = Color.Black.copy(0.2f),
                         topLeft = Offset(-2.5.dp.value, this.size.height - 2.dp.value),
                         size = Size(this.size.height + 5.dp.value, 5.dp.value)
                     )
                 }
-                Cup(50.dp)
+                Cup(cupSize)
             }
 
             //Overlay

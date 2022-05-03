@@ -3,6 +3,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         package="com.expressus.android">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
             android:name=".ExpressusApp"
             android:icon="@mipmap/ic_launcher"
@@ -14,7 +16,8 @@
 
         <activity
                 android:name=".presentation.ExpressusActivity"
-                android:exported="true">
+                android:exported="true"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

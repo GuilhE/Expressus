@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.expressus.compose.components.leftPanel.CoffeeSlot
 
@@ -16,6 +17,6 @@ private fun CoffeeSlotPreview() {
         Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        CoffeeSlot(150.dp)
+        CoffeeSlot(350.dp, 100.dp, 100.dp, DpSize(15.dp, 150.dp))
     }
 }
