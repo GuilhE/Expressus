@@ -53,6 +53,7 @@ android {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(project(":shared-ui-compose"))
 
     // Android
     implementation(Libs.Android.Core.material)

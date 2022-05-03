@@ -7,11 +7,6 @@ plugins {
     id("org.jetbrains.compose") version Versions.Compose.desktop
 }
 
-repositories {
-    mavenCentral()
-    maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
-}
-
 kotlin {
     jvm {
         withJava()
@@ -20,6 +15,7 @@ kotlin {
         named("jvmMain") {
             dependencies {
                 implementation(project(":shared"))
+                implementation(project(":shared-ui-compose"))
                 implementation(compose.desktop.currentOs)
             }
         }
@@ -28,7 +24,7 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "ui.screens.ExpressusKt"
+        mainClass = "presentation.ExpressusKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             val iconsRoot = project.file("src/jvmMain/resources")
