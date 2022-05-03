@@ -17,15 +17,16 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
 - State restoration (both for UI State and FSM State)
 
 ### Platforms
-- UI State emissions using Kotlin Flow and Swift Combine Publisher
   
 #### Mobile
+- UI State emissions using Kotlin Flow and Swift Combine Publisher
 - Jetpack Compose + SwiftUI
 
 #### Desktop
-- Compose Multiplatform
+- UI State emissions using Kotlin Flow
+- Compose for Desktop
 
-## Output
+## Outputs
 <p align="center">
  <img src="/media/android.gif" width="390">  <img src="/media/ios.gif" width="430">
 </p>
