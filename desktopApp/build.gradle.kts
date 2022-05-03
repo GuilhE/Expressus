@@ -31,7 +31,7 @@ compose.desktop {
         mainClass = "ui.screens.ExpressusKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            val iconsRoot = project.file("src/javaMain/resources")
+            val iconsRoot = project.file("src/jvmMain/resources")
             macOS {
                 iconFile.set(iconsRoot.resolve("icon.icns"))
             }
