@@ -16,11 +16,17 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
 - Finite State Machine to validate state transitions
 - State restoration (both for UI State and FSM State)
 
-### Platform
+### Platforms
+  
+#### Mobile
 - UI State emissions using Kotlin Flow and Swift Combine Publisher
 - Jetpack Compose + SwiftUI
 
-## Output
+#### Desktop
+- UI State emissions using Kotlin Flow
+- Compose for Desktop
+
+## Outputs
 <p align="center">
  <img src="/media/android.gif" width="390">  <img src="/media/ios.gif" width="430">
 </p>

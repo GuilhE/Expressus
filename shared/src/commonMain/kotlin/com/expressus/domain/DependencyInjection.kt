@@ -9,12 +9,18 @@ import org.koin.dsl.module
 expect fun platformModule(): Module
 
 object DependencyInjection {
-    fun initKoin(appDeclaration: KoinAppDeclaration) {
+    fun initKoin(appDeclaration: KoinAppDeclaration = {}) {
         startKoin {
             appDeclaration()
             modules(commonModule(), platformModule())
         }
     }
+
+    fun initKoinAndReturnInstance(appDeclaration: KoinAppDeclaration = {}): org.koin.core.Koin =
+        startKoin {
+            appDeclaration()
+            modules(commonModule(), platformModule())
+        }.koin
 
     internal fun commonModule() = module {
         single { PlatformDependencies().getSettings() }

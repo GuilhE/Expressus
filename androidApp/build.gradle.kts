@@ -59,13 +59,15 @@ dependencies {
     implementation(Libs.Android.Lifecycle.lifecycleRuntimeKtx)
 
     // Android Compose
-    implementation(Libs.Android.Compose.activity)
-    implementation(Libs.Android.Compose.material)
-    implementation(Libs.Android.Compose.ui)
-    implementation(Libs.Android.Compose.runtime)
-    implementation(Libs.Android.Compose.foundationLayout)
-    debugImplementation(Libs.Android.Compose.uiTooling)
-    
+    with(Libs.Android.Compose){
+        implementation(activity)
+        implementation(material)
+        implementation(ui)
+        implementation(runtime)
+        implementation(foundationLayout)
+        debugImplementation(uiTooling)
+    }
+
     // Di
     implementation(Libs.Koin.android)
 }

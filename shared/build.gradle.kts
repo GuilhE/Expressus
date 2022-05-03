@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
@@ -8,6 +11,7 @@ plugins {
 version = "1.0"
 
 kotlin {
+    jvm()
     android()
     iosX64()
     iosArm64()
@@ -32,6 +36,8 @@ kotlin {
             }
         }
 
+        val jvmMain by getting
+
         val androidMain by getting {
             dependencies {
                 implementation(Libs.Koin.android)
@@ -49,9 +55,11 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(Libs.JetBrains.atomicFu)
-                implementation(Libs.JetBrains.serializationJson)
-                implementation(Libs.JetBrains.kotlinxCoroutinesCore)
+                with(Libs.JetBrains) {
+                    implementation(atomicFu)
+                    implementation(serializationJson)
+                    implementation(kotlinxCoroutinesCore)
+                }
                 with(Libs.Multiplatform) {
                     implementation(multiplatformSettings)
                     api(kermit)
@@ -65,12 +73,13 @@ kotlin {
             dependencies {
                 api(Libs.Koin.core)
             }
+            jvmMain.dependsOn(this)
             androidMain.dependsOn(this)
             iosMain.dependsOn(this)
             commonMain.dependsOn(this)
         }
 
-        targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        targets.withType<KotlinNativeTarget> {
             compilations["main"].kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
         }
     }
@@ -89,7 +98,7 @@ android {
     }
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "11"
     }
