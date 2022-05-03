@@ -1,11 +1,14 @@
 package ui.composables.leftPanel
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
@@ -13,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import themes.CoffeeSlotTheme
 import ui.composables.Slot
+import kotlin.random.Random
 
 @Composable
 fun CoffeeSlot(size: Dp, isGrinding: Boolean = false, isPouring: Boolean = false) {
@@ -58,9 +62,20 @@ fun CoffeeSlot(size: Dp, isGrinding: Boolean = false, isPouring: Boolean = false
             Box(
                 Modifier
                     .align(Alignment.BottomCenter)
-                    .padding(bottom = 5.dp + cupVrtPadding, start = cupHrzPadding)
-            ) { Cup(50.dp) }
+                    .padding(bottom = 10.dp + cupVrtPadding, start = cupHrzPadding)
+            ) {
+                //shadow
+                Canvas(Modifier.size(50.dp)) {
+                    drawOval(
+                        color = Color.Black.copy(0.2f),
+                        topLeft = Offset(-2.5.dp.value, this.size.height - 2.dp.value),
+                        size = Size(this.size.height + 5.dp.value, 5.dp.value)
+                    )
+                }
+                Cup(50.dp)
+            }
 
+            //Overlay
             Slot(
                 width = maxH,
                 strokeWidth = 30.dp,
@@ -68,7 +83,7 @@ fun CoffeeSlot(size: Dp, isGrinding: Boolean = false, isPouring: Boolean = false
                 convexTop = false,
                 convexBottom = true,
                 flatBottom = true,
-                top = MaterialTheme.colors.primary,
+                top = Color.Transparent,
                 start = MaterialTheme.colors.primary,
                 end = MaterialTheme.colors.primary,
                 bottom = Color.Transparent,

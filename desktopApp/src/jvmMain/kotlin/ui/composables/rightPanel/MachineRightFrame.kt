@@ -23,33 +23,27 @@ fun MachineRightFrame(modifier: Modifier, content: @Composable ColumnScope.() ->
         Box(modifier) {
             Column(
                 Modifier
-//                .drawWithContent {
-//                    //https://github.com/JetBrains/compose-jb/issues/2034#issue-1213265325
-//                    drawContent()
-//                    drawRect(
-//                        brush = brush,
-//                        size = size,
-//                        blendMode = BlendMode.Darken
-//                    )
-//                }
                     .background(brush)
                     .padding(horizontal = 10.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 content = content
             )
-            //TODO when issue-1213265325 becomes fixed, remove this and the outer Box and uncomment the blendMode logic
+            //Overlay
             Box(
                 Modifier
                     .fillMaxSize()
                     .background(
                         Brush.horizontalGradient(
                             0.0f to Color.Black.copy(0.85f),
-                            0.13f to Color.Transparent,
+                            0.09f to Color.Transparent,
                             0.5f to Color.Transparent,
-                            1.0f to Color.Black.copy(0.85f)
+                            1.0f to Color.Black.copy(0.7f)
                         )
                     )
             )
+
+            //When https://github.com/JetBrains/compose-jb/issues/2034#issue-1213265325 becomes fixed,
+            //perhaps we can improve this overlay logic by applying it directly in the Canvas with BlendMode.Overlay
         }
     }
 }

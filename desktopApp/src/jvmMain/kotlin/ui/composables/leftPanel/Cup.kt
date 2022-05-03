@@ -10,6 +10,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -49,17 +50,17 @@ fun Cup(height: Dp) {
 
                     lineTo(bottomRight.x + bezierOffset2, bottomRight.y - bezierOffset)
                     cubicTo(
-                        bottomRight.x + bezierOffset2, bottomRight.y - bezierOffset,
-                        bottomRight.x, bottomRight.y,
-                        bottomRight.x - bezierOffset, bottomRight.y
+                        x1 = bottomRight.x + bezierOffset2, y1 = bottomRight.y - bezierOffset,
+                        x2 = bottomRight.x, y2 = bottomRight.y,
+                        x3 = bottomRight.x - bezierOffset, y3 = bottomRight.y
                     )
                     lineTo(bottomRight.x - bezierOffset, bottomRight.y)
 
                     lineTo(bottomLeft.x + bezierOffset, bottomLeft.y)
                     cubicTo(
-                        bottomLeft.x + bezierOffset, bottomLeft.y,
-                        bottomLeft.x, bottomLeft.y,
-                        bottomLeft.x - bezierOffset2, bottomRight.y - bezierOffset
+                        x1 = bottomLeft.x + bezierOffset, y1 = bottomLeft.y,
+                        x2 = bottomLeft.x, y2 = bottomLeft.y,
+                        x3 = bottomLeft.x - bezierOffset2, y3 = bottomRight.y - bezierOffset
                     )
                     lineTo(bottomLeft.x - bezierOffset2, bottomRight.y - bezierOffset)
                 }
@@ -71,12 +72,9 @@ fun Cup(height: Dp) {
                     lineTo(bottomRight.x - bezierOffset, bottomRight.y)
                     lineTo(bottomLeft.x + bezierOffset, bottomLeft.y)
                     cubicTo(
-                        bottomLeft.x + bezierOffset,
-                        bottomLeft.y,
-                        bottomLeft.x,
-                        bottomLeft.y,
-                        bottomLeft.x - bezierOffset2,
-                        bottomRight.y - bezierOffset
+                        x1 = bottomLeft.x + bezierOffset, y1 = bottomLeft.y,
+                        x2 = bottomLeft.x, y2 = bottomLeft.y,
+                        x3 = bottomLeft.x - bezierOffset2, y3 = bottomRight.y - bezierOffset
                     )
                     lineTo(bottomLeft.x - bezierOffset2, bottomRight.y - bezierOffset)
                 }
@@ -89,7 +87,7 @@ fun Cup(height: Dp) {
 @Preview
 private fun CupPreview() {
     Box(
-        Modifier.fillMaxSize().background(Color.Black),
+        Modifier.fillMaxSize().background(Color.LightGray),
         contentAlignment = Alignment.Center
     ) {
         Cup(50.dp)

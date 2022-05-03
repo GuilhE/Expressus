@@ -41,7 +41,7 @@ fun CoffeeSelectors(modifier: Modifier, count: Int, isMakingCoffee: Boolean = fa
     }
 
     LazyColumn(
-        modifier,
+        modifier.padding(start = 10.dp),
         contentPadding = PaddingValues(4.dp)
     ) {
         for (i in 0 until count) {
@@ -66,6 +66,7 @@ private fun CoffeeTile(animateIdle: Boolean = false, toggle: Boolean = false, on
                 Modifier
                     .fillMaxSize(0.8f)
                     .fillMaxHeight(),
+                withGlossy = false,
                 backgroundColor =
                 if (animateIdle) MaterialTheme.colors.primaryVariant else if (toggle) MaterialTheme.colors.secondary else MaterialTheme.colors.primary
             )
