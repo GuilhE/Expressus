@@ -66,7 +66,8 @@ dependencies {
         implementation(ui)
         implementation(runtime)
         implementation(foundationLayout)
-        debugImplementation(uiTooling)
+        implementation(uiToolingPreview)
+        implementation(uiTooling)
     }
 
     // Di

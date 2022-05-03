@@ -6,18 +6,18 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ExpressusUiState(
-    val grinding: Boolean = false,
-    val pouring: Boolean = false
+    val isGrinding: Boolean = false,
+    val isPouring: Boolean = false
 ) {
-    fun isMakingCoffee() = grinding || pouring
+    fun isMakingCoffee() = isGrinding || isPouring
     fun isOnStandBy() = !isMakingCoffee()
     fun label() = toString() //for iOS since toString() wont be visible
 
     override fun toString(): String {
         return if (isMakingCoffee()) {
             when {
-                grinding -> "Grinding"
-                pouring -> "Pouring"
+                isGrinding -> "Grinding"
+                isPouring -> "Pouring"
                 else -> "Stand by"
             }
         } else "Stand by"

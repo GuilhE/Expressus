@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version Versions.Compose.desktop
+    id("org.jetbrains.compose") version Versions.JetBrains.Compose.desktop
 }
 
 kotlin {

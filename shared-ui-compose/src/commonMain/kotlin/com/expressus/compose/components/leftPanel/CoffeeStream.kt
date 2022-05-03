@@ -16,17 +16,18 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.expressus.compose.themes.CoffeeTheme
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.yield
 
 @Composable
-fun CoffeeStream(width: Dp, height: Dp, paddingValues: PaddingValues = PaddingValues(0.dp), pouring: Boolean) {
+fun CoffeeStream(width: Dp, height: Dp, paddingValues: PaddingValues = PaddingValues(0.dp), speed: Long = 10L, pouring: Boolean) {
     var finalHeight: Float by remember { mutableStateOf(0f) }
     var topLeft: Offset by remember { mutableStateOf(Offset(0f, 0f)) }
     var poured: Boolean by remember { mutableStateOf(false) }
 
-    val speed = 10L
     val step = 10.dp.value
 
     LaunchedEffect(pouring) {
+        yield()
         if (pouring) {
             if (!poured) {
                 while (finalHeight < height.value) {
@@ -52,11 +53,12 @@ fun CoffeeStream(width: Dp, height: Dp, paddingValues: PaddingValues = PaddingVa
     CoffeeTheme {
         val primary = MaterialTheme.colors.primary
 
-        Canvas(Modifier
-            .width(width)
-            .height(height)
-            .padding(paddingValues)
-            .clipToBounds()
+        Canvas(
+            Modifier
+                .width(width)
+                .height(height)
+                .padding(paddingValues)
+                .clipToBounds()
         ) {
             drawRoundRect(
                 color = primary,

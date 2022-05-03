@@ -18,6 +18,6 @@ private fun CupPreview() {
         Modifier.fillMaxSize().background(Color.LightGray),
         contentAlignment = Alignment.Center
     ) {
-        Cup(50.dp)
+        Cup(250.dp)
     }
 }

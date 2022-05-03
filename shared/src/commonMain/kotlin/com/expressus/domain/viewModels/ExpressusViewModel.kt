@@ -23,8 +23,8 @@ class ExpressusViewModel : ViewModel() {
         host.intent {
             reduce {
                 when (it) {
-                    is ExpressusState.SideEffect.Grinding -> ExpressusUiState(grinding = true).also { grind() }
-                    is ExpressusState.SideEffect.Pouring -> ExpressusUiState(pouring = true).also { pour() }
+                    is ExpressusState.SideEffect.Grinding -> ExpressusUiState(isGrinding = true).also { grind() }
+                    is ExpressusState.SideEffect.Pouring -> ExpressusUiState(isPouring = true).also { pour() }
                     is ExpressusState.SideEffect.Served -> ExpressusUiState()
                 }
             }

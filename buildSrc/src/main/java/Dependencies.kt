@@ -9,15 +9,15 @@ object SDK {
 
 object Versions {
 
-    object Compose {
-        const val desktop = "1.0.1"
-    }
-
-    object Jetbrains {
+    object JetBrains {
         const val kotlin = "1.6.10"
         const val kotlinxSerialization = "1.3.2"
         const val kotlinxCoroutines = "1.6.1-native-mt"
         const val kotlinxAtomicFu = "0.17.2"
+
+        object Compose {
+            const val desktop = "1.0.1"
+        }
     }
 
     object Multiplatform {
@@ -43,7 +43,7 @@ object Versions {
         object Compose {
             const val core = "1.2.0-alpha07"
             const val compiler = "1.2.0-alpha07"
-            const val activity = "1.6.0-alpha01"
+            const val activity = "1.5.0-alpha01"
         }
     }
 
@@ -80,15 +80,16 @@ object Libs {
             const val material = "androidx.compose.material:material:${Versions.Android.Compose.core}"
             const val ui = "androidx.compose.ui:ui:${Versions.Android.Compose.core}"
             const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.Android.Compose.core}"
+            const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.Android.Compose.core}"
             const val runtime = "androidx.compose.runtime:runtime:${Versions.Android.Compose.core}"
             const val foundationLayout = "androidx.compose.foundation:foundation-layout:${Versions.Android.Compose.core}"
         }
     }
 
     object JetBrains {
-        const val serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Jetbrains.kotlinxSerialization}"
-        const val atomicFu = "org.jetbrains.kotlinx:atomicfu:${Versions.Jetbrains.kotlinxAtomicFu}"
-        const val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Jetbrains.kotlinxCoroutines}"
+        const val serializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.JetBrains.kotlinxSerialization}"
+        const val atomicFu = "org.jetbrains.kotlinx:atomicfu:${Versions.JetBrains.kotlinxAtomicFu}"
+        const val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.JetBrains.kotlinxCoroutines}"
     }
 
     object Koin {
@@ -99,7 +100,7 @@ object Libs {
     object Gradle {
         const val dependencyUpdate = "com.github.ben-manes.versions"
         const val androidTools = "com.android.tools.build:gradle:${Versions.Gradle.androidTools}"
-        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Jetbrains.kotlin}"
-        const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:${Versions.Jetbrains.kotlin}"
+        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.JetBrains.kotlin}"
+        const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:${Versions.JetBrains.kotlin}"
     }
 }

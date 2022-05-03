@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("org.jetbrains.compose") version Versions.Compose.desktop
+    id("org.jetbrains.compose") version Versions.JetBrains.Compose.desktop
 }
 
 kotlin {
@@ -20,11 +20,6 @@ kotlin {
                 implementation(compose.ui)
             }
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(compose.preview)
-            }
-        }
         val jvmMain by getting {
             dependencies {
                 implementation(compose.preview)
@@ -36,6 +31,7 @@ kotlin {
 android {
     compileSdk = SDK.compile
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/commonMain/resources")
     defaultConfig {
         minSdk = SDK.min
         targetSdk = SDK.target

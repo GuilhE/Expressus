@@ -43,8 +43,8 @@ fun main() = application {
 @Composable
 private fun Expressus(state: ExpressusUiState, onRendered: () -> Unit, makeCoffee: () -> Unit) {
     when {
-        state.grinding -> SoundPlayer.playGrindingSound()
-        state.pouring -> SoundPlayer.playPouringSound()
+        state.isGrinding -> SoundPlayer.playGrindingSound()
+        state.isPouring -> SoundPlayer.playPouringSound()
     }
     Row {
         LeftPanel(Modifier.weight(3f), state)
@@ -68,11 +68,11 @@ private fun LeftPanel(modifier: Modifier, state: ExpressusUiState) {
         ) {
             TopPanel()
         }
-        Box(
+        BoxWithConstraints (
             Modifier.weight(1f),
             contentAlignment = Alignment.Center
         ) {
-            CoffeeSlot(150.dp, state.grinding, state.pouring)
+            CoffeeSlot(150.dp, 40.dp, 50.dp, DpSize(5.dp, maxHeight), state.isGrinding, state.isPouring)
         }
         Box(Modifier.weight(1.5f)) {
             BottomPanel()
