@@ -5,13 +5,9 @@ package com.expressus.android.presentation
 import android.annotation.SuppressLint
 import android.content.Context
 import android.media.MediaPlayer
-import android.os.Build
-import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.os.*
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -55,16 +51,7 @@ class ExpressusActivity : AppCompatActivity() {
                                 prepare()
                             }
                             grindingPlayer.start()
-                            (getSystemService(Context.VIBRATOR_SERVICE) as Vibrator).let {
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                    it.vibrate(
-                                        VibrationEffect.createOneShot(5000, VibrationEffect.DEFAULT_AMPLITUDE)
-                                    )
-                                } else {
-                                    @Suppress("DEPRECATION")
-                                    it.vibrate(5000)
-                                }
-                            }
+                            vibrate(this@ExpressusActivity)
                         }
                         state.isPouring -> {
                             grindingPlayer.apply {
@@ -80,7 +67,6 @@ class ExpressusActivity : AppCompatActivity() {
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
@@ -96,6 +82,29 @@ private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
                 Display(modifier = Modifier.padding(50.dp), text = state.label())
                 CoffeeSelectorsTheme {
                     CircularButton(size = 70.dp, makeCoffee)
+                }
+            }
+        }
+    }
+}
+
+private fun vibrate(context: Context) {
+    with(context) {
+        val milliseconds = 5000L
+        val amplitude = 50
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            (getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager).defaultVibrator.vibrate(
+                VibrationEffect.createOneShot(milliseconds, amplitude)
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            (getSystemService(Context.VIBRATOR_SERVICE) as Vibrator).let {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    it.vibrate(VibrationEffect.createOneShot(milliseconds, amplitude))
+                } else {
+                    @Suppress("DEPRECATION")
+                    it.vibrate(milliseconds)
                 }
             }
         }
