@@ -10,7 +10,11 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		2332250E27E9E3BC00D931E4 /* ExpressusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332250D27E9E3BC00D931E4 /* ExpressusView.swift */; };
+		231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6EF2822B7E700DBABCA /* CircularButton.swift */; };
+		231BC6F22822BECE00DBABCA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F12822BECE00DBABCA /* Utils.swift */; };
+		231BC6F52822C6E500DBABCA /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F42822C6E500DBABCA /* Display.swift */; };
+		231BC6FF2822D38F00DBABCA /* Led.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231BC6FE2822D38F00DBABCA /* Led.ttf */; };
+		2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */; };
 		23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */; };
 		2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D68127F20C95003DB6F9 /* Publisher.swift */; };
 		959714E1739DD393E42800B3 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */; };
@@ -20,7 +24,11 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		2332250D27E9E3BC00D931E4 /* ExpressusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusView.swift; sourceTree = "<group>"; };
+		231BC6EF2822B7E700DBABCA /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		231BC6F12822BECE00DBABCA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		231BC6F42822C6E500DBABCA /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		231BC6FE2822D38F00DBABCA /* Led.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Led.ttf; sourceTree = "<group>"; };
+		2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusScreen.swift; sourceTree = "<group>"; };
 		23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusViewModelObservableObject.swift; sourceTree = "<group>"; };
 		2383D68127F20C95003DB6F9 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		256B406FFD1B35DDB345563D /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,21 +67,39 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		231BC6F32822C67100DBABCA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		231BC6F62822C82800DBABCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				231BC6FE2822D38F00DBABCA /* Led.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		23932F222805EABB006738B5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */,
 				2383D68127F20C95003DB6F9 /* Publisher.swift */,
+				231BC6F12822BECE00DBABCA /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		23932F232805EACB006738B5 /* Screens */ = {
+		23932F232805EACB006738B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2332250D27E9E3BC00D931E4 /* ExpressusView.swift */,
+				231BC6EF2822B7E700DBABCA /* CircularButton.swift */,
+				231BC6F42822C6E500DBABCA /* Display.swift */,
 			);
-			path = Screens;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		59BC73FCA6B95212E58A8654 /* Frameworks */ = {
@@ -105,7 +131,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				23932F232805EACB006738B5 /* Screens */,
+				231BC6F62822C82800DBABCA /* Resources */,
+				231BC6F32822C67100DBABCA /* Screens */,
+				23932F232805EACB006738B5 /* Views */,
 				23932F222805EABB006738B5 /* Utils */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -175,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231BC6FF2822D38F00DBABCA /* Led.ttf in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
@@ -231,8 +260,11 @@
 			files = (
 				23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */,
 				2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */,
+				231BC6F52822C6E500DBABCA /* Display.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				2332250E27E9E3BC00D931E4 /* ExpressusView.swift in Sources */,
+				2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */,
+				231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */,
+				231BC6F22822BECE00DBABCA /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
