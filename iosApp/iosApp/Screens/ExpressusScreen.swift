@@ -10,8 +10,27 @@ struct ExpressusScreen: View {
     
     var body: some View {
         ZStack {
-            Themes.MachineFrame.background
+            //Themes.MachineFrame.background
             VStack {
+                ZStack {
+                    Slot(
+                        strokeWidth: 30,
+                        topOffset: 10,
+                        bottomOffset: 10,
+                        convexTop: false,
+                        flatTop: false,
+                        convexBottom: true,
+                        flatBottom: true,
+                        top: Themes.CoffeeSlot.primary,
+                        bottom: Themes.CoffeeSlot.primaryVariant,
+                        start: Themes.CoffeeSlot.primary,
+                        end: Themes.CoffeeSlot.primary,
+                        background: [Themes.CoffeeSlot.primary, Themes.CoffeeSlot.secondary]
+                    )
+                    .aspectRatio(1, contentMode: .fit)
+                    .padding()
+                }
+                
                 Display(text: $status).padding(50)
                 CircularButton(size: 70, action: { viewModel.makeCoffee() })
             }
@@ -26,7 +45,7 @@ struct ExpressusScreen: View {
                 }
             }
         }
-        .ignoresSafeArea()
+        //.ignoresSafeArea()
     }
 }
 

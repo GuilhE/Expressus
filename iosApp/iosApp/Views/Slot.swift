@@ -2,8 +2,6 @@ import SwiftUI
 
 struct Slot: View {
     
-    private var width: CGFloat
-    private var height: CGFloat
     private var strokeWidth: CGFloat
     private var topOffset: CGFloat
     private var bottomOffset: CGFloat
@@ -12,13 +10,12 @@ struct Slot: View {
     private var convexBottom: Bool
     private var flatBottom: Bool
     private var top: Color
-    private var end: Color
     private var bottom: Color
     private var start: Color
-    private var gradientColors: [Color]?
+    private var end: Color
+    private var background: [Color]?
     
-    init(width: CGFloat,
-         height: CGFloat,
+    init(
          strokeWidth: CGFloat,
          topOffset: CGFloat = 0,
          bottomOffset: CGFloat = 0,
@@ -26,14 +23,12 @@ struct Slot: View {
          flatTop: Bool = false,
          convexBottom: Bool = true,
          flatBottom: Bool = false,
-         start: Color,
-         end: Color,
          top: Color,
          bottom: Color,
-         gradientColors: [Color]? = nil
+         start: Color,
+         end: Color,
+         background: [Color]? = nil
     ) {
-        self.width = width
-        self.height = height
         self.strokeWidth = strokeWidth
         self.topOffset = topOffset
         self.bottomOffset = bottomOffset
@@ -45,18 +40,18 @@ struct Slot: View {
         self.end = end
         self.bottom = bottom
         self.start = start
-        self.gradientColors = gradientColors
+        self.background = background
     }
     
     var body: some View {
         ZStack {
-            if let clrs = gradientColors {
+            if let clrs = background {
                 SlotBackgroundShape(
                     topOffset: topOffset,
                     bottomOffset: bottomOffset,
                     convexTop: convexTop,
                     convexBottom: convexBottom
-                ).fill(LinearGradient(gradient: Gradient(colors: clrs), startPoint: .leading, endPoint: .trailing))
+                ).fill(LinearGradient(gradient: Gradient(colors: clrs), startPoint: .top, endPoint: .bottom))
             }
             
             SlotTopShape(
@@ -89,7 +84,7 @@ struct Slot: View {
                 convexBottom: convexBottom
             ).fill(start)
             
-        }.frame(width: width, height: height, alignment: .center)
+        }.frame(width: .infinity, height: .infinity, alignment: .center)
     }
 }
 
@@ -243,22 +238,20 @@ private struct SlotEndShape: Shape {
 struct Slot_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Slot(width: 150,
-                 height: 150,
+            Slot(
                  strokeWidth: 50,
                  topOffset: 10,
                  bottomOffset: 10,
                  flatTop: true,
                  flatBottom: true,
-                 start: Color.black,
-                 end: Color.black,
                  top: Color.red,
                  bottom: Color.red,
-                 gradientColors: [Color.green, Color.yellow]
+                 start: Color.black,
+                 end: Color.black,
+                 background: [Color.green, Color.yellow]
             )
             
-            Slot(width: 150,
-                 height: 150,
+            Slot(
                  strokeWidth: 50,
                  topOffset: 10,
                  bottomOffset: 10,
@@ -266,15 +259,14 @@ struct Slot_Previews: PreviewProvider {
                  flatTop: true,
                  convexBottom: false,
                  flatBottom: true,
-                 start: Color.black,
-                 end: Color.black,
                  top: Color.red,
                  bottom: Color.red,
-                 gradientColors: [Color.green, Color.yellow]
+                 start: Color.black,
+                 end: Color.black,
+                 background: [Color.green, Color.yellow]
             )
             
-            Slot(width: 150,
-                 height: 150,
+            Slot(
                  strokeWidth: 50,
                  topOffset: 10,
                  bottomOffset: 10,
@@ -282,15 +274,14 @@ struct Slot_Previews: PreviewProvider {
                  flatTop: false,
                  convexBottom: true,
                  flatBottom: false,
-                 start: Color.black,
-                 end: Color.black,
                  top: Color.red,
                  bottom: Color.red,
-                 gradientColors: [Color.green, Color.yellow]
+                 start: Color.black,
+                 end: Color.black,
+                 background: [Color.green, Color.yellow]
             )
             
-            Slot(width: 150,
-                 height: 150,
+            Slot(
                  strokeWidth: 50,
                  topOffset: 10,
                  bottomOffset: 10,
@@ -298,12 +289,12 @@ struct Slot_Previews: PreviewProvider {
                  flatTop: false,
                  convexBottom: true,
                  flatBottom: false,
-                 start: Color.black,
-                 end: Color.black,
                  top: Color.red,
                  bottom: Color.red,
-                 gradientColors: [Color.green, Color.yellow]
+                 start: Color.black,
+                 end: Color.black,
+                 background: [Color.green, Color.yellow]
             )
-        }
+        }.padding(.horizontal, 100)
     }
 }
