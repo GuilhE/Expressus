@@ -51,12 +51,12 @@ private struct PanelShape: Shape {
         path.move(to: CGPoint(x: 0, y: convexTop ? topOffset : 0))
         path.addQuadCurve(
             to: CGPoint(x: rect.width, y: convexTop ? topOffset : 0),
-            control: CGPoint(x: rect.width/2, y: convexTop ? -topOffset : topOffset)
+            control: CGPoint(x: rect.midX, y: convexTop ? -topOffset : topOffset)
         )
         path.addLine(to: CGPoint(x: rect.width, y: rect.height - (convexBottom ? bottomOffset : 0)))
         path.addQuadCurve(
             to: CGPoint(x: 0, y: rect.height - (convexBottom ? bottomOffset : 0)),
-            control: CGPoint(x: rect.width/2, y: rect.height + (convexBottom ? bottomOffset : -bottomOffset))
+            control: CGPoint(x: rect.midX, y: rect.height + (convexBottom ? bottomOffset : -bottomOffset))
         )
         return path
     }
