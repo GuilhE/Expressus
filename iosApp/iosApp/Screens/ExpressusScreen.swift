@@ -9,7 +9,8 @@ struct ExpressusScreen: View {
     private let soundPlayer = SoundPlayer()
     
     var body: some View {
-        MachineLeftFrame {
+        ZStack {
+            Themes.MachineFrame.background
             VStack {
                 Display(text: $status).padding(50)
                 CircularButton(size: 70, action: { viewModel.makeCoffee() })
@@ -25,6 +26,7 @@ struct ExpressusScreen: View {
                 }
             }
         }
+        .ignoresSafeArea()
     }
 }
 
