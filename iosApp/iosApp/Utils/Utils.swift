@@ -14,12 +14,7 @@ struct FontRecources {
     }
 }
 
-struct AudioResources {
-    static let grinding = "grinding"
-    static let pouring = "pouring"
-}
-
-struct ColorsPallete {
+private struct ColorsPallete {
     static let whiteDirty = Color(0xFFFAF0)
     static let grayDark = Color(0x444444)
     static let greenDark = Color(0x00323C)
@@ -36,6 +31,32 @@ extension Color {
             opacity: alpha
         )
     }
+}
+
+struct Themes {
+    
+    struct MachineFrame {
+        static let primary = Color.black
+        static let primaryVariant = Color(0x000000, alpha: 0.7)
+        static let surface = Color(0x000000, alpha: 0.9)
+        static let background = Color.black
+        static let onBackground = ColorsPallete.whiteDirty
+    }
+    
+    struct CircularButton {
+        static let background: Color = ColorsPallete.whiteDirty
+        static let onBackground: Color = ColorsPallete.grayDark
+    }
+    
+    struct Display {        
+        static let background: Color = ColorsPallete.greenDark
+        static let onBackground: Color = ColorsPallete.greenLight
+    }
+}
+
+private struct AudioResources {
+    static let grinding = "grinding"
+    static let pouring = "pouring"
 }
 
 struct SoundPlayer {

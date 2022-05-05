@@ -9,13 +9,13 @@ struct Display: View {
             Text(self.text)
                 .font(Font.custom(FontRecources.Led, size: 24))
                 .textCase(.uppercase)
-                .foregroundColor(ColorsPallete.greenLight)
+                .foregroundColor(Themes.Display.onBackground)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .background(
             LinearGradient(
                 gradient: Gradient(
-                    colors: [ColorsPallete.greenLight, ColorsPallete.greenDark, ColorsPallete.greenDark]),
+                    colors: [Themes.Display.onBackground, Themes.Display.background, Themes.Display.background]),
                 startPoint: .top,
                 endPoint: .bottom
             )

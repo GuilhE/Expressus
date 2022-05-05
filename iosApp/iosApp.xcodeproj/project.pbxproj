@@ -15,6 +15,10 @@
 		231BC6F52822C6E500DBABCA /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F42822C6E500DBABCA /* Display.swift */; };
 		231BC6FF2822D38F00DBABCA /* Led.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231BC6FE2822D38F00DBABCA /* Led.ttf */; };
 		2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */; };
+		234DED422823E16A0050F669 /* pouring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 234DED402823E1690050F669 /* pouring.mp3 */; };
+		234DED432823E16A0050F669 /* grinding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 234DED412823E16A0050F669 /* grinding.mp3 */; };
+		234DED452823E1A90050F669 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234DED442823E1A90050F669 /* Panel.swift */; };
+		234DED472823F5B50050F669 /* MachineLeftFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234DED462823F5B50050F669 /* MachineLeftFrame.swift */; };
 		23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */; };
 		2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D68127F20C95003DB6F9 /* Publisher.swift */; };
 		959714E1739DD393E42800B3 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */; };
@@ -29,6 +33,10 @@
 		231BC6F42822C6E500DBABCA /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		231BC6FE2822D38F00DBABCA /* Led.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Led.ttf; sourceTree = "<group>"; };
 		2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusScreen.swift; sourceTree = "<group>"; };
+		234DED402823E1690050F669 /* pouring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pouring.mp3; sourceTree = "<group>"; };
+		234DED412823E16A0050F669 /* grinding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = grinding.mp3; sourceTree = "<group>"; };
+		234DED442823E1A90050F669 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
+		234DED462823F5B50050F669 /* MachineLeftFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLeftFrame.swift; sourceTree = "<group>"; };
 		23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusViewModelObservableObject.swift; sourceTree = "<group>"; };
 		2383D68127F20C95003DB6F9 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		256B406FFD1B35DDB345563D /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +86,8 @@
 		231BC6F62822C82800DBABCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				234DED412823E16A0050F669 /* grinding.mp3 */,
+				234DED402823E1690050F669 /* pouring.mp3 */,
 				231BC6FE2822D38F00DBABCA /* Led.ttf */,
 			);
 			path = Resources;
@@ -98,6 +108,8 @@
 			children = (
 				231BC6EF2822B7E700DBABCA /* CircularButton.swift */,
 				231BC6F42822C6E500DBABCA /* Display.swift */,
+				234DED442823E1A90050F669 /* Panel.swift */,
+				234DED462823F5B50050F669 /* MachineLeftFrame.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,8 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				231BC6FF2822D38F00DBABCA /* Led.ttf in Resources */,
+				234DED422823E16A0050F669 /* pouring.mp3 in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				234DED432823E16A0050F669 /* grinding.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,11 +273,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */,
+				234DED472823F5B50050F669 /* MachineLeftFrame.swift in Sources */,
 				2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */,
 				231BC6F52822C6E500DBABCA /* Display.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */,
 				231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */,
+				234DED452823E1A90050F669 /* Panel.swift in Sources */,
 				231BC6F22822BECE00DBABCA /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
