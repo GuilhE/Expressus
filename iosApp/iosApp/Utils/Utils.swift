@@ -14,54 +14,6 @@ struct FontRecources {
     }
 }
 
-private struct ColorsPallete {
-    static let whiteDirty = Color(0xFFFAF0)
-    static let gray = Color(0x888888)
-    static let grayDark = Color(0x444444)
-    static let greenDark = Color(0x00323C)
-    static let greenLight = Color(0x58C7C7)
-}
-
-extension Color {
-    init(_ hex: UInt, alpha: Double = 1) {
-        self.init(
-            .sRGB,
-            red: Double((hex >> 16) & 0xFF) / 255,
-            green: Double((hex >> 8) & 0xFF) / 255,
-            blue: Double(hex & 0xFF) / 255,
-            opacity: alpha
-        )
-    }
-}
-
-struct Themes {
-    
-    struct MachineFrame {
-        static let primary = Color.black
-        static let primaryVariant = Color.black.opacity(0.7)
-        static let surface = Color.black.opacity(0.9)
-        static let background = Color.black
-        static let onBackground = ColorsPallete.whiteDirty
-    }
-    
-    struct CoffeeSlot {
-        static let primary = Color.black
-        static let primaryVariant = ColorsPallete.grayDark
-        static let secondary = ColorsPallete.grayDark.opacity(0.9)
-        static let secondaryVariant = ColorsPallete.gray
-    }
-    
-    struct CircularButton {
-        static let background: Color = ColorsPallete.whiteDirty
-        static let onBackground: Color = ColorsPallete.grayDark
-    }
-    
-    struct Display {
-        static let background: Color = ColorsPallete.greenDark
-        static let onBackground: Color = ColorsPallete.greenLight
-    }
-}
-
 private struct AudioResources {
     static let grinding = "grinding"
     static let pouring = "pouring"

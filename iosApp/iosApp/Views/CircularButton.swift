@@ -11,18 +11,19 @@ struct CircularButton: View {
     }
     
     var body: some View {
-        Button(action: action) {
-            Circle()
-                .fill(
-                    RadialGradient(
-                        gradient: Gradient(
-                            colors: [Themes.CircularButton.background, Themes.CircularButton.onBackground]),
-                        center: UnitPoint(x: 0, y: 0),
-                        startRadius: 0,
-                        endRadius: (size*30)/50
+        ThemeScope(theme: Themes.CircularButton()) { theme in
+            Button(action: action) {
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            gradient: Gradient(colors: [theme.background, theme.onBackground]),
+                            center: UnitPoint(x: 0, y: 0),
+                            startRadius: 0,
+                            endRadius: (size*30)/50
+                        )
                     )
-                )
-                .frame(width: size, height: size)
+                    .frame(width: size, height: size)
+            }
         }
     }
 }

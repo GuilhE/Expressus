@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct MachineLeftFrame<Content> : View where Content : View {
-    
-    private let gradientColors: [Color] = [Themes.MachineFrame.surface, Themes.MachineFrame.surface]
+        
     private var content: () -> Content
     
     init(@ViewBuilder content: @escaping () -> Content) {
@@ -10,7 +9,9 @@ struct MachineLeftFrame<Content> : View where Content : View {
     }
     
     var body: some View {
-        Panel(gradientColors, bottomOffset: 0) { content() }
+        ThemeScope(theme: Themes.MachineFrame()) { theme in
+            Panel([theme.primary, theme.surface, theme.surface, theme.surface, theme.primary], bottomOffset: 0) { content() }
+        }
     }
 }
 

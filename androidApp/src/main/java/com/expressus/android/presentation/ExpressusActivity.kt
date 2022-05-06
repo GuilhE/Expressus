@@ -8,7 +8,9 @@ import android.media.MediaPlayer
 import android.os.*
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -27,6 +29,7 @@ import com.expressus.compose.components.leftPanel.MachineLeftFrame
 import com.expressus.compose.components.rightPanel.CircularButton
 import com.expressus.compose.components.rightPanel.Display
 import com.expressus.compose.themes.CoffeeSelectorsTheme
+import com.expressus.compose.themes.MachineTheme
 import com.expressus.domain.stateMachines.ExpressusUiState
 import com.expressus.domain.viewModels.ExpressusViewModel
 import kotlinx.coroutines.flow.StateFlow
@@ -69,19 +72,21 @@ class ExpressusActivity : AppCompatActivity() {
 
 @Composable
 private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
-    BoxWithConstraints(Modifier.fillMaxSize()) {
-        val maxWidth = this.maxWidth
-        val maxHeight = this.maxHeight
-        MachineLeftFrame(Modifier.fillMaxSize()) {
-            Column(
-                Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Top
-            ) {
-                CoffeeSlot(maxWidth, 70.dp, 150.dp, DpSize(15.dp, maxHeight), 2L, state.isGrinding, state.isPouring)
-                Display(modifier = Modifier.padding(50.dp), text = state.label())
-                CoffeeSelectorsTheme {
-                    CircularButton(size = 70.dp, makeCoffee)
+    MachineTheme {
+        BoxWithConstraints(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
+            val maxWidth = this.maxWidth
+            val maxHeight = this.maxHeight
+            MachineLeftFrame(Modifier.fillMaxSize()) {
+                Column(
+                    Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Top
+                ) {
+                    CoffeeSlot(maxWidth, 70.dp, 150.dp, DpSize(15.dp, maxHeight), 2L, state.isGrinding, state.isPouring)
+                    Display(modifier = Modifier.padding(50.dp), text = state.label())
+                    CoffeeSelectorsTheme {
+                        CircularButton(size = 70.dp, makeCoffee)
+                    }
                 }
             }
         }

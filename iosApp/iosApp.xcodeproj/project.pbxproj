@@ -19,6 +19,10 @@
 		234DED432823E16A0050F669 /* grinding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 234DED412823E16A0050F669 /* grinding.mp3 */; };
 		234DED452823E1A90050F669 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234DED442823E1A90050F669 /* Panel.swift */; };
 		234DED472823F5B50050F669 /* MachineLeftFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234DED462823F5B50050F669 /* MachineLeftFrame.swift */; };
+		2350E6A5282513610052E48C /* CoffeeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6A4282513610052E48C /* CoffeeSlot.swift */; };
+		2350E6A828251CC60052E48C /* ThemeScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6A728251CC60052E48C /* ThemeScope.swift */; };
+		2350E6AA28251D9C0052E48C /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6A928251D9C0052E48C /* Themes.swift */; };
+		2350E6AC28253B510052E48C /* CoffeeStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6AB28253B510052E48C /* CoffeeStream.swift */; };
 		23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */; };
 		2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D68127F20C95003DB6F9 /* Publisher.swift */; };
 		23EAF2AA2824079200E4996F /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAF2A92824079200E4996F /* Slot.swift */; };
@@ -38,6 +42,10 @@
 		234DED412823E16A0050F669 /* grinding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = grinding.mp3; sourceTree = "<group>"; };
 		234DED442823E1A90050F669 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		234DED462823F5B50050F669 /* MachineLeftFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLeftFrame.swift; sourceTree = "<group>"; };
+		2350E6A4282513610052E48C /* CoffeeSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeSlot.swift; sourceTree = "<group>"; };
+		2350E6A728251CC60052E48C /* ThemeScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeScope.swift; sourceTree = "<group>"; };
+		2350E6A928251D9C0052E48C /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		2350E6AB28253B510052E48C /* CoffeeStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeStream.swift; sourceTree = "<group>"; };
 		23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusViewModelObservableObject.swift; sourceTree = "<group>"; };
 		2383D68127F20C95003DB6F9 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		23EAF2A92824079200E4996F /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
@@ -95,6 +103,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2350E6A628251C7C0052E48C /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				2350E6A728251CC60052E48C /* ThemeScope.swift */,
+				2350E6A928251D9C0052E48C /* Themes.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		23932F222805EABB006738B5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +130,8 @@
 				234DED442823E1A90050F669 /* Panel.swift */,
 				234DED462823F5B50050F669 /* MachineLeftFrame.swift */,
 				23EAF2A92824079200E4996F /* Slot.swift */,
+				2350E6A4282513610052E48C /* CoffeeSlot.swift */,
+				2350E6AB28253B510052E48C /* CoffeeStream.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,6 +165,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				2350E6A628251C7C0052E48C /* Themes */,
 				231BC6F62822C82800DBABCA /* Resources */,
 				231BC6F32822C67100DBABCA /* Screens */,
 				23932F232805EACB006738B5 /* Views */,
@@ -278,9 +298,13 @@
 				23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */,
 				234DED472823F5B50050F669 /* MachineLeftFrame.swift in Sources */,
 				2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */,
+				2350E6AC28253B510052E48C /* CoffeeStream.swift in Sources */,
 				23EAF2AA2824079200E4996F /* Slot.swift in Sources */,
 				231BC6F52822C6E500DBABCA /* Display.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				2350E6A5282513610052E48C /* CoffeeSlot.swift in Sources */,
+				2350E6A828251CC60052E48C /* ThemeScope.swift in Sources */,
+				2350E6AA28251D9C0052E48C /* Themes.swift in Sources */,
 				2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */,
 				231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */,
 				234DED452823E1A90050F669 /* Panel.swift in Sources */,

@@ -13,7 +13,7 @@ struct Slot: View {
     private var bottom: Color
     private var start: Color
     private var end: Color
-    private var background: [Color]?
+    private var gradient: LinearGradient?
     
     init(
          strokeWidth: CGFloat,
@@ -27,7 +27,7 @@ struct Slot: View {
          bottom: Color,
          start: Color,
          end: Color,
-         background: [Color]? = nil
+         gradient: LinearGradient? = nil
     ) {
         self.strokeWidth = strokeWidth
         self.topOffset = topOffset
@@ -40,18 +40,18 @@ struct Slot: View {
         self.end = end
         self.bottom = bottom
         self.start = start
-        self.background = background
+        self.gradient = gradient
     }
     
     var body: some View {
         ZStack {
-            if let clrs = background {
+            if let style = gradient {
                 SlotBackgroundShape(
                     topOffset: topOffset,
                     bottomOffset: bottomOffset,
                     convexTop: convexTop,
                     convexBottom: convexBottom
-                ).fill(LinearGradient(gradient: Gradient(colors: clrs), startPoint: .top, endPoint: .bottom))
+                ).fill(style)
             }
             
             SlotTopShape(
@@ -238,6 +238,7 @@ private struct SlotEndShape: Shape {
 struct Slot_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
+            let grad = LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow]), startPoint: .top, endPoint: .bottom)
             Slot(
                  strokeWidth: 50,
                  topOffset: 10,
@@ -248,7 +249,7 @@ struct Slot_Previews: PreviewProvider {
                  bottom: Color.red,
                  start: Color.black,
                  end: Color.black,
-                 background: [Color.green, Color.yellow]
+                 gradient: grad
             )
             
             Slot(
@@ -263,7 +264,7 @@ struct Slot_Previews: PreviewProvider {
                  bottom: Color.red,
                  start: Color.black,
                  end: Color.black,
-                 background: [Color.green, Color.yellow]
+                 gradient: grad
             )
             
             Slot(
@@ -278,7 +279,7 @@ struct Slot_Previews: PreviewProvider {
                  bottom: Color.red,
                  start: Color.black,
                  end: Color.black,
-                 background: [Color.green, Color.yellow]
+                 gradient: grad
             )
             
             Slot(
@@ -293,7 +294,7 @@ struct Slot_Previews: PreviewProvider {
                  bottom: Color.red,
                  start: Color.black,
                  end: Color.black,
-                 background: [Color.green, Color.yellow]
+                 gradient: grad
             )
         }.padding(.horizontal, 100)
     }
