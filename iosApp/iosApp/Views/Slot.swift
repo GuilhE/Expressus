@@ -82,9 +82,8 @@ struct Slot: View {
                 bottomOffset: bottomOffset,
                 convexTop: convexTop,
                 convexBottom: convexBottom
-            ).fill(start)
-            
-        }.frame(width: .infinity, height: .infinity, alignment: .center)
+            ).fill(start)            
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CoffeeSlot: View {
+    
     var body: some View {
         ThemeScope(theme: Themes.CoffeeSlot()) { theme in
             ZStack {
