@@ -5,7 +5,10 @@ struct ExpressusScreen: View {
     
     @StateObject private var viewModel = ViewModels().expressusStateViewModel().asObservableObject()
     @State private var isMakingCoffee: Bool = false
+    @State private var isPouring: Bool = false
+    @State private var isGrinding: Bool = false
     @State private var status: String = ""
+    
     private let soundPlayer = SoundPlayer()
     
     var body: some View {
@@ -13,17 +16,21 @@ struct ExpressusScreen: View {
             ZStack {
                 theme.background
                 VStack {
-                    CoffeeSlot()
+                    CoffeeSlot(grinding: $isGrinding, pouring: $isPouring)
                         .aspectRatio(1, contentMode: .fit)
                         .padding()
                     Display(text: $status)
                         .padding(50)
                     CircularButton(size: 70, action: { viewModel.makeCoffee() })
+                        .disabled(isMakingCoffee)
+                        .opacity(isMakingCoffee ? 0.5 : 1)
                 }
-                .padding()
                 .frame(maxWidth: .infinity, alignment: .top)
+                .padding()
                 .onReceive(viewModel.$state) { new in
                     isMakingCoffee = new.isMakingCoffee()
+                    isGrinding = new.isGrinding
+                    isPouring = new.isPouring
                     status = new.label()
                     if(new.isPouring) {
                         soundPlayer.playPouring()

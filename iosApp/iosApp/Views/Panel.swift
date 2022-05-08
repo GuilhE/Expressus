@@ -1,32 +1,34 @@
 import SwiftUI
 
 struct Panel<Content> : View where Content : View {
-    
-    private var gradientColors: [Color]
+        
     private var topOffset: CGFloat
     private var bottomOffset: CGFloat
     private var convexTop: Bool
     private var convexBottom: Bool
+    private var gradient: LinearGradient?
     private var content: () -> Content
     
-    init(_ gradientColors: [Color], topOffset: CGFloat = 10, bottomOffset: CGFloat = 10, convexTop: Bool = true, convexBottom: Bool = true, @ViewBuilder content: @escaping () -> Content) {
-        self.gradientColors = gradientColors
+    init(topOffset: CGFloat = 0, bottomOffset: CGFloat = 0, convexTop: Bool = true, convexBottom: Bool = true, gradient: LinearGradient? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.topOffset = topOffset
         self.bottomOffset = bottomOffset
         self.convexTop = convexTop
         self.convexBottom = convexBottom
+        self.gradient = gradient
         self.content = content
     }
     
     var body: some View {
-        return ZStack {
-            PanelShape(
+        ZStack {
+           let v = PanelShape(
                 topOffset: topOffset,
                 bottomOffset: bottomOffset,
                 convexTop: convexTop,
                 convexBottom: convexBottom
             )
-            .fill(LinearGradient(gradient: Gradient(colors: gradientColors), startPoint: .leading, endPoint: .trailing))
+            if let style = gradient {
+                v.fill(style)
+            }
             content()
         }
     }
@@ -65,8 +67,9 @@ private struct PanelShape: Shape {
 struct Panel_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Panel([Color.red, Color.yellow]) {}
-            Panel([Color.red, Color.yellow], convexTop: false, convexBottom: false) {}
+            let gradient = LinearGradient(gradient: Gradient(colors: [Color.red, Color.yellow]), startPoint: .leading, endPoint: .trailing)
+            Panel(topOffset: 10, bottomOffset: 10, gradient: gradient) {}
+            Panel(topOffset: 10, bottomOffset: 10, convexTop: false, convexBottom: false, gradient: gradient) {}
         }
         .padding(10)
     }

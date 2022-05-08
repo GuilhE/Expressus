@@ -25,6 +25,8 @@
 		2350E6AC28253B510052E48C /* CoffeeStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6AB28253B510052E48C /* CoffeeStream.swift */; };
 		23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */; };
 		2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D68127F20C95003DB6F9 /* Publisher.swift */; };
+		23D501952826F1950032BA7A /* CoffeeFaucet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D501942826F1950032BA7A /* CoffeeFaucet.swift */; };
+		23D5019728272E220032BA7A /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D5019628272E220032BA7A /* Cup.swift */; };
 		23EAF2AA2824079200E4996F /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAF2A92824079200E4996F /* Slot.swift */; };
 		959714E1739DD393E42800B3 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		2350E6AB28253B510052E48C /* CoffeeStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeStream.swift; sourceTree = "<group>"; };
 		23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusViewModelObservableObject.swift; sourceTree = "<group>"; };
 		2383D68127F20C95003DB6F9 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		23D501942826F1950032BA7A /* CoffeeFaucet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFaucet.swift; sourceTree = "<group>"; };
+		23D5019628272E220032BA7A /* Cup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
 		23EAF2A92824079200E4996F /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		256B406FFD1B35DDB345563D /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		501EB1427AFCA39E8B06CBA3 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				23EAF2A92824079200E4996F /* Slot.swift */,
 				2350E6A4282513610052E48C /* CoffeeSlot.swift */,
 				2350E6AB28253B510052E48C /* CoffeeStream.swift */,
+				23D501942826F1950032BA7A /* CoffeeFaucet.swift */,
+				23D5019628272E220032BA7A /* Cup.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,9 +309,11 @@
 				231BC6F52822C6E500DBABCA /* Display.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				2350E6A5282513610052E48C /* CoffeeSlot.swift in Sources */,
+				23D501952826F1950032BA7A /* CoffeeFaucet.swift in Sources */,
 				2350E6A828251CC60052E48C /* ThemeScope.swift in Sources */,
 				2350E6AA28251D9C0052E48C /* Themes.swift in Sources */,
 				2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */,
+				23D5019728272E220032BA7A /* Cup.swift in Sources */,
 				231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */,
 				234DED452823E1A90050F669 /* Panel.swift in Sources */,
 				231BC6F22822BECE00DBABCA /* Utils.swift in Sources */,

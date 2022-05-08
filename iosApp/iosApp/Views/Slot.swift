@@ -55,14 +55,14 @@ struct Slot: View {
             }
             
             SlotTopShape(
-                width: strokeWidth/2,
+                strokeWidth: strokeWidth/2,
                 offset: topOffset,
                 convex: convexTop,
                 flat: flatTop
             ).fill(top)
             
             SlotEndShape(
-                width: strokeWidth/2,
+                strokeWidth: strokeWidth/2,
                 topOffset: topOffset,
                 bottomOffset: bottomOffset,
                 convexTop: convexTop,
@@ -70,14 +70,14 @@ struct Slot: View {
             ).fill(end)
             
             SlotBottomShape(
-                width: strokeWidth/2,
+                strokeWidth: strokeWidth/2,
                 offset: bottomOffset,
                 convex: convexBottom,
                 flat: flatBottom
             ).fill(bottom)
             
             SlotStartShape(
-                width: strokeWidth/2,
+                strokeWidth: strokeWidth/2,
                 topOffset: topOffset,
                 bottomOffset: bottomOffset,
                 convexTop: convexTop,
@@ -116,13 +116,13 @@ private struct SlotBackgroundShape: Shape {
 
 private struct SlotTopShape: Shape {
     
-    private var width: CGFloat
+    private var strokeWidth: CGFloat
     private var offset: CGFloat
     private var convex: Bool
     private var flat: Bool
     
-    init(width: CGFloat, offset: CGFloat, convex: Bool, flat: Bool) {
-        self.width = width
+    init(strokeWidth: CGFloat, offset: CGFloat, convex: Bool, flat: Bool) {
+        self.strokeWidth = strokeWidth
         self.offset = offset
         self.convex = convex
         self.flat = flat
@@ -135,13 +135,13 @@ private struct SlotTopShape: Shape {
             to: CGPoint(x: rect.width, y: convex ? offset : 0),
             control: CGPoint(x: rect.midX, y: convex ? -offset : offset)
         )
-        path.addLine(to: CGPoint(x: rect.width - width, y: width + (convex ? offset : 0)))
+        path.addLine(to: CGPoint(x: rect.width - strokeWidth, y: strokeWidth + (convex ? offset : 0)))
         if (flat) {
-            path.addLine(to: CGPoint(x: width, y: width + (convex ? offset : 0)))
+            path.addLine(to: CGPoint(x: strokeWidth, y: strokeWidth + (convex ? offset : 0)))
         } else {
             path.addQuadCurve(
-                to: CGPoint(x: width, y: width + (convex ? offset : 0)),
-                control: CGPoint(x: rect.midX, y: width - (convex ? offset : -offset))
+                to: CGPoint(x: strokeWidth, y: strokeWidth + (convex ? offset : 0)),
+                control: CGPoint(x: rect.midX, y: strokeWidth - (convex ? offset : -offset))
             )
         }
         return path
@@ -150,13 +150,13 @@ private struct SlotTopShape: Shape {
 
 private struct SlotBottomShape: Shape {
     
-    private var width: CGFloat
+    private var strokeWidth: CGFloat
     private var offset: CGFloat
     private var convex: Bool
     private var flat: Bool
     
-    init(width: CGFloat, offset: CGFloat, convex: Bool, flat: Bool) {
-        self.width = width
+    init(strokeWidth: CGFloat, offset: CGFloat, convex: Bool, flat: Bool) {
+        self.strokeWidth = strokeWidth
         self.offset = offset
         self.convex = convex
         self.flat = flat
@@ -164,13 +164,13 @@ private struct SlotBottomShape: Shape {
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        path.move(to: CGPoint(x: width, y: rect.height - width - (convex ? offset : 0)))
+        path.move(to: CGPoint(x: strokeWidth, y: rect.height - strokeWidth - (convex ? offset : 0)))
         if(flat) {
-            path.addLine(to: CGPoint(x: rect.width - width, y: rect.height - width - (convex ? offset : 0)))
+            path.addLine(to: CGPoint(x: rect.width - strokeWidth, y: rect.height - strokeWidth - (convex ? offset : 0)))
         } else {
             path.addQuadCurve(
-                to: CGPoint(x: rect.width - width, y: rect.height - width - (convex ? offset : 0)),
-                control: CGPoint(x: rect.midX, y: rect.height - width - (convex ? -offset : offset))
+                to: CGPoint(x: rect.width - strokeWidth, y: rect.height - strokeWidth - (convex ? offset : 0)),
+                control: CGPoint(x: rect.midX, y: rect.height - strokeWidth - (convex ? -offset : offset))
             )
         }
         path.addLine(to: CGPoint(x: rect.width, y: rect.height - (convex ? offset : 0)))
@@ -184,14 +184,14 @@ private struct SlotBottomShape: Shape {
 
 private struct SlotStartShape: Shape {
     
-    private var width: CGFloat
+    private var strokeWidth: CGFloat
     private var topOffset: CGFloat
     private var bottomOffset: CGFloat
     private var convexTop: Bool
     private var convexBottom: Bool
     
-    init(width: CGFloat, topOffset: CGFloat, bottomOffset: CGFloat, convexTop: Bool, convexBottom: Bool) {
-        self.width = width
+    init(strokeWidth: CGFloat, topOffset: CGFloat, bottomOffset: CGFloat, convexTop: Bool, convexBottom: Bool) {
+        self.strokeWidth = strokeWidth
         self.topOffset = topOffset
         self.bottomOffset = bottomOffset
         self.convexTop = convexTop
@@ -201,8 +201,8 @@ private struct SlotStartShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: CGPoint(x: 0, y: convexTop ? topOffset : 0))
-        path.addLine(to: CGPoint(x: width, y: width + (convexTop ? topOffset : 0)))
-        path.addLine(to: CGPoint(x: width, y: rect.height - width - (convexBottom ? bottomOffset : 0)))
+        path.addLine(to: CGPoint(x: strokeWidth, y: strokeWidth + (convexTop ? topOffset : 0)))
+        path.addLine(to: CGPoint(x: strokeWidth, y: rect.height - strokeWidth - (convexBottom ? bottomOffset : 0)))
         path.addLine(to: CGPoint(x: 0, y: rect.height - (convexBottom ? bottomOffset : 0)))
         return path
     }
@@ -210,14 +210,14 @@ private struct SlotStartShape: Shape {
 
 private struct SlotEndShape: Shape {
     
-    private var width: CGFloat
+    private var strokeWidth: CGFloat
     private var topOffset: CGFloat
     private var bottomOffset: CGFloat
     private var convexTop: Bool
     private var convexBottom: Bool
     
-    init(width: CGFloat, topOffset: CGFloat, bottomOffset: CGFloat, convexTop: Bool, convexBottom: Bool) {
-        self.width = width
+    init(strokeWidth: CGFloat, topOffset: CGFloat, bottomOffset: CGFloat, convexTop: Bool, convexBottom: Bool) {
+        self.strokeWidth = strokeWidth
         self.topOffset = topOffset
         self.bottomOffset = bottomOffset
         self.convexTop = convexTop
@@ -228,8 +228,8 @@ private struct SlotEndShape: Shape {
         var path = Path()
         path.move(to: CGPoint(x: rect.width, y: convexTop ? topOffset : 0))
         path.addLine(to: CGPoint(x: rect.width, y: rect.height - (convexBottom ? bottomOffset : 0)))
-        path.addLine(to: CGPoint(x: rect.width - width, y: rect.height - width - (convexBottom ? bottomOffset : 0)))
-        path.addLine(to: CGPoint(x: rect.width - width, y: width + (convexTop ? topOffset : 0)))
+        path.addLine(to: CGPoint(x: rect.width - strokeWidth, y: rect.height - strokeWidth - (convexBottom ? bottomOffset : 0)))
+        path.addLine(to: CGPoint(x: rect.width - strokeWidth, y: strokeWidth + (convexTop ? topOffset : 0)))
         return path
     }
 }
