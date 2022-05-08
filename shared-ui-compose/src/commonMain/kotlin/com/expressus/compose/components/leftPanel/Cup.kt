@@ -41,18 +41,16 @@ fun Cup(height: Dp) {
                     lineTo(topRight.x, topRight.y)
 
                     lineTo(bottomRight.x + bezierOffset2, bottomRight.y - bezierOffset)
-                    cubicTo(
-                        x1 = bottomRight.x + bezierOffset2, y1 = bottomRight.y - bezierOffset,
-                        x2 = bottomRight.x, y2 = bottomRight.y,
-                        x3 = bottomRight.x - bezierOffset, y3 = bottomRight.y
+                    quadraticBezierTo(
+                        x1 = bottomRight.x, y1 = bottomRight.y,
+                        x2 = bottomRight.x - bezierOffset, y2 = bottomRight.y
                     )
                     lineTo(bottomRight.x - bezierOffset, bottomRight.y)
 
                     lineTo(bottomLeft.x + bezierOffset, bottomLeft.y)
-                    cubicTo(
-                        x1 = bottomLeft.x + bezierOffset, y1 = bottomLeft.y,
-                        x2 = bottomLeft.x, y2 = bottomLeft.y,
-                        x3 = bottomLeft.x - bezierOffset2, y3 = bottomRight.y - bezierOffset
+                    quadraticBezierTo(
+                        x1 = bottomLeft.x, y1 = bottomLeft.y,
+                        x2 = bottomLeft.x - bezierOffset2, y2 = bottomRight.y - bezierOffset
                     )
                     lineTo(bottomLeft.x - bezierOffset2, bottomRight.y - bezierOffset)
                 }
@@ -63,10 +61,9 @@ fun Cup(height: Dp) {
                     moveTo((bottomLeft.x + topLeft.x) / 2, (bottomLeft.y + topLeft.y) / 2)
                     lineTo(bottomRight.x - bezierOffset, bottomRight.y)
                     lineTo(bottomLeft.x + bezierOffset, bottomLeft.y)
-                    cubicTo(
-                        x1 = bottomLeft.x + bezierOffset, y1 = bottomLeft.y,
-                        x2 = bottomLeft.x, y2 = bottomLeft.y,
-                        x3 = bottomLeft.x - bezierOffset2, y3 = bottomRight.y - bezierOffset
+                    quadraticBezierTo(
+                        x1 = bottomLeft.x, y1 = bottomLeft.y,
+                        x2 = bottomLeft.x - bezierOffset2, y2 = bottomRight.y - bezierOffset
                     )
                     lineTo(bottomLeft.x - bezierOffset2, bottomRight.y - bezierOffset)
                 }

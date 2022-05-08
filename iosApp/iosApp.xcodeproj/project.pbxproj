@@ -10,9 +10,26 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		2332250E27E9E3BC00D931E4 /* ExpressusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332250D27E9E3BC00D931E4 /* ExpressusView.swift */; };
+		231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6EF2822B7E700DBABCA /* CircularButton.swift */; };
+		231BC6F22822BECE00DBABCA /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F12822BECE00DBABCA /* SoundPlayer.swift */; };
+		231BC6F52822C6E500DBABCA /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F42822C6E500DBABCA /* Display.swift */; };
+		231BC6FF2822D38F00DBABCA /* Led.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231BC6FE2822D38F00DBABCA /* Led.ttf */; };
+		2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */; };
+		234DED422823E16A0050F669 /* pouring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 234DED402823E1690050F669 /* pouring.mp3 */; };
+		234DED432823E16A0050F669 /* grinding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 234DED412823E16A0050F669 /* grinding.mp3 */; };
+		234DED452823E1A90050F669 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234DED442823E1A90050F669 /* Panel.swift */; };
+		234DED472823F5B50050F669 /* MachineFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234DED462823F5B50050F669 /* MachineFrame.swift */; };
+		2350E6A5282513610052E48C /* CoffeeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6A4282513610052E48C /* CoffeeSlot.swift */; };
+		2350E6A828251CC60052E48C /* ThemeScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6A728251CC60052E48C /* ThemeScope.swift */; };
+		2350E6AA28251D9C0052E48C /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6A928251D9C0052E48C /* Themes.swift */; };
+		2350E6AC28253B510052E48C /* CoffeeStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2350E6AB28253B510052E48C /* CoffeeStream.swift */; };
 		23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */; };
-		2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D68127F20C95003DB6F9 /* Publisher.swift */; };
+		2383D68227F20C95003DB6F9 /* FlowPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D68127F20C95003DB6F9 /* FlowPublisher.swift */; };
+		23D501952826F1950032BA7A /* CoffeeFaucet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D501942826F1950032BA7A /* CoffeeFaucet.swift */; };
+		23D5019728272E220032BA7A /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D5019628272E220032BA7A /* Cup.swift */; };
+		23EAF2AA2824079200E4996F /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAF2A92824079200E4996F /* Slot.swift */; };
+		23EC51332827F02700CEDD5C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC51322827F02700CEDD5C /* Fonts.swift */; };
+		23EC5135282804F900CEDD5C /* VibratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC5134282804F900CEDD5C /* VibratorManager.swift */; };
 		959714E1739DD393E42800B3 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,9 +37,26 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		2332250D27E9E3BC00D931E4 /* ExpressusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusView.swift; sourceTree = "<group>"; };
+		231BC6EF2822B7E700DBABCA /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		231BC6F12822BECE00DBABCA /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		231BC6F42822C6E500DBABCA /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		231BC6FE2822D38F00DBABCA /* Led.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Led.ttf; sourceTree = "<group>"; };
+		2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusScreen.swift; sourceTree = "<group>"; };
+		234DED402823E1690050F669 /* pouring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pouring.mp3; sourceTree = "<group>"; };
+		234DED412823E16A0050F669 /* grinding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = grinding.mp3; sourceTree = "<group>"; };
+		234DED442823E1A90050F669 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
+		234DED462823F5B50050F669 /* MachineFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineFrame.swift; sourceTree = "<group>"; };
+		2350E6A4282513610052E48C /* CoffeeSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeSlot.swift; sourceTree = "<group>"; };
+		2350E6A728251CC60052E48C /* ThemeScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeScope.swift; sourceTree = "<group>"; };
+		2350E6A928251D9C0052E48C /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		2350E6AB28253B510052E48C /* CoffeeStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeStream.swift; sourceTree = "<group>"; };
 		23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusViewModelObservableObject.swift; sourceTree = "<group>"; };
-		2383D68127F20C95003DB6F9 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		2383D68127F20C95003DB6F9 /* FlowPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowPublisher.swift; sourceTree = "<group>"; };
+		23D501942826F1950032BA7A /* CoffeeFaucet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeFaucet.swift; sourceTree = "<group>"; };
+		23D5019628272E220032BA7A /* Cup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
+		23EAF2A92824079200E4996F /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
+		23EC51322827F02700CEDD5C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		23EC5134282804F900CEDD5C /* VibratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibratorManager.swift; sourceTree = "<group>"; };
 		256B406FFD1B35DDB345563D /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		501EB1427AFCA39E8B06CBA3 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,21 +93,59 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		231BC6F32822C67100DBABCA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		231BC6F62822C82800DBABCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				234DED412823E16A0050F669 /* grinding.mp3 */,
+				234DED402823E1690050F669 /* pouring.mp3 */,
+				231BC6FE2822D38F00DBABCA /* Led.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2350E6A628251C7C0052E48C /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				2350E6A728251CC60052E48C /* ThemeScope.swift */,
+				2350E6A928251D9C0052E48C /* Themes.swift */,
+				23EC51322827F02700CEDD5C /* Fonts.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		23932F222805EABB006738B5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				23626AF827F368D100664EBE /* ExpressusViewModelObservableObject.swift */,
-				2383D68127F20C95003DB6F9 /* Publisher.swift */,
+				2383D68127F20C95003DB6F9 /* FlowPublisher.swift */,
+				231BC6F12822BECE00DBABCA /* SoundPlayer.swift */,
+				23EC5134282804F900CEDD5C /* VibratorManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		23932F232805EACB006738B5 /* Screens */ = {
+		23932F232805EACB006738B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2332250D27E9E3BC00D931E4 /* ExpressusView.swift */,
+				231BC6EF2822B7E700DBABCA /* CircularButton.swift */,
+				231BC6F42822C6E500DBABCA /* Display.swift */,
+				234DED442823E1A90050F669 /* Panel.swift */,
+				234DED462823F5B50050F669 /* MachineFrame.swift */,
+				23EAF2A92824079200E4996F /* Slot.swift */,
+				2350E6A4282513610052E48C /* CoffeeSlot.swift */,
+				2350E6AB28253B510052E48C /* CoffeeStream.swift */,
+				23D501942826F1950032BA7A /* CoffeeFaucet.swift */,
+				23D5019628272E220032BA7A /* Cup.swift */,
 			);
-			path = Screens;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		59BC73FCA6B95212E58A8654 /* Frameworks */ = {
@@ -105,7 +177,10 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				23932F232805EACB006738B5 /* Screens */,
+				2350E6A628251C7C0052E48C /* Themes */,
+				231BC6F62822C82800DBABCA /* Resources */,
+				231BC6F32822C67100DBABCA /* Screens */,
+				23932F232805EACB006738B5 /* Views */,
 				23932F222805EABB006738B5 /* Utils */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -175,8 +250,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231BC6FF2822D38F00DBABCA /* Led.ttf in Resources */,
+				234DED422823E16A0050F669 /* pouring.mp3 in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				234DED432823E16A0050F669 /* grinding.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,10 +307,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23EC5135282804F900CEDD5C /* VibratorManager.swift in Sources */,
 				23626AF927F368D100664EBE /* ExpressusViewModelObservableObject.swift in Sources */,
-				2383D68227F20C95003DB6F9 /* Publisher.swift in Sources */,
+				234DED472823F5B50050F669 /* MachineFrame.swift in Sources */,
+				2383D68227F20C95003DB6F9 /* FlowPublisher.swift in Sources */,
+				2350E6AC28253B510052E48C /* CoffeeStream.swift in Sources */,
+				23EAF2AA2824079200E4996F /* Slot.swift in Sources */,
+				231BC6F52822C6E500DBABCA /* Display.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				2332250E27E9E3BC00D931E4 /* ExpressusView.swift in Sources */,
+				23EC51332827F02700CEDD5C /* Fonts.swift in Sources */,
+				2350E6A5282513610052E48C /* CoffeeSlot.swift in Sources */,
+				23D501952826F1950032BA7A /* CoffeeFaucet.swift in Sources */,
+				2350E6A828251CC60052E48C /* ThemeScope.swift in Sources */,
+				2350E6AA28251D9C0052E48C /* Themes.swift in Sources */,
+				2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */,
+				23D5019728272E220032BA7A /* Cup.swift in Sources */,
+				231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */,
+				234DED452823E1A90050F669 /* Panel.swift in Sources */,
+				231BC6F22822BECE00DBABCA /* SoundPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -345,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -362,12 +454,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = K9L9Z6A2RK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.expressus.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -382,12 +477,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = K9L9Z6A2RK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.expressus.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -93,9 +93,9 @@ fun CoffeeSlot(
                 convexBottom = true,
                 flatBottom = true,
                 top = Color.Transparent,
+                bottom = Color.Transparent,
                 start = MaterialTheme.colors.primary,
                 end = MaterialTheme.colors.primary,
-                bottom = Color.Transparent,
                 background = Brush.horizontalGradient(
                     0.0f to Color.Black.copy(0.85f),
                     0.4f to Color.Transparent,
