@@ -33,10 +33,10 @@ struct ExpressusScreen: View {
                 status = new.label()
                 if(new.isPouring) {
                     soundPlayer.playPouring()
-                    vibratorManager.vibrate()
+                    vibratorManager.stop()
                 } else if(new.isGrinding) {
                     soundPlayer.playGriding()
-                    vibratorManager.stop()
+                    vibratorManager.vibrate()
                 }
             }
         }

@@ -20,8 +20,9 @@ struct VibratorManager {
                 events.append(
                     CHHapticEvent(
                         eventType: .hapticContinuous,
-                        parameters: [CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.2)],
-                        relativeTime: 5
+                        parameters: [CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.5)],
+                        relativeTime: 0,
+                        duration: 5
                     )
                 )                
                 player = try engine?.makePlayer(with: CHHapticPattern(events: events, parameters: []))
