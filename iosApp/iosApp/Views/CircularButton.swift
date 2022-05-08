@@ -2,14 +2,9 @@ import SwiftUI
 
 struct CircularButton: View {
     
-    private var size: CGFloat
-    private var action: () -> Void
-    
-    init(size: CGFloat, action: @escaping () -> Void) {
-        self.size = size
-        self.action = action
-    }
-    
+    let size: CGFloat
+    let action: () -> Void
+       
     var body: some View {
         ThemeScope(theme: Themes.CircularButton()) { theme in
             Button(action: action) {

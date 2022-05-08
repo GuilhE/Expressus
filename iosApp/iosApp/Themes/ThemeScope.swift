@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct ThemeScope<Content, T> : View where Content : View, T : MaterialTheme {
+struct ThemeScope<Content : View, T : MaterialTheme> : View {
     
-    private var theme: T
-    private var content: (T) -> Content
+    private let theme: T
+    private let content: (T) -> Content
     
     init(theme: T, @ViewBuilder content: @escaping (_ theme: T) -> Content) {
         self.theme = theme

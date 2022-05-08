@@ -2,18 +2,18 @@ import SwiftUI
 
 struct Slot: View {
     
-    private var strokeWidth: CGFloat
-    private var topOffset: CGFloat
-    private var bottomOffset: CGFloat
-    private var convexTop: Bool
-    private var flatTop: Bool
-    private var convexBottom: Bool
-    private var flatBottom: Bool
-    private var top: Color
-    private var bottom: Color
-    private var start: Color
-    private var end: Color
-    private var gradient: LinearGradient?
+    let strokeWidth: CGFloat
+    let topOffset: CGFloat
+    let bottomOffset: CGFloat
+    let convexTop: Bool
+    let flatTop: Bool
+    let convexBottom: Bool
+    let flatBottom: Bool
+    let top: Color
+    let bottom: Color
+    let start: Color
+    let end: Color
+    let gradient: LinearGradient?
     
     init(
          strokeWidth: CGFloat,
@@ -89,18 +89,11 @@ struct Slot: View {
 
 private struct SlotBackgroundShape: Shape {
     
-    private var topOffset: CGFloat
-    private var bottomOffset: CGFloat
-    private var convexTop: Bool
-    private var convexBottom: Bool
-    
-    init(topOffset: CGFloat, bottomOffset: CGFloat, convexTop: Bool, convexBottom: Bool) {
-        self.topOffset = topOffset
-        self.bottomOffset = bottomOffset
-        self.convexTop = convexTop
-        self.convexBottom = convexBottom
-    }
-    
+    let topOffset: CGFloat
+    let bottomOffset: CGFloat
+    let convexTop: Bool
+    let convexBottom: Bool
+        
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: CGPoint(x: 0, y: convexTop ? topOffset : 0))
@@ -116,17 +109,10 @@ private struct SlotBackgroundShape: Shape {
 
 private struct SlotTopShape: Shape {
     
-    private var strokeWidth: CGFloat
-    private var offset: CGFloat
-    private var convex: Bool
-    private var flat: Bool
-    
-    init(strokeWidth: CGFloat, offset: CGFloat, convex: Bool, flat: Bool) {
-        self.strokeWidth = strokeWidth
-        self.offset = offset
-        self.convex = convex
-        self.flat = flat
-    }
+    let strokeWidth: CGFloat
+    let offset: CGFloat
+    let convex: Bool
+    let flat: Bool
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -150,17 +136,10 @@ private struct SlotTopShape: Shape {
 
 private struct SlotBottomShape: Shape {
     
-    private var strokeWidth: CGFloat
-    private var offset: CGFloat
-    private var convex: Bool
-    private var flat: Bool
-    
-    init(strokeWidth: CGFloat, offset: CGFloat, convex: Bool, flat: Bool) {
-        self.strokeWidth = strokeWidth
-        self.offset = offset
-        self.convex = convex
-        self.flat = flat
-    }
+   let strokeWidth: CGFloat
+   let offset: CGFloat
+   let convex: Bool
+   let flat: Bool
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -184,20 +163,12 @@ private struct SlotBottomShape: Shape {
 
 private struct SlotStartShape: Shape {
     
-    private var strokeWidth: CGFloat
-    private var topOffset: CGFloat
-    private var bottomOffset: CGFloat
-    private var convexTop: Bool
-    private var convexBottom: Bool
-    
-    init(strokeWidth: CGFloat, topOffset: CGFloat, bottomOffset: CGFloat, convexTop: Bool, convexBottom: Bool) {
-        self.strokeWidth = strokeWidth
-        self.topOffset = topOffset
-        self.bottomOffset = bottomOffset
-        self.convexTop = convexTop
-        self.convexBottom = convexBottom
-    }
-    
+    let strokeWidth: CGFloat
+    let topOffset: CGFloat
+    let bottomOffset: CGFloat
+    let convexTop: Bool
+    let convexBottom: Bool
+
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: CGPoint(x: 0, y: convexTop ? topOffset : 0))
@@ -210,19 +181,11 @@ private struct SlotStartShape: Shape {
 
 private struct SlotEndShape: Shape {
     
-    private var strokeWidth: CGFloat
-    private var topOffset: CGFloat
-    private var bottomOffset: CGFloat
-    private var convexTop: Bool
-    private var convexBottom: Bool
-    
-    init(strokeWidth: CGFloat, topOffset: CGFloat, bottomOffset: CGFloat, convexTop: Bool, convexBottom: Bool) {
-        self.strokeWidth = strokeWidth
-        self.topOffset = topOffset
-        self.bottomOffset = bottomOffset
-        self.convexTop = convexTop
-        self.convexBottom = convexBottom
-    }
+    let strokeWidth: CGFloat
+    let topOffset: CGFloat
+    let bottomOffset: CGFloat
+    let convexTop: Bool
+    let convexBottom: Bool
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -238,6 +201,15 @@ struct Slot_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             let grad = LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow]), startPoint: .top, endPoint: .bottom)
+            Slot(
+                 strokeWidth: 50,
+                 top: Color.red,
+                 bottom: Color.red,
+                 start: Color.black,
+                 end: Color.black,
+                 gradient: grad
+            )
+            
             Slot(
                  strokeWidth: 50,
                  topOffset: 10,

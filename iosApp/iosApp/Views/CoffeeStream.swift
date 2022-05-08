@@ -3,7 +3,7 @@ import SwiftUI
 struct CoffeeStream: View {
     
     @Binding var pouring: Bool
-    var speed: UInt64
+    let speed: UInt64
     
     @State private var poured: Bool = false
     @State private var height: CGFloat = 0
@@ -11,7 +11,7 @@ struct CoffeeStream: View {
     @State private var topLeft: CGPoint = CGPoint(x: 0, y: 0)
     
     private let step: CGFloat = 10
-    
+       
     var body: some View {
         GeometryReader { geometry in
             ThemeScope(theme: Themes.CoffeeStream()) { theme in

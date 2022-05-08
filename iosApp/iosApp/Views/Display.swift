@@ -8,7 +8,7 @@ struct Display: View {
         ThemeScope(theme: Themes.Display()) { theme in
             ZStack {
                 Text(self.text)
-                    .font(Font.custom(FontRecources.Led, size: 24))
+                    .font(Font.custom(Fonts.Led, size: 24))
                     .textCase(.uppercase)
                     .foregroundColor(theme.onBackground)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

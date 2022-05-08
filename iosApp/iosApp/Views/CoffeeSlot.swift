@@ -33,7 +33,7 @@ struct CoffeeSlot: View {
                     )
                     
                     CoffeeStream(pouring: self.$pouring, speed: 10)
-                        .frame(width: geometry.size.width / 20, height: .infinity)
+                        .frame(width: geometry.size.width / 20)
                         .padding(.vertical, 20)
                     CoffeeFaucet()
                         .padding(.horizontal, geometry.size.width / 2.7)
@@ -45,7 +45,7 @@ struct CoffeeSlot: View {
                             .frame(width: shadowWidth, height: shadowHeight)
                             .foregroundColor(Color.black.opacity(0.2))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 7 + cupVrtPadding, trailing: cupHrzPadding))
-                        Cup(geometry.size.width / 3)
+                        Cup(height: geometry.size.width / 3)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10 + cupVrtPadding, trailing: cupHrzPadding))
                     }
                     .frame(maxWidth: cupSize, maxHeight: .infinity, alignment: .bottom)

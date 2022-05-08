@@ -1,13 +1,9 @@
 import SwiftUI
 
-struct MachineLeftFrame<Content> : View where Content : View {
+struct MachineFrame<Content : View> : View {
     
-    private var content: () -> Content
-    
-    init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content
-    }
-    
+    let content: () -> Content
+        
     var body: some View {
         ThemeScope(theme: Themes.MachineFrame()) { theme in
             Panel(
@@ -24,7 +20,7 @@ struct MachineLeftFrame<Content> : View where Content : View {
 
 struct MachineLeftFrame_Previews: PreviewProvider {
     static var previews: some View {
-        MachineLeftFrame {
+        MachineFrame {
             Text("Hello World")
                 .foregroundColor(Color.white)
         }

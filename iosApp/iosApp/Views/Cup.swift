@@ -2,11 +2,7 @@ import SwiftUI
 
 struct Cup: View {
     
-    private var height: CGFloat
-    
-    init(_ size: CGFloat) {
-        self.height = size
-    }
+    let height: CGFloat
     
     var body: some View {
         ThemeScope(theme: Themes.Cup()) { theme in
@@ -52,29 +48,13 @@ struct Cup: View {
 
 private struct CupBodyShape : Shape {
     
-    private var topLeft: CGPoint
-    private var topRight: CGPoint
-    private var bottomRight: CGPoint
-    private var bottomLeft: CGPoint
-    private var bezierOffset: CGFloat
-    private var bezierOffset2: CGFloat
-    
-    init(
-        topLeft: CGPoint,
-        topRight: CGPoint,
-        bottomRight: CGPoint,
-        bottomLeft: CGPoint,
-        bezierOffset: CGFloat,
-        bezierOffset2: CGFloat
-    ) {
-        self.topLeft = topLeft
-        self.topRight = topRight
-        self.bottomRight = bottomRight
-        self.bottomLeft = bottomLeft
-        self.bezierOffset = bezierOffset
-        self.bezierOffset2 = bezierOffset2
-    }
-    
+    let topLeft: CGPoint
+    let topRight: CGPoint
+    let bottomRight: CGPoint
+    let bottomLeft: CGPoint
+    let bezierOffset: CGFloat
+    let bezierOffset2: CGFloat
+       
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: topLeft)
@@ -97,25 +77,11 @@ private struct CupBodyShape : Shape {
 
 private struct CupStripeShape : Shape {
     
-    private var topLeft: CGPoint
-    private var bottomRight: CGPoint
-    private var bottomLeft: CGPoint
-    private var bezierOffset: CGFloat
-    private var bezierOffset2: CGFloat
-    
-    init(
-        topLeft: CGPoint,
-        bottomRight: CGPoint,
-        bottomLeft: CGPoint,
-        bezierOffset: CGFloat,
-        bezierOffset2: CGFloat
-    ) {
-        self.topLeft = topLeft
-        self.bottomRight = bottomRight
-        self.bottomLeft = bottomLeft
-        self.bezierOffset = bezierOffset
-        self.bezierOffset2 = bezierOffset2
-    }
+    let topLeft: CGPoint
+    let bottomRight: CGPoint
+    let bottomLeft: CGPoint
+    let bezierOffset: CGFloat
+    let bezierOffset2: CGFloat
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -135,7 +101,7 @@ struct Cup_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.gray
-            Cup(CGFloat(150))
+            Cup(height: CGFloat(150))
         }
     }
 }

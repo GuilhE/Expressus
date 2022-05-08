@@ -1,18 +1,4 @@
-import SwiftUI
 import AVFoundation
-
-struct FontRecources {
-    static let Led = "LedPanelStationOn" //turns out that using printFontNames() insinde .onAppear() reveals the real name...
-    
-    static func printFontNames() {
-        for family: String in UIFont.familyNames {
-            print(family)
-            for names: String in UIFont.fontNames(forFamilyName: family) {
-                print("== \(names)")
-            }
-        }
-    }
-}
 
 private struct AudioResources {
     static let grinding = "grinding"
@@ -21,8 +7,8 @@ private struct AudioResources {
 
 struct SoundPlayer {
     
-    private var grinding: AVAudioPlayer? = nil
-    private var pouring: AVAudioPlayer? = nil
+    private let grinding: AVAudioPlayer?
+    private let pouring: AVAudioPlayer?
     
     init() {
         guard let grindingURL = Bundle.main.url(forResource: AudioResources.grinding, withExtension: "mp3") else {
@@ -31,6 +17,7 @@ struct SoundPlayer {
         do {
             grinding = try AVAudioPlayer(contentsOf: grindingURL)
         } catch {
+            grinding = nil
             print(error.localizedDescription)
         }
         
@@ -40,6 +27,7 @@ struct SoundPlayer {
         do {
             pouring = try AVAudioPlayer(contentsOf: pouringURL)
         } catch {
+            pouring = nil
             print(error.localizedDescription)
         }
     }

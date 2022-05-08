@@ -7,7 +7,7 @@ public extension Kotlinx_coroutines_coreFlow {
     }
 }
 
-struct FlowPublisher<T: Any>: Publisher {
+struct FlowPublisher<T: Any> : Publisher {
     public typealias Output = T
     public typealias Failure = Never
     private let flow: Kotlinx_coroutines_coreFlow
