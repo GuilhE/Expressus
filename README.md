@@ -32,8 +32,7 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
 
 ### UI
 <p align="center">
- <img src="/media/ui-android.gif" width="400">  <img src="/media/ui-ios.gif" width="382">  
- <img src="/media/ui-desktop.gif" width="600">  
+ <img src="/media/ui-desktop.gif" width="400"> <img src="/media/ui-android.gif" width="300">  <img src="/media/ui-ios.gif" width="282">
 </p>
 
 ### FSM
