@@ -79,6 +79,7 @@ private fun LeftPanel(modifier: Modifier, state: ExpressusUiState) {
                 isGrinding = state.isGrinding,
                 isPouring = state.isPouring,
                 pouringSpeed = 10L,
+                slotOffset = 10.dp,
                 faucetOffsets = FaucetOffsets(2.dp, 2.dp)
             )
         }

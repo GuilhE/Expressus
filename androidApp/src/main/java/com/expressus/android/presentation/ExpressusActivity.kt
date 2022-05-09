@@ -107,6 +107,7 @@ private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
                     isGrinding = state.isGrinding,
                     isPouring = state.isPouring,
                     pouringSpeed = 2L,
+                    slotOffset = 50.dp,
                     faucetOffsets = FaucetOffsets(10.dp, 10.dp)
                 )
                 Spacer(Modifier.size(50.dp))

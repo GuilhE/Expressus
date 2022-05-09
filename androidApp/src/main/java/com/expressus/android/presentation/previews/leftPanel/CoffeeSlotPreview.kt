@@ -29,6 +29,7 @@ private fun CoffeeSlotPreview() {
                 isGrinding = grinding,
                 isPouring = pouring,
                 pouringSpeed = 2L,
+                slotOffset = 50.dp,
                 faucetOffsets = FaucetOffsets(10.dp, 10.dp)
             )
             Row(

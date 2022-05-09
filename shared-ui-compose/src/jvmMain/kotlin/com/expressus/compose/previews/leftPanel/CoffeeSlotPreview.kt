@@ -24,6 +24,7 @@ private fun CoffeeSlotPreview() {
                 .aspectRatio(1f)
                 .padding(10.dp),
             pouringSpeed = 10L,
+            slotOffset = 10.dp,
             faucetOffsets = FaucetOffsets(10.dp, 10.dp)
         )
     }

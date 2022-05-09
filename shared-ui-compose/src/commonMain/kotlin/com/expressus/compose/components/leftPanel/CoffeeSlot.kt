@@ -24,6 +24,7 @@ fun CoffeeSlot(
     isGrinding: Boolean = false,
     isPouring: Boolean = false,
     pouringSpeed: Long,
+    slotOffset: Dp,
     faucetOffsets: FaucetOffsets,
 ) {
     var cupVrtPadding: Dp by remember { mutableStateOf(0.dp) }
@@ -48,7 +49,7 @@ fun CoffeeSlot(
             Slot(
                 modifier = Modifier.height(maxHeight).fillMaxWidth(),
                 strokeWidth = 30.dp,
-                topOffset = 10.dp,
+                topOffset = slotOffset,
                 convexTop = false,
                 convexBottom = true,
                 flatBottom = true,
@@ -78,15 +79,14 @@ fun CoffeeSlot(
                     .padding(bottom = 10.dp + cupVrtPadding, start = cupHrzPadding)
             ) {
                 val cupHeight = remember(this@BoxWithConstraints.maxWidth) { this@BoxWithConstraints.maxWidth / 3 }
-                val shadowWidth = remember(cupHeight) { cupHeight + 5.dp }
-                val shadowHeight = remember(shadowWidth) { shadowWidth / 20 }
+                val shadowHeight = remember(cupHeight) { (cupHeight + 5.dp) / 10 }
 
                 //shadow
                 Canvas(Modifier.size(cupHeight)) {
                     drawOval(
                         color = Color.Black.copy(0.2f),
-                        topLeft = Offset(0f, this.size.height - 2.dp.value),
-                        size = Size(shadowWidth.value, shadowHeight.value)
+                        topLeft = Offset(0f, this.size.height - shadowHeight.value / 2),
+                        size = Size(size.width, shadowHeight.value)
                     )
                 }
                 Cup(cupHeight)
@@ -96,7 +96,7 @@ fun CoffeeSlot(
             Slot(
                 modifier = Modifier.height(maxHeight).fillMaxWidth(),
                 strokeWidth = 30.dp,
-                topOffset = 10.dp,
+                topOffset = slotOffset,
                 convexTop = false,
                 convexBottom = true,
                 flatBottom = true,
