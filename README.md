@@ -32,9 +32,9 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
 
 ### UI
 <p align="center">
-    <a href="https://user-images.githubusercontent.com/2677139/167465046-1226fa4f-8ddf-4c3d-bd0e-8f0051cac4c0.mp4"><img src="/media/ui-android.png" height="642"></a>
-    <a href="https://user-images.githubusercontent.com/2677139/167465066-8b88f998-e327-4b11-9986-98b647be4e47.mov"><img src="/media/ui-ios.png" height="642"></a>
-    <a href="https://user-images.githubusercontent.com/2677139/167465082-1cce53d8-0fc2-4125-a341-7daf9741c067.mov"><img src="/media/ui-desktop.png" height="642"></a>
+    <a href="https://user-images.githubusercontent.com/2677139/167465046-1226fa4f-8ddf-4c3d-bd0e-8f0051cac4c0.mp4"><img src="/media/ui-android.png" height="500"></a>
+    <a href="https://user-images.githubusercontent.com/2677139/167465066-8b88f998-e327-4b11-9986-98b647be4e47.mov"><img src="/media/ui-ios.png" height="500"></a>
+    <a href="https://user-images.githubusercontent.com/2677139/167465082-1cce53d8-0fc2-4125-a341-7daf9741c067.mov"><img src="/media/ui-desktop.png" height="500"></a>
 </p>
 
 ### FSM
