@@ -15,12 +15,10 @@ import com.expressus.compose.components.Slot
 import com.expressus.compose.themes.PaymentSocketTheme
 
 @Composable
-fun PaymentSocket(padding: PaddingValues = PaddingValues(0.dp)) {
+fun PaymentSocket(modifier: Modifier) {
     PaymentSocketTheme {
         Column(
-            Modifier
-                .fillMaxWidth()
-                .padding(padding),
+            modifier = modifier,
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -52,22 +50,15 @@ fun PaymentSocket(padding: PaddingValues = PaddingValues(0.dp)) {
                 withGlossy = false
             )
             Spacer(Modifier.size(6.dp))
-            BoxWithConstraints(
-                Modifier
-                    .fillMaxWidth()
-                    .height(15.dp)
-                    .background(MaterialTheme.colors.background)
-            ) {
-                Slot(
-                    width = maxWidth,
-                    height = maxHeight,
-                    strokeWidth = 6.dp,
-                    top = Color.DarkGray,
-                    start = Color.DarkGray,
-                    end = Color.DarkGray,
-                    bottom = Color.Gray
-                )
-            }
+            Slot(
+                modifier = Modifier.fillMaxWidth().height(15.dp),
+                strokeWidth = 6.dp,
+                top = Color.DarkGray,
+                start = Color.DarkGray,
+                end = Color.DarkGray,
+                bottom = Color.Gray,
+                background = Brush.linearGradient(colors = listOf(MaterialTheme.colors.background, MaterialTheme.colors.background))
+            )
         }
     }
 }

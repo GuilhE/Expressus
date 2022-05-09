@@ -32,7 +32,7 @@ struct CoffeeSlot: View {
                         )
                     )
                     
-                    CoffeeStream(pouring: self.$pouring, speed: 10)
+                    CoffeeStream(pouring: self.$pouring)
                         .frame(width: geometry.size.width / 20)
                         .padding(.vertical, 20)
                     CoffeeFaucet()

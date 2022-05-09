@@ -19,8 +19,7 @@ struct Display: View {
                     startPoint: .top,
                     endPoint: .bottom
                 )
-            )
-            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .center)
+            )            
             .cornerRadius(6)
         }
     }

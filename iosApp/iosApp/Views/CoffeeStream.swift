@@ -3,7 +3,6 @@ import SwiftUI
 struct CoffeeStream: View {
     
     @Binding var pouring: Bool
-    let speed: UInt64
     
     @State private var poured: Bool = false
     @State private var height: CGFloat = 0
@@ -11,19 +10,20 @@ struct CoffeeStream: View {
     @State private var topLeft: CGPoint = CGPoint(x: 0, y: 0)
     
     private let step: CGFloat = 10
-       
+    
     var body: some View {
         GeometryReader { geometry in
             ThemeScope(theme: Themes.CoffeeStream()) { theme in
                 CoffeeStreamShape(topLeft: self.$topLeft, height: self.$finalHeight).fill(theme.primary)
             }
             .onChange(of: pouring) { isPouring in
+                let speed = geometry.size.height / 250
                 Task.init() {
                     if (isPouring) {
                         if (!poured) {
                             while (finalHeight < geometry.size.height) {
                                 finalHeight += step
-                                try await Task.sleep(nanoseconds: 1_000_000 * speed)
+                                try await Task.sleep(nanoseconds: 1_000_000 * UInt64(speed))
                             }
                             poured = true
                         }
@@ -32,7 +32,7 @@ struct CoffeeStream: View {
                             while (topLeft.y < geometry.size.height) {
                                 topLeft = CGPoint(x: 0, y: topLeft.y + step)
                                 finalHeight -= step
-                                try await Task.sleep(nanoseconds: 1_000_000 * speed)
+                                try await Task.sleep(nanoseconds: 1_000_000 * UInt64(speed))
                             }
                         }
                         finalHeight = 0
@@ -70,7 +70,7 @@ struct CoffeeStream_Previews: PreviewProvider {
         
         var body: some View {
             VStack {
-                CoffeeStream(pouring: self.$pouring, speed: 10).padding(.horizontal, 170)
+                CoffeeStream(pouring: self.$pouring).padding(.horizontal, 170)
                 Button("Animate", action: { pouring.toggle() }).padding()
             }
         }

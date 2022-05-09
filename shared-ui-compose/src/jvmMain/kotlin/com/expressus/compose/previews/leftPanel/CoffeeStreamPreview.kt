@@ -1,8 +1,7 @@
 package com.expressus.compose.previews.leftPanel
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -12,10 +11,17 @@ import com.expressus.compose.components.leftPanel.CoffeeStream
 @Composable
 @Preview
 private fun CoffeeStreamPreview() {
-    Box(
+    BoxWithConstraints(
         Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        CoffeeStream(5.dp, 100.dp, pouring = true)
+        CoffeeStream(
+            Modifier
+                .width(this@BoxWithConstraints.maxWidth / 20)
+                .fillMaxHeight()
+                .padding(vertical = 15.dp),
+            speed = 10L,
+            pouring = true
+        )
     }
 }

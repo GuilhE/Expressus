@@ -14,8 +14,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Slot(
-    width: Dp,
-    height: Dp = width,
+    modifier: Modifier,
     strokeWidth: Dp,
     topOffset: Dp = 0.dp,
     bottomOffset: Dp = topOffset,
@@ -29,7 +28,7 @@ fun Slot(
     start: Color,
     background: Brush? = null
 ) {
-    Canvas(modifier = Modifier.size(width, height)) {
+    Canvas(modifier = modifier) {
         background?.let {
             drawPath(
                 brush = it,
@@ -47,6 +46,26 @@ fun Slot(
                 }
             )
         }
+
+        drawPath(
+            brush = SolidColor(start),
+            path = Path().apply {
+                moveTo(0f, if (convexTop) topOffset.value else 0f)
+                lineTo(strokeWidth.value / 2, strokeWidth.value / 2 + if (convexTop) topOffset.value else 0f)
+                lineTo(strokeWidth.value / 2, size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f)
+                lineTo(0f, size.height - if (convexBottom) bottomOffset.value else 0f)
+            }
+        )
+
+        drawPath(
+            brush = SolidColor(end),
+            path = Path().apply {
+                moveTo(size.width, if (convexTop) topOffset.value else 0f)
+                lineTo(size.width, size.height - if (convexBottom) bottomOffset.value else 0f)
+                lineTo(size.width - strokeWidth.value / 2, size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f)
+                lineTo(size.width - strokeWidth.value / 2, strokeWidth.value / 2 + if (convexTop) topOffset.value else 0f)
+            }
+        )
 
         drawPath(
             brush = SolidColor(top),
@@ -68,16 +87,6 @@ fun Slot(
             })
 
         drawPath(
-            brush = SolidColor(end),
-            path = Path().apply {
-                moveTo(size.width, if (convexTop) topOffset.value else 0f)
-                lineTo(size.width, size.height - if (convexBottom) bottomOffset.value else 0f)
-                lineTo(size.width - strokeWidth.value / 2, size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f)
-                lineTo(size.width - strokeWidth.value / 2, strokeWidth.value / 2 + if (convexTop) topOffset.value else 0f)
-            }
-        )
-
-        drawPath(
             brush = SolidColor(bottom),
             path = Path().apply {
                 moveTo(strokeWidth.value / 2, size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f)
@@ -94,16 +103,6 @@ fun Slot(
                     x1 = size.center.x, y1 = size.height - if (convexBottom) -bottomOffset.value else bottomOffset.value,
                     x2 = 0f, y2 = size.height - if (convexBottom) bottomOffset.value else 0f
                 )
-            }
-        )
-
-        drawPath(
-            brush = SolidColor(start),
-            path = Path().apply {
-                moveTo(0f, if (convexTop) topOffset.value else 0f)
-                lineTo(strokeWidth.value / 2, strokeWidth.value / 2 + if (convexTop) topOffset.value else 0f)
-                lineTo(strokeWidth.value / 2, size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f)
-                lineTo(0f, size.height - if (convexBottom) bottomOffset.value else 0f)
             }
         )
     }
