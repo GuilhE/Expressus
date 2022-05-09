@@ -2,6 +2,7 @@
 
 package presentation
 
+import SoundPlayer
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
@@ -20,7 +21,6 @@ import com.expressus.domain.DependencyInjection
 import com.expressus.domain.stateMachines.ExpressusUiState
 import com.expressus.domain.viewModels.ExpressusViewModel
 import org.koin.core.Koin
-import SoundPlayer
 
 fun main() = application {
     val koin: Koin = remember { DependencyInjection.initKoinAndReturnInstance() }
@@ -68,11 +68,19 @@ private fun LeftPanel(modifier: Modifier, state: ExpressusUiState) {
         ) {
             TopPanel()
         }
-        BoxWithConstraints (
+        BoxWithConstraints(
             Modifier.weight(1f),
             contentAlignment = Alignment.Center
         ) {
-            CoffeeSlot(150.dp, 40.dp, 50.dp, DpSize(5.dp, maxHeight), isGrinding = state.isGrinding, isPouring = state.isPouring)
+            CoffeeSlot(
+                modifier = Modifier
+                    .aspectRatio(1f)
+                    .padding(10.dp),
+                isGrinding = state.isGrinding,
+                isPouring = state.isPouring,
+                pouringSpeed = 10L,
+                faucetOffsets = FaucetOffsets(2.dp, 2.dp)
+            )
         }
         Box(Modifier.weight(1.5f)) {
             BottomPanel()
@@ -94,7 +102,13 @@ private fun RightPanel(modifier: Modifier, state: ExpressusUiState, makeCoffee: 
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            Display(Modifier.padding(20.dp), state.label())
+            Display(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
+                    .padding(horizontal = 20.dp),
+                text = state.label()
+            )
             CoffeeSelectors(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -107,7 +121,7 @@ private fun RightPanel(modifier: Modifier, state: ExpressusUiState, makeCoffee: 
                     }
                 }
             )
-            PaymentSocket(PaddingValues(horizontal = 40.dp))
+            PaymentSocket(Modifier.fillMaxWidth().padding(horizontal = 40.dp))
         }
         Column(
             Modifier.weight(1f),

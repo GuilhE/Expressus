@@ -1,6 +1,7 @@
 package com.expressus.compose.components.leftPanel
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
@@ -11,7 +12,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.expressus.compose.components.Slot
 import com.expressus.compose.themes.CoffeeSlotTheme
@@ -20,13 +20,11 @@ import kotlinx.coroutines.yield
 
 @Composable
 fun CoffeeSlot(
-    size: Dp,
-    faucetSize: Dp,
-    cupSize: Dp,
-    coffeeStreamSize: DpSize,
-    coffeePouringSpeed: Long = 10L,
+    modifier: Modifier,
     isGrinding: Boolean = false,
-    isPouring: Boolean = false
+    isPouring: Boolean = false,
+    pouringSpeed: Long,
+    faucetOffsets: FaucetOffsets,
 ) {
     var cupVrtPadding: Dp by remember { mutableStateOf(0.dp) }
     var cupHrzPadding: Dp by remember { mutableStateOf(0.dp) }
@@ -44,12 +42,11 @@ fun CoffeeSlot(
 
     CoffeeSlotTheme {
         BoxWithConstraints(
-            Modifier.size(size),
+            modifier = modifier,
             contentAlignment = Alignment.Center
         ) {
-            val maxH = maxHeight
             Slot(
-                width = maxH,
+                modifier = Modifier.height(maxHeight).fillMaxWidth(),
                 strokeWidth = 30.dp,
                 topOffset = 10.dp,
                 convexTop = false,
@@ -65,28 +62,39 @@ fun CoffeeSlot(
                 Modifier.fillMaxSize(),
                 contentAlignment = Alignment.TopCenter
             ) {
-                CoffeeStream(coffeeStreamSize.width, coffeeStreamSize.height, PaddingValues(vertical = 15.dp), coffeePouringSpeed, isPouring)
-                CoffeeFaucet(faucetSize)
+                CoffeeStream(
+                    modifier = Modifier
+                        .width(this@BoxWithConstraints.maxWidth / 20)
+                        .fillMaxHeight()
+                        .padding(vertical = 10.dp),
+                    speed = pouringSpeed,
+                    pouring = isPouring
+                )
+                CoffeeFaucet(Modifier.padding(horizontal = (this@BoxWithConstraints.maxWidth.value / 2.7).dp), faucetOffsets)
             }
             Box(
                 Modifier
                     .align(Alignment.BottomCenter)
                     .padding(bottom = 10.dp + cupVrtPadding, start = cupHrzPadding)
             ) {
+                val cupHeight = remember(this@BoxWithConstraints.maxWidth) { this@BoxWithConstraints.maxWidth / 3 }
+                val shadowWidth = remember(cupHeight) { cupHeight + 5.dp }
+                val shadowHeight = remember(shadowWidth) { shadowWidth / 20 }
+
                 //shadow
-                Canvas(Modifier.size(cupSize)) {
+                Canvas(Modifier.size(cupHeight)) {
                     drawOval(
                         color = Color.Black.copy(0.2f),
-                        topLeft = Offset(-2.5.dp.value, this.size.height - 2.dp.value),
-                        size = Size(this.size.height + 5.dp.value, 5.dp.value)
+                        topLeft = Offset(0f, this.size.height - 2.dp.value),
+                        size = Size(shadowWidth.value, shadowHeight.value)
                     )
                 }
-                Cup(cupSize)
+                Cup(cupHeight)
             }
 
             //Overlay
             Slot(
-                width = maxH,
+                modifier = Modifier.height(maxHeight).fillMaxWidth(),
                 strokeWidth = 30.dp,
                 topOffset = 10.dp,
                 convexTop = false,

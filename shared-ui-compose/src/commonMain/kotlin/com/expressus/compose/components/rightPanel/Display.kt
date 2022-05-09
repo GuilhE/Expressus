@@ -20,8 +20,6 @@ fun Display(modifier: Modifier, text: String) {
     DisplayTheme {
         Box(
             modifier
-                .fillMaxWidth()
-                .height(50.dp)
                 .background(
                     brush = Brush.verticalGradient(
                         listOf(

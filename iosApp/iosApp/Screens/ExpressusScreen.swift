@@ -19,6 +19,7 @@ struct ExpressusScreen: View {
                     .aspectRatio(1, contentMode: .fit)
                     .padding()
                 Display(text: $status)
+                    .frame(height: 50)
                     .padding(50)
                 CircularButton(size: 70, action: { viewModel.makeCoffee() })
                     .disabled(isMakingCoffee)

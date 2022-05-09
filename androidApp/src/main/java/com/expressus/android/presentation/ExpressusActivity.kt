@@ -18,12 +18,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import com.expressus.android.presentation.components.MachineFrame
 import com.expressus.compose.components.leftPanel.CoffeeSlot
+import com.expressus.compose.components.leftPanel.FaucetOffsets
 import com.expressus.compose.components.rightPanel.CircularButton
 import com.expressus.compose.components.rightPanel.Display
 import com.expressus.compose.themes.CoffeeSelectorsTheme
@@ -96,18 +98,26 @@ private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
             Column(
                 Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Top
+                verticalArrangement = Arrangement.Center
             ) {
                 CoffeeSlot(
-                    size = this@BoxWithConstraints.maxWidth,
-                    faucetSize = 70.dp,
-                    cupSize = 150.dp,
-                    coffeeStreamSize = DpSize(15.dp, this@BoxWithConstraints.maxHeight),
-                    coffeePouringSpeed = 2L,
+                    modifier = Modifier
+                        .aspectRatio(1f)
+                        .padding(10.dp),
                     isGrinding = state.isGrinding,
-                    isPouring = state.isPouring
+                    isPouring = state.isPouring,
+                    pouringSpeed = 2L,
+                    faucetOffsets = FaucetOffsets(10.dp, 10.dp)
                 )
-                Display(modifier = Modifier.padding(50.dp), text = state.label())
+                Spacer(Modifier.size(50.dp))
+                Display(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(50.dp)
+                        .padding(horizontal = 50.dp),
+                    text = state.label()
+                )
+                Spacer(Modifier.size(50.dp))
                 CoffeeSelectorsTheme {
                     CircularButton(size = 70.dp, makeCoffee)
                 }
