@@ -42,3 +42,19 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
  <img src="/media/fsm-android.gif" width="390">  <img src="/media/fsm-ios.gif" width="430">   
 </p>
 <p align="center">Click on each image for full resolution</p>
+
+ ## LICENSE
+
+Copyright (c) 2022-present GuilhE
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+<http://www.apache.org/licenses/LICENSE-2.0>
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
