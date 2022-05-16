@@ -37,7 +37,7 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
     <a href="https://user-images.githubusercontent.com/2677139/167465082-1cce53d8-0fc2-4125-a341-7daf9741c067.mov"><img src="/media/ui-desktop.png" height="500"></a>
 </p>
 
-### FSM
+### FSM + MVI
 <p align="center">
  <img src="/media/fsm-android.gif" width="390">  <img src="/media/fsm-ios.gif" width="430">   
 </p>
