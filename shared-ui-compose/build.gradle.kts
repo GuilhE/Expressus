@@ -1,5 +1,4 @@
 import org.jetbrains.compose.compose
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
@@ -30,8 +29,10 @@ kotlin {
 
 android {
     compileSdk = SDK.compile
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/commonMain/resources")
+    sourceSets["main"].let {
+        it.manifest.srcFile("src/androidMain/AndroidManifest.xml")
+        it.res.srcDirs("src/commonMain/resources")
+    }
     defaultConfig {
         minSdk = SDK.min
         targetSdk = SDK.target
@@ -39,16 +40,5 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-tasks.withType<KotlinCompile> {
-    with(kotlinOptions) {
-        jvmTarget = "11"
-        freeCompilerArgs = listOf(
-            "-Xskip-prerelease-check",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlin.RequiresOptIn"
-        )
     }
 }

@@ -20,6 +20,18 @@ allprojects {
         google()
         mavenCentral()
     }
+
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        with(kotlinOptions) {
+            jvmTarget = "11"
+            freeCompilerArgs = listOf(
+                "-Xskip-prerelease-check",
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-opt-in=kotlin.RequiresOptIn"
+            )
+        }
+    }
 }
 
 tasks.register("clean", Delete::class) {

@@ -24,15 +24,6 @@ android {
         kotlinCompilerExtensionVersion = Versions.Android.Compose.compiler
     }
 
-    kotlinOptions {
-        jvmTarget = "11"
-        freeCompilerArgs = listOf(
-            "-Xskip-prerelease-check",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlin.RequiresOptIn"
-        )
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11

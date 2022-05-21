@@ -48,5 +48,6 @@ struct ExpressusScreen: View {
 struct ExpresssusView_Previews: PreviewProvider {
     static var previews: some View {
         ExpressusScreen()
+            .previewInterfaceOrientation(.portrait)
     }
 }

@@ -21,10 +21,10 @@ object Versions {
     }
 
     object Multiplatform {
-        const val kermit = "1.1.1"
-        const val koin = "3.2.0-beta-1"
+        const val kermit = "1.1.2"
+        const val koin = "3.2.0"
         const val multiplatformSettings = "0.8.1"
-        const val mokoMvvm = "0.12.0"
+        const val mokoMvvm = "0.13.0"
         const val orbitMviCore = "4.3.2"
     }
 
@@ -37,7 +37,7 @@ object Versions {
         object Core {
             const val core = "1.6.0"
             const val material = "1.7.0-alpha01"
-            const val lifecycleKtx = "2.5.0-alpha06"
+            const val lifecycleKtx = "2.5.0-rc01"
         }
 
         object Compose {
@@ -49,7 +49,7 @@ object Versions {
 
     object Gradle {
         const val dependencyUpdate = "0.42.0"
-        const val androidTools = "7.1.3"
+        const val androidTools = "7.2.0"
     }
 }
 

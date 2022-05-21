@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalSettingsImplementation::class)
+
 package com.expressus
 
+import com.russhwolf.settings.ExperimentalSettingsImplementation
 import com.russhwolf.settings.JvmPreferencesSettings
 import com.russhwolf.settings.Settings
 
