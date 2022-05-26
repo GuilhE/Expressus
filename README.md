@@ -24,9 +24,13 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
 - UI State emissions using Kotlin Flow and Swift Combine Publisher
 - Jetpack Compose (+Desktop) and SwiftUI
 
+`./gradlew :androidApp:installDebug`
+
 #### Desktop
 - UI State emissions using Kotlin Flow
 - Compose for Desktop
+
+`./gradlew :desktopApp:run`
 
 ## Outputs
 
