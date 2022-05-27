@@ -96,35 +96,33 @@ private fun vibrate(context: Context) {
 
 @Composable
 private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
-    BoxWithConstraints(Modifier.fillMaxSize()) {
-        MachineFrame(Modifier.fillMaxSize()) {
-            Column(
-                Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                CoffeeSlot(
-                    modifier = Modifier
-                        .aspectRatio(1f)
-                        .padding(10.dp),
-                    isGrinding = state.isGrinding,
-                    isPouring = state.isPouring,
-                    pouringSpeed = 2L,
-                    slotOffset = 50.dp,
-                    faucetOffsets = FaucetOffsets(10.dp, 10.dp)
-                )
-                Spacer(Modifier.size(50.dp))
-                Display(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp)
-                        .padding(horizontal = 50.dp),
-                    text = state.label()
-                )
-                Spacer(Modifier.size(50.dp))
-                CoffeeSelectorsTheme {
-                    CircularButton(size = 70.dp, makeCoffee)
-                }
+    MachineFrame(Modifier.fillMaxSize()) {
+        Column(
+            Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            CoffeeSlot(
+                modifier = Modifier
+                    .aspectRatio(1f)
+                    .padding(10.dp),
+                isGrinding = state.isGrinding,
+                isPouring = state.isPouring,
+                pouringSpeed = 2L,
+                slotOffset = 50.dp,
+                faucetOffsets = FaucetOffsets(10.dp, 10.dp)
+            )
+            Spacer(Modifier.size(50.dp))
+            Display(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
+                    .padding(horizontal = 50.dp),
+                text = state.label()
+            )
+            Spacer(Modifier.size(50.dp))
+            CoffeeSelectorsTheme {
+                CircularButton(size = 70.dp, makeCoffee)
             }
         }
     }

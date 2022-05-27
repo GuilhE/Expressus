@@ -1,6 +1,5 @@
 import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
@@ -25,17 +24,21 @@ kotlin {
 compose.desktop {
     application {
         mainClass = "presentation.ExpressusKt"
+        jvmArgs += listOf("-Xmx2G")
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            val iconsRoot = project.file("src/jvmMain/resources")
-            macOS {
-                iconFile.set(iconsRoot.resolve("icon.icns"))
-            }
-            windows {
-                iconFile.set(iconsRoot.resolve("icon.ico"))
-            }
-            linux {
-                iconFile.set(iconsRoot.resolve("icon.png"))
+
+            version = "1.0.0"
+            packageVersion = version as String
+            packageName = "Expressus"
+            description = "Kotlin Multiplatform Coffee Machine"
+            copyright = "Copyright (c) 2022-present GuilhE"
+            licenseFile.set(project.file("../LICENSE"))
+
+            with(project.file("src/jvmMain/resources")) {
+                macOS { iconFile.set(resolve("icon.icns")) }
+                linux { iconFile.set(resolve("icon.png")) }
+                windows { iconFile.set(resolve("icon.ico")) }
             }
         }
     }
