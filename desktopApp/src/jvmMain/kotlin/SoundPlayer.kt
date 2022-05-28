@@ -1,14 +1,11 @@
-import java.io.File
+import java.net.URL
 import javax.sound.sampled.AudioSystem
 
 object SoundPlayer {
 
-    private val resources = File(System.getProperty("compose.application.resources.dir"))
-    private val local = File("src/jvmMain/resources")
-
-    private fun playSound(file: File) {
+    private fun playSound(url: URL) {
         try {
-            val ais = AudioSystem.getAudioInputStream(file)
+            val ais = AudioSystem.getAudioInputStream(url)
             val clip = AudioSystem.getClip()
             clip.open(ais)
             clip.stop()
@@ -19,34 +16,10 @@ object SoundPlayer {
     }
 
     fun playGrindingSound() {
-        with(local.resolve("grinding.wav")) {
-            if (exists()) {
-                playSound(this)
-                return
-            }
-        }
-        with(resources.resolve("grinding.wav")) {
-            if (exists()) {
-                playSound(this)
-                return
-            }
-        }
-        println("> playGrindingSound: file not found")
+        javaClass.getResource("grinding.wav")?.let { playSound(it) }
     }
 
     fun playPouringSound() {
-        with(local.resolve("pouring.wav")) {
-            if (exists()) {
-                playSound(this)
-                return
-            }
-        }
-        with(resources.resolve("pouring.wav")) {
-            if (exists()) {
-                playSound(this)
-                return
-            }
-        }
-        println("> playPouringSound: file not found")
+        javaClass.getResource("pouring.wav")?.let { playSound(it) }
     }
 }
