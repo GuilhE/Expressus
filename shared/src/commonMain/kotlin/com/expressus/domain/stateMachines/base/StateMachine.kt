@@ -5,6 +5,7 @@ import kotlinx.atomicfu.locks.SynchronizedObject
 import kotlinx.atomicfu.locks.synchronized
 import kotlin.reflect.KClass
 
+//Taken from https://github.com/Tinder/StateMachine/pull/28 authored by https://github.com/evengard88
 internal class StateMachine<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> private constructor(
     private val graph: Graph<STATE, EVENT, SIDE_EFFECT>
 ) {
