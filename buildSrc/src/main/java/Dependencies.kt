@@ -2,7 +2,7 @@
 
 object SDK {
     @Suppress("MemberVisibilityCanBePrivate")
-    const val compile = 31
+    const val compile = 33
     const val target = compile
     const val min = 24
 }
@@ -10,46 +10,46 @@ object SDK {
 object Versions {
 
     object JetBrains {
-        const val kotlin = "1.6.10"
-        const val kotlinxSerialization = "1.3.2"
-        const val kotlinxCoroutines = "1.6.1-native-mt"
-        const val kotlinxAtomicFu = "0.17.2"
+        const val kotlin = "1.7.20"
+        const val kotlinxSerialization = "1.4.0"
+        const val kotlinxCoroutines = "1.6.4"
+        const val kotlinxAtomicFu = "0.18.3"
 
         object Compose {
-            const val desktop = "1.0.1"
+            const val desktop = "1.2.0-beta02"
         }
     }
 
     object Multiplatform {
-        const val kermit = "1.1.2"
-        const val koin = "3.2.0"
-        const val multiplatformSettings = "0.8.1"
-        const val mokoMvvm = "0.13.0"
-        const val orbitMviCore = "4.3.2"
+        const val kermit = "1.1.3"
+        const val koin = "3.2.2"
+        const val multiplatformSettings = "1.0.0-RC"
+        const val mokoMvvm = "0.14.0"
+        const val orbitMviCore = "4.4.0"
     }
 
     object Android {
 
         object Orbit {
-            const val compose = "4.3.2"
+            const val compose = "4.4.0"
         }
 
         object Core {
-            const val core = "1.6.0"
-            const val material = "1.7.0-alpha01"
-            const val lifecycleKtx = "2.5.0-rc01"
+            const val core = "1.9.0"
+            const val material = "1.8.0-alpha01"
+            const val lifecycleKtx = "2.6.0-alpha02"
         }
 
         object Compose {
-            const val core = "1.2.0-alpha07"
-            const val compiler = "1.2.0-alpha07"
+            const val core = "1.3.0-beta03"
+            const val compiler = "1.3.2"
             const val activity = "1.5.0-alpha01"
         }
     }
 
     object Gradle {
         const val dependencyUpdate = "0.42.0"
-        const val androidTools = "7.2.0"
+        const val androidTools = "7.3.0"
     }
 }
 

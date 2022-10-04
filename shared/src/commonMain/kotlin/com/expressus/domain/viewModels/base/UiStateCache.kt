@@ -26,7 +26,7 @@ internal class UiStateCache(
         val key = "${uiStateName}_cache"
         return if (settings.contains(key)) {
             try {
-                decoder.decodeFromString(settings.getString(key))
+                decoder.decodeFromString(settings.getString(key, ""))
             } catch (e: SerializationException) {
                 null
             }
