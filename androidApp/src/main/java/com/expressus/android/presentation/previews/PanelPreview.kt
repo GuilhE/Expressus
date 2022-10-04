@@ -15,7 +15,11 @@ import com.expressus.compose.components.Panel
 @Preview
 private fun PanelPreview() {
     val gradient = Brush.horizontalGradient(colors = listOf(Color.Red, Color.Yellow))
-    Column(Modifier.fillMaxSize().background(Color.Black).padding(10.dp)) {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(Color.Black)
+            .padding(10.dp)) {
         Panel(
             Modifier
                 .width(400.dp)

@@ -43,7 +43,7 @@ object Versions {
         object Compose {
             const val core = "1.3.0-beta03"
             const val compiler = "1.3.2"
-            const val activity = "1.5.0-alpha01"
+            const val activity = "1.6.0"
         }
     }
 

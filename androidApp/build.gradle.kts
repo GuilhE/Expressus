@@ -5,6 +5,7 @@ plugins {
 
 android {
     compileSdk = SDK.compile
+    namespace = "com.expressus.android"
 
     defaultConfig {
         applicationId = "com.expressus.android"
@@ -51,7 +52,7 @@ dependencies {
     implementation(Libs.Android.Lifecycle.lifecycleRuntimeKtx)
 
     // Android Compose
-    with(Libs.Android.Compose){
+    with(Libs.Android.Compose) {
         implementation(activity)
         implementation(material)
         implementation(ui)

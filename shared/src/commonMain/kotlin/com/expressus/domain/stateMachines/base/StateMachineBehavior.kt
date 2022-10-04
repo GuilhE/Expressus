@@ -1,10 +1,6 @@
 package com.expressus.domain.stateMachines.base
 
 import co.touchlab.kermit.Logger
-import com.russhwolf.settings.Settings
-import com.russhwolf.settings.contains
-import kotlinx.serialization.*
-import kotlinx.serialization.json.Json
 
 internal interface StateMachineBehavior<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> {
 
