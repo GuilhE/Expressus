@@ -1,7 +1,6 @@
 package com.expressus.compose.components
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.center
@@ -94,8 +93,10 @@ fun Slot(
                     lineTo(size.width - strokeWidth.value / 2, y = size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f)
                 } else {
                     quadraticBezierTo(
-                        x1 = size.center.x, y1 = size.height - strokeWidth.value / 2 - if (convexBottom) -bottomOffset.value else bottomOffset.value,
-                        x2 = size.width - strokeWidth.value / 2, y2 = size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f
+                        x1 = size.center.x,
+                        y1 = size.height - strokeWidth.value / 2 - if (convexBottom) -bottomOffset.value else bottomOffset.value,
+                        x2 = size.width - strokeWidth.value / 2,
+                        y2 = size.height - strokeWidth.value / 2 - if (convexBottom) bottomOffset.value else 0f
                     )
                 }
                 lineTo(size.width, size.height - if (convexBottom) bottomOffset.value else 0f)

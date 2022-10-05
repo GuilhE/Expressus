@@ -72,6 +72,7 @@ kotlin {
         val shared by creating {
             dependencies {
                 api(Libs.Koin.core)
+                implementation(Libs.Multiplatform.multiplatformSettings)
             }
             jvmMain.dependsOn(this)
             androidMain.dependsOn(this)

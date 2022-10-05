@@ -15,7 +15,7 @@ import com.expressus.compose.components.leftPanel.CoffeeStream
 @Composable
 @Preview
 private fun CoffeeStreamPreview() {
-    var pouring: Boolean by remember { mutableStateOf( false) }
+    var pouring: Boolean by remember { mutableStateOf(false) }
     BoxWithConstraints(
         Modifier
             .fillMaxSize(),

@@ -7,9 +7,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.expressus.compose.themes.CoffeeSelectorsTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.yield
-import com.expressus.compose.themes.CoffeeSelectorsTheme
 
 @Composable
 fun CoffeeSelectors(modifier: Modifier, count: Int, isMakingCoffee: Boolean = false, onClick: () -> Unit) {
