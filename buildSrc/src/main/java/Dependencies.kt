@@ -13,10 +13,10 @@ object Versions {
         const val kotlin = "1.7.20"
         const val kotlinxSerialization = "1.4.0"
         const val kotlinxCoroutines = "1.6.4"
-        const val kotlinxAtomicFu = "0.18.3"
+        const val kotlinxAtomicFu = "0.18.4"
 
         object Compose {
-            const val desktop = "1.2.0-beta02"
+            const val desktop = "1.2.0"
         }
     }
 
@@ -41,7 +41,7 @@ object Versions {
         }
 
         object Compose {
-            const val core = "1.3.0-beta03"
+            const val core = "1.3.0-rc01"
             const val compiler = "1.3.2"
             const val activity = "1.6.0"
         }
