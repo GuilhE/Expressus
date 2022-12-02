@@ -6,6 +6,7 @@ plugins {
     kotlin("native.cocoapods")
     id("com.android.library")
     id("kotlinx-serialization")
+    id("maven-publish")
 }
 
 version = "1.0"
@@ -55,6 +56,7 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
+                implementation(project(":shared-ui-compose"))
                 with(Libs.JetBrains) {
                     implementation(atomicFu)
                     implementation(serializationJson)

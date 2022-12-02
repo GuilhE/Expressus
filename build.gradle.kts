@@ -12,6 +12,7 @@ buildscript {
 
 plugins {
     id(Libs.Gradle.dependencyUpdate).version(Versions.Gradle.dependencyUpdate)
+    id("maven-publish")
 }
 
 allprojects {

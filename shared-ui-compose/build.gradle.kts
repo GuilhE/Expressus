@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("org.jetbrains.compose") version Versions.JetBrains.Compose.desktop
+    id("maven-publish")
 }
 
 kotlin {
