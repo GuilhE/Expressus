@@ -1,33 +1,15 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id("buildlogic.plugins.application")
 }
 
 android {
-    compileSdk = SDK.compile
     namespace = "com.expressus.android"
-
     defaultConfig {
         applicationId = "com.expressus.android"
-        minSdk = SDK.min
-        targetSdk = SDK.target
         versionCode = 1
         versionName = "1.0"
 
         resValue("string", "app_name_label", "Expressus")
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Android.Compose.compiler
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
     }
 
     buildTypes {
@@ -44,24 +26,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared"))
-    implementation(project(":shared-ui-compose"))
+    implementation(projects.shared)
+    implementation(projects.sharedUiCompose)
 
-    // Android
-    implementation(Libs.Android.Core.material)
-    implementation(Libs.Android.Lifecycle.lifecycleRuntimeKtx)
-
-    // Android Compose
-    with(Libs.Android.Compose) {
-        implementation(activity)
-        implementation(material)
-        implementation(ui)
-        implementation(runtime)
-        implementation(foundationLayout)
-        implementation(uiToolingPreview)
-        implementation(uiTooling)
-    }
-
-    // Di
-    implementation(Libs.Koin.android)
+    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.android.material)
+    implementation(libs.koin.android)
 }

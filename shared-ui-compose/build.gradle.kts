@@ -1,12 +1,11 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
-    id("org.jetbrains.compose") version Versions.JetBrains.Compose.desktop
+    id("buildlogic.plugins.kmp.library.android")
+    alias(libs.plugins.jetbrains.compose.desktop)
 }
 
 kotlin {
     jvm()
-    android()
+    androidTarget()
 
     sourceSets {
         val commonMain by getting {
@@ -25,18 +24,12 @@ kotlin {
     }
 }
 
+compose {
+    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
+}
+
 android {
-    compileSdk = SDK.compile
-    sourceSets["main"].let {
-        it.manifest.srcFile("src/androidMain/AndroidManifest.xml")
-        it.res.srcDirs("src/commonMain/resources")
-    }
-    defaultConfig {
-        minSdk = SDK.min
-        targetSdk = SDK.target
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
+    namespace = "com.expressus.compose"
+    sourceSets["main"].res.srcDirs("src/commonMain/resources")
 }

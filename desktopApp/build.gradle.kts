@@ -2,7 +2,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version Versions.JetBrains.Compose.desktop
+    alias(libs.plugins.jetbrains.compose.desktop)
 }
 
 kotlin {
@@ -12,13 +12,18 @@ kotlin {
     sourceSets {
         named("jvmMain") {
             dependencies {
-                implementation(project(":shared"))
-                implementation(project(":shared-ui-compose"))
+                implementation(projects.shared)
+                implementation(projects.sharedUiCompose)
                 implementation(compose.desktop.currentOs)
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:${Versions.JetBrains.kotlinxCoroutines}")
+                implementation(libs.jetbrains.kotlinx.coroutines.swing)
             }
         }
     }
+}
+
+compose {
+    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
 }
 
 compose.desktop {

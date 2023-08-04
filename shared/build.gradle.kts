@@ -2,17 +2,21 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("multiplatform")
-    kotlin("native.cocoapods")
-    id("com.android.library")
+    id("buildlogic.plugins.kmp.library.android")
     id("kotlinx-serialization")
+    id("kotlin-parcelize")
+    kotlin("native.cocoapods")
 }
 
 version = "1.0"
 
+android {
+    namespace = "com.expressus"
+}
+
 kotlin {
     jvm()
-    android()
+    androidTarget()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -40,7 +44,7 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                implementation(Libs.Koin.android)
+                implementation(libs.koin.android)
             }
         }
 
@@ -55,24 +59,19 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                with(Libs.JetBrains) {
-                    implementation(atomicFu)
-                    implementation(serializationJson)
-                    implementation(kotlinxCoroutinesCore)
-                }
-                with(Libs.Multiplatform) {
-                    implementation(multiplatformSettings)
-                    api(kermit)
-                    api(mokoMvvm)
-                    api(orbitMviCore)
-                }
+                implementation(libs.jetbrains.kotlinx.coroutines.core)
+                implementation(libs.jetbrains.kotlinx.serialization)
+                implementation(libs.jetbrains.kotlinx.atomicfu)
+                api(libs.multiplatform.kermit)
+                api(libs.multiplatform.mokoMvvm)
+                api(libs.helpers.orbitMvi.core)
             }
         }
 
         val shared by creating {
             dependencies {
-                api(Libs.Koin.core)
-                implementation(Libs.Multiplatform.multiplatformSettings)
+                api(libs.koin.core)
+                implementation(libs.multiplatform.multiplatformSettings)
             }
             jvmMain.dependsOn(this)
             androidMain.dependsOn(this)
@@ -83,24 +82,5 @@ kotlin {
         targets.withType<KotlinNativeTarget> {
             compilations["main"].kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
         }
-    }
-}
-
-android {
-    compileSdk = SDK.compile
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdk = SDK.min
-        targetSdk = SDK.target
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "11"
     }
 }
