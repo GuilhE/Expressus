@@ -15,13 +15,15 @@ import androidx.compose.ui.window.rememberWindowState
 import com.expressus.compose.components.leftPanel.*
 import com.expressus.compose.components.rightPanel.*
 import com.expressus.domain.DependencyInjection
+import com.expressus.domain.ViewModels
 import com.expressus.domain.stateMachines.ExpressusUiState
 import com.expressus.domain.viewModels.ExpressusViewModel
 import org.koin.core.Koin
 
 fun main() = application {
     val koin: Koin = remember { DependencyInjection.initKoinAndReturnInstance() }
-    val viewModel = remember { koin.get<ExpressusViewModel>() }
+//    val viewModel = remember { koin.get<ExpressusViewModel>() }
+    val viewModel = ViewModels.expressusStateViewModel()
     var resizable by remember { mutableStateOf(true) }
 
     Window(
