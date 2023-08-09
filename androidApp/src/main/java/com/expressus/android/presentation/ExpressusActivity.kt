@@ -2,27 +2,21 @@
 
 package com.expressus.android.presentation
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.*
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Surface
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.flowWithLifecycle
-import com.expressus.android.presentation.components.MachineFrame
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.expressus.compose.components.centerPanel.MachineFrame
 import com.expressus.compose.components.leftPanel.CoffeeSlot
 import com.expressus.compose.components.leftPanel.FaucetOffsets
 import com.expressus.compose.components.rightPanel.CircularButton
@@ -30,7 +24,6 @@ import com.expressus.compose.components.rightPanel.Display
 import com.expressus.compose.themes.CoffeeSelectorsTheme
 import com.expressus.domain.stateMachines.ExpressusUiState
 import com.expressus.domain.viewModels.ExpressusViewModel
-import kotlinx.coroutines.flow.StateFlow
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class ExpressusActivity : AppCompatActivity() {
@@ -45,7 +38,7 @@ class ExpressusActivity : AppCompatActivity() {
         with(viewModel) {
             setContent {
                 Surface {
-                    val state = state.collectAsStateLifecycleAware().value
+                    val state = state.collectAsStateWithLifecycle().value
                     Expressus(state) { makeCoffee() }
                     when {
                         state.isGrinding -> {
@@ -130,16 +123,4 @@ private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
 @Preview
 private fun ExpressusPreview() {
     Expressus(ExpressusUiState()) {}
-}
-
-@Composable
-private fun <STATE : Any> StateFlow<STATE>.collectAsStateLifecycleAware(): State<STATE> {
-    val lifecycleOwner = LocalLifecycleOwner.current
-    val stateFlowLifecycleAware = remember(this, lifecycleOwner) {
-        this.flowWithLifecycle(lifecycleOwner.lifecycle, Lifecycle.State.STARTED)
-    }
-    // Need to access the initial value to convert to State - collectAsState() suppresses this lint warning too
-    @SuppressLint("StateFlowValueCalledInComposition")
-    val initialValue = this.value
-    return stateFlowLifecycleAware.collectAsState(initialValue)
 }

@@ -1,6 +1,5 @@
 package com.expressus.compose.themes
 
-import PlatformFont
 import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
@@ -8,12 +7,13 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.expressus.compose.platformFont
 
 private val ledFontFamily
     @Composable
     get() = FontFamily(
-        PlatformFont(
-            name = "led",
+        platformFont(
+            resourceId = "led",
             weight = FontWeight.W400,
             style = FontStyle.Normal
         )

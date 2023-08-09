@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("buildlogic.plugins.kmp.library.android")
@@ -7,8 +6,6 @@ plugins {
     id("kotlin-parcelize")
     kotlin("native.cocoapods")
 }
-
-version = "1.0"
 
 android {
     namespace = "com.expressus"
@@ -25,9 +22,10 @@ kotlin {
         summary = "Expressus, a multiplatform coffee machine!"
         homepage = "https://github.com/GuilhE/Expressus"
         ios.deploymentTarget = "14.1"
+        version = "1.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "shared"
+            baseName = "Shared"
             isStatic = false // SwiftUI preview requires dynamic framework
         }
     }

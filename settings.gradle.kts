@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "Expressus"
-include(":shared")
-include(":shared-ui-compose")
 include(":androidApp")
 include(":desktopApp")
+include(":shared")
+include(":shared-ui-compose")

@@ -5,7 +5,7 @@
 [![Featured in Kotlin Weekly - Issue #299](https://img.shields.io/badge/Featured_in_Kotlin_Weekly-Issue_%23299-7878b4)](https://mailchi.mp/kotlinweekly/kotlin-weekly-299) [![Featured in Kotlin Weekly - Issue #301](https://img.shields.io/badge/Featured_in_Kotlin_Weekly-Issue_%23301-7878b4)](https://mailchi.mp/kotlinweekly/kotlin-weekly-301)
 [![Android Weekly](https://androidweekly.net/issues/issue-515/badge)](https://androidweekly.net/issues/issue-515)
 
-KMM sample project acting as a playground to illustrate what's discussed in these articles:
+KMP sample project acting as a playground to illustrate what's discussed in these articles:
 <p>
  <a href="https://guidelgado.medium.com/36d84056c616"><img src="/media/banner1.png"></a></br>
  <a href="https://guidelgado.medium.com/a67bd9a49882"><img src="/media/banner2.png"></a>
@@ -13,26 +13,33 @@ KMM sample project acting as a playground to illustrate what's discussed in thes
 
 ## Details
 
-### Shared
+### Shared Modules
+
+#### Shared
 
 - Model-View-Intent architecture
 - Finite State Machine to validate state transitions
 - State restoration (both for UI State and FSM State)
-- Compose for Desktop used in __shared-ui__ module to share composables between Desktop and Android
+
+#### Shared Ui Compose
+
+- Compose Multiplaform to share composables between Desktop, Android and iOS
 
 ### Platforms
 
 #### Mobile
 
 - UI State emissions using Kotlin Flow and Swift Combine Publisher
-- Jetpack Compose (+Desktop) and SwiftUI
+- Jetpack Compose, Compose Multiplatform and SwiftUI
 
 `./gradlew :androidApp:installDebug`
+
+**note:** to run iosApp you must open Android Studio, choose iosApp in run configurations, and then run it.
 
 #### Desktop
 
 - UI State emissions using Kotlin Flow
-- Compose for Desktop
+- Compose Multiplatform
 
 `./gradlew :desktopApp:run`
 
