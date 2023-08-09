@@ -33,9 +33,3 @@ fun MachineFrame(modifier: Modifier, content: @Composable ColumnScope.() -> Unit
         }
     }
 }
-
-@Composable
-@Preview
-private fun MachineFramePreview() {
-    MachineFrame(modifier = Modifier.fillMaxSize()) {}
-}

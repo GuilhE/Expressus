@@ -1,6 +1,6 @@
 import SwiftUI
 import Combine
-import shared
+import Shared
 
 public extension ExpressusViewModel {
     func asObservableObject() -> ExpressusViewModelObservableObject {
