@@ -22,7 +22,7 @@ import com.expressus.compose.themes.CoffeeSelectorsTheme
 import platform.UIKit.UIViewController
 
 object SharedViewControllers {
-    fun Expressus(isGrinding: Boolean, isPouring: Boolean, label: String): UIViewController = ComposeUIViewController {
+    fun Expressus(isGrinding: Boolean, isPouring: Boolean, status: String, makeCoffee: () -> Unit): UIViewController = ComposeUIViewController {
         MachineFrame(Modifier.fillMaxSize()) {
             Column(
                 Modifier.fillMaxSize(),
@@ -45,11 +45,11 @@ object SharedViewControllers {
                         .fillMaxWidth()
                         .height(50.dp)
                         .padding(horizontal = 50.dp),
-                    text = label
+                    text = status
                 )
                 Spacer(Modifier.size(50.dp))
                 CoffeeSelectorsTheme {
-                    CircularButton(size = 70.dp) { }
+                    CircularButton(size = 70.dp) { makeCoffee() }
                 }
             }
         }

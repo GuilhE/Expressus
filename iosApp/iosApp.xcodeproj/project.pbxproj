@@ -13,7 +13,7 @@
 		231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6EF2822B7E700DBABCA /* CircularButton.swift */; };
 		231BC6F22822BECE00DBABCA /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F12822BECE00DBABCA /* SoundPlayer.swift */; };
 		231BC6F52822C6E500DBABCA /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F42822C6E500DBABCA /* Display.swift */; };
-		231BC6FF2822D38F00DBABCA /* LedPanelStationOn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231BC6FE2822D38F00DBABCA /* LedPanelStationOn.ttf */; };
+		231BC6FF2822D38F00DBABCA /* led_panel_panels_station_on.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231BC6FE2822D38F00DBABCA /* led_panel_panels_station_on.ttf */; };
 		2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */; };
 		234DED422823E16A0050F669 /* pouring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 234DED402823E1690050F669 /* pouring.mp3 */; };
 		234DED432823E16A0050F669 /* grinding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 234DED412823E16A0050F669 /* grinding.mp3 */; };
@@ -41,7 +41,7 @@
 		231BC6EF2822B7E700DBABCA /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		231BC6F12822BECE00DBABCA /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		231BC6F42822C6E500DBABCA /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
-		231BC6FE2822D38F00DBABCA /* LedPanelStationOn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LedPanelStationOn.ttf; sourceTree = "<group>"; };
+		231BC6FE2822D38F00DBABCA /* led_panel_panels_station_on.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = led_panel_panels_station_on.ttf; sourceTree = "<group>"; };
 		2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusScreen.swift; sourceTree = "<group>"; };
 		234DED402823E1690050F669 /* pouring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pouring.mp3; sourceTree = "<group>"; };
 		234DED412823E16A0050F669 /* grinding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = grinding.mp3; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			children = (
 				234DED412823E16A0050F669 /* grinding.mp3 */,
 				234DED402823E1690050F669 /* pouring.mp3 */,
-				231BC6FE2822D38F00DBABCA /* LedPanelStationOn.ttf */,
+				231BC6FE2822D38F00DBABCA /* led_panel_panels_station_on.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -254,7 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				231BC6FF2822D38F00DBABCA /* LedPanelStationOn.ttf in Resources */,
+				231BC6FF2822D38F00DBABCA /* led_panel_panels_station_on.ttf in Resources */,
 				234DED422823E16A0050F669 /* pouring.mp3 in Resources */,
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,

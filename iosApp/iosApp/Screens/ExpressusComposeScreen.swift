@@ -5,7 +5,7 @@ import SharedUi
 
 struct ExpressusUIViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        return SharedViewControllers().Expressus(isGrinding: true, isPouring: false, label: "Grinding")
+        return SharedViewControllers().Expressus(isGrinding: true, isPouring: false, status: "Grinding", makeCoffee: {})
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
