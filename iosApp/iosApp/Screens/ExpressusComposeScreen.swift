@@ -14,7 +14,7 @@ struct ExpressusUIViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         return SharedViewControllers().Expressus(isGrinding: grinding, isPouring: pouring, isMakingCoffee: makingCoffee, status: status, makeCoffee: action)
     }
-
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 
@@ -30,20 +30,26 @@ struct ExpressusComposeScreen: View {
     private let vibratorManager = VibratorManager()
     
     var body: some View {
-        ExpressusUIViewController(grinding: $isGrinding, pouring: $isPouring, makingCoffee: $isMakingCoffee, status: $status, action: { viewModel.makeCoffee() })
-            .onReceive(viewModel.$state) { new in
-                isMakingCoffee = new.isMakingCoffee()
-                isGrinding = new.isGrinding
-                isPouring = new.isPouring
-                status = new.label()
-                if(new.isPouring) {
-                    soundPlayer.playPouring()
-                    vibratorManager.stop()
-                } else if(new.isGrinding) {
-                    soundPlayer.playGriding()
-                    vibratorManager.vibrate()
-                }
+        ExpressusUIViewController(
+            grinding: $isGrinding,
+            pouring: $isPouring,
+            makingCoffee: $isMakingCoffee,
+            status: $status,
+            action: { viewModel.makeCoffee() }
+        )
+        .onReceive(viewModel.$state) { new in
+            isMakingCoffee = new.isMakingCoffee()
+            isGrinding = new.isGrinding
+            isPouring = new.isPouring
+            status = new.label()
+            if(new.isPouring) {
+                soundPlayer.playPouring()
+                vibratorManager.stop()
+            } else if(new.isGrinding) {
+                soundPlayer.playGriding()
+                vibratorManager.vibrate()
             }
-            .ignoresSafeArea()
+        }
+        .ignoresSafeArea()
     }
 }
