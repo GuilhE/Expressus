@@ -89,9 +89,3 @@ private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
             makeCoffee = { makeCoffee() })
     }
 }
-
-@Composable
-@Preview
-private fun ExpressusPreview() {
-    Expressus(ExpressusUiState()) {}
-}
