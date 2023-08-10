@@ -10,21 +10,35 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.expressus.compose.components.centerPanel.MachineFrame
-import com.expressus.compose.components.leftPanel.CoffeeSlot
-import com.expressus.compose.components.leftPanel.FaucetOffsets
-import com.expressus.compose.components.rightPanel.CircularButton
-import com.expressus.compose.components.rightPanel.Display
-import com.expressus.compose.themes.CoffeeSelectorsTheme
+import com.expressus.compose.components.ExpressusMobile
 import com.expressus.domain.stateMachines.ExpressusUiState
 import com.expressus.domain.viewModels.ExpressusViewModel
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+
+private fun vibrate(context: Context) {
+    with(context) {
+        val milliseconds = 5000L
+        val amplitude = 50
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            (getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager).defaultVibrator.vibrate(
+                VibrationEffect.createOneShot(milliseconds, amplitude)
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            (getSystemService(Context.VIBRATOR_SERVICE) as Vibrator).let {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    it.vibrate(VibrationEffect.createOneShot(milliseconds, amplitude))
+                } else {
+                    it.vibrate(milliseconds)
+                }
+            }
+        }
+    }
+}
 
 class ExpressusActivity : AppCompatActivity() {
     private val grindingPlayer: MediaPlayer by lazy { MediaPlayer.create(this, com.expressus.android.R.raw.grinding) }
@@ -49,6 +63,7 @@ class ExpressusActivity : AppCompatActivity() {
                             grindingPlayer.start()
                             vibrate(this@ExpressusActivity)
                         }
+
                         state.isPouring -> {
                             grindingPlayer.apply {
                                 stop()
@@ -63,59 +78,15 @@ class ExpressusActivity : AppCompatActivity() {
     }
 }
 
-private fun vibrate(context: Context) {
-    with(context) {
-        val milliseconds = 5000L
-        val amplitude = 50
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            (getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager).defaultVibrator.vibrate(
-                VibrationEffect.createOneShot(milliseconds, amplitude)
-            )
-        } else {
-            @Suppress("DEPRECATION")
-            (getSystemService(Context.VIBRATOR_SERVICE) as Vibrator).let {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    it.vibrate(VibrationEffect.createOneShot(milliseconds, amplitude))
-                } else {
-                    it.vibrate(milliseconds)
-                }
-            }
-        }
-    }
-}
-
 @Composable
 private fun Expressus(state: ExpressusUiState, makeCoffee: () -> Unit) {
-    MachineFrame(Modifier.fillMaxSize()) {
-        Column(
-            Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            CoffeeSlot(
-                modifier = Modifier
-                    .aspectRatio(1f)
-                    .padding(10.dp),
-                isGrinding = state.isGrinding,
-                isPouring = state.isPouring,
-                pouringSpeed = 2L,
-                slotOffset = 50.dp,
-                faucetOffsets = FaucetOffsets(10.dp, 10.dp)
-            )
-            Spacer(Modifier.size(50.dp))
-            Display(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-                    .padding(horizontal = 50.dp),
-                text = state.label()
-            )
-            Spacer(Modifier.size(50.dp))
-            CoffeeSelectorsTheme {
-                CircularButton(size = 70.dp, makeCoffee)
-            }
-        }
+    with(state) {
+        ExpressusMobile(
+            isGrinding = isGrinding,
+            isPouring = isPouring,
+            isMakingCoffee = isMakingCoffee(),
+            status = label(),
+            makeCoffee = { makeCoffee() })
     }
 }
 

@@ -66,7 +66,7 @@ private fun CoffeeTile(animateIdle: Boolean = false, toggle: Boolean = false, on
                 if (animateIdle) MaterialTheme.colors.primaryVariant else if (toggle) MaterialTheme.colors.secondary else MaterialTheme.colors.primary
             )
             Spacer(Modifier.size(10.dp))
-            CircularButton(25.dp, onClick)
+            CircularButton(25.dp) { onClick() }
         }
     }
 }

@@ -4,8 +4,15 @@ import Shared
 import SharedUi
 
 struct ExpressusUIViewController: UIViewControllerRepresentable {
+    
+    @Binding var grinding: Bool
+    @Binding var pouring: Bool
+    @Binding var makingCoffee: Bool
+    @Binding var status: String
+    let action: () -> Void
+    
     func makeUIViewController(context: Context) -> UIViewController {
-        return SharedViewControllers().Expressus(isGrinding: true, isPouring: false, status: "Grinding", makeCoffee: {})
+        return SharedViewControllers().Expressus(isGrinding: grinding, isPouring: pouring, isMakingCoffee: makingCoffee, status: status, makeCoffee: action)
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
@@ -23,7 +30,7 @@ struct ExpressusComposeScreen: View {
     private let vibratorManager = VibratorManager()
     
     var body: some View {
-        ExpressusUIViewController()
+        ExpressusUIViewController(grinding: $isGrinding, pouring: $isPouring, makingCoffee: $isMakingCoffee, status: $status, action: { viewModel.makeCoffee() })
             .onReceive(viewModel.$state) { new in
                 isMakingCoffee = new.isMakingCoffee()
                 isGrinding = new.isGrinding
