@@ -48,12 +48,23 @@ private struct ExpressusUIViewController: UIViewControllerRepresentable {
     let action: () -> Void
     
     func makeUIViewController(context: Context) -> UIViewController {
-        return SharedViewControllers().Expressus(isGrinding: grinding, isPouring: pouring, isMakingCoffee: makingCoffee, status: status, makeCoffee: action)
+        return SharedViewControllers()
+            .expressus(
+                isGrinding: grinding,
+                isPouring: pouring,
+                isMakingCoffee: makingCoffee,
+                status: status,
+                makeCoffee: action
+            )
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        uiViewController.view.subviews.forEach { UIView in
-            print(UIView)
-        }
+        SharedViewControllers()
+            .updateExpressus(
+                isGrinding: grinding,
+                isPouring: pouring,
+                isMakingCoffee: makingCoffee,
+                status: status
+            )
     }
 }
