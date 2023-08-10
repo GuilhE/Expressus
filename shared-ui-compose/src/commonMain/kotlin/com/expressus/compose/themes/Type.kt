@@ -13,7 +13,7 @@ private val ledFontFamily
     @Composable
     get() = FontFamily(
         platformFont(
-            resourceId = "led",
+            resourceId = "LedPanelStationOn",
             weight = FontWeight.W400,
             style = FontStyle.Normal
         )

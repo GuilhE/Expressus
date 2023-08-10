@@ -26,7 +26,6 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "Shared"
-            isStatic = false // SwiftUI preview requires dynamic framework
         }
     }
 

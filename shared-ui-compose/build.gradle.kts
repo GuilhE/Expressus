@@ -29,9 +29,9 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "SharedUi"
-            isStatic = false // SwiftUI preview requires dynamic framework
+            isStatic = true
         }
-        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**']"
     }
 
     sourceSets {

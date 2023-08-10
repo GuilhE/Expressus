@@ -24,7 +24,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Led.ttf</string>
+		<string>LedPanelStationOn.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

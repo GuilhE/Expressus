@@ -21,34 +21,36 @@ import com.expressus.compose.components.rightPanel.Display
 import com.expressus.compose.themes.CoffeeSelectorsTheme
 import platform.UIKit.UIViewController
 
-fun MachineFrameViewController(isGrinding: Boolean, isPouring: Boolean, label: String): UIViewController = ComposeUIViewController {
-    MachineFrame(Modifier.fillMaxSize()) {
-        Column(
-            Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            CoffeeSlot(
-                modifier = Modifier
-                    .aspectRatio(1f)
-                    .padding(10.dp),
-                isGrinding = isGrinding,
-                isPouring = isPouring,
-                pouringSpeed = 2L,
-                slotOffset = 50.dp,
-                faucetOffsets = FaucetOffsets(10.dp, 10.dp)
-            )
-            Spacer(Modifier.size(50.dp))
-            Display(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-                    .padding(horizontal = 50.dp),
-                text = label
-            )
-            Spacer(Modifier.size(50.dp))
-            CoffeeSelectorsTheme {
-                CircularButton(size = 70.dp) { }
+object SharedViewControllers {
+    fun Expressus(isGrinding: Boolean, isPouring: Boolean, label: String): UIViewController = ComposeUIViewController {
+        MachineFrame(Modifier.fillMaxSize()) {
+            Column(
+                Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                CoffeeSlot(
+                    modifier = Modifier
+                        .aspectRatio(1f)
+                        .padding(10.dp),
+                    isGrinding = isGrinding,
+                    isPouring = isPouring,
+                    pouringSpeed = 2L,
+                    slotOffset = 50.dp,
+                    faucetOffsets = FaucetOffsets(10.dp, 10.dp)
+                )
+                Spacer(Modifier.size(50.dp))
+                Display(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(50.dp)
+                        .padding(horizontal = 50.dp),
+                    text = label
+                )
+                Spacer(Modifier.size(50.dp))
+                CoffeeSelectorsTheme {
+                    CircularButton(size = 70.dp) { }
+                }
             }
         }
     }
