@@ -2,29 +2,13 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
-    alias(libs.plugins.jetbrains.compose.desktop)
+    id("org.jetbrains.compose")
 }
 
-kotlin {
-    jvm {
-        withJava()
-    }
-    sourceSets {
-        named("jvmMain") {
-            dependencies {
-                implementation(projects.shared)
-                implementation(projects.sharedUiCompose)
-                implementation(compose.desktop.currentOs)
-                implementation(libs.jetbrains.kotlinx.coroutines.swing)
-            }
-        }
-    }
-}
-
-compose {
-    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+//compose {
+//    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
 //    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
-}
+//}
 
 compose.desktop {
     application {
@@ -44,6 +28,22 @@ compose.desktop {
                 macOS { iconFile.set(resolve("icon.icns")) }
                 linux { iconFile.set(resolve("icon.png")) }
                 windows { iconFile.set(resolve("icon.ico")) }
+            }
+        }
+    }
+}
+
+kotlin {
+    jvm {
+        withJava()
+    }
+    sourceSets {
+        named("jvmMain") {
+            dependencies {
+                implementation(projects.shared)
+                implementation(projects.sharedUiCompose)
+                implementation(compose.desktop.currentOs)
+                implementation(libs.jetbrains.kotlinx.coroutines.swing)
             }
         }
     }

@@ -3,21 +3,6 @@ import SwiftUI
 import Shared
 import SharedUi
 
-struct ExpressusUIViewController: UIViewControllerRepresentable {
-    
-    @Binding var grinding: Bool
-    @Binding var pouring: Bool
-    @Binding var makingCoffee: Bool
-    @Binding var status: String
-    let action: () -> Void
-    
-    func makeUIViewController(context: Context) -> UIViewController {
-        return SharedViewControllers().Expressus(isGrinding: grinding, isPouring: pouring, isMakingCoffee: makingCoffee, status: status, makeCoffee: action)
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-}
-
 struct ExpressusComposeScreen: View {
     
     @StateObject private var viewModel = ViewModels().expressusStateViewModel().asObservableObject()
@@ -51,5 +36,24 @@ struct ExpressusComposeScreen: View {
             }
         }
         .ignoresSafeArea()
+    }
+}
+
+private struct ExpressusUIViewController: UIViewControllerRepresentable {
+    
+    @Binding var grinding: Bool
+    @Binding var pouring: Bool
+    @Binding var makingCoffee: Bool
+    @Binding var status: String
+    let action: () -> Void
+    
+    func makeUIViewController(context: Context) -> UIViewController {
+        return SharedViewControllers().Expressus(isGrinding: grinding, isPouring: pouring, isMakingCoffee: makingCoffee, status: status, makeCoffee: action)
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        uiViewController.view.subviews.forEach { UIView in
+            print(UIView)
+        }
     }
 }

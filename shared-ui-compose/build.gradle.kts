@@ -1,13 +1,13 @@
 plugins {
     id("buildlogic.plugins.kmp.library.android")
-    alias(libs.plugins.jetbrains.compose.multiplatform)
+    id("org.jetbrains.compose")
     kotlin("native.cocoapods")
 }
 
-compose {
-    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+//compose {
+//    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
 //    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
-}
+//}
 
 android {
     namespace = "com.expressus.compose"
@@ -29,9 +29,7 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "SharedUi"
-            isStatic = true
         }
-        extraSpecAttributes["resources"] = "['src/commonMain/resources/**']"
     }
 
     sourceSets {
