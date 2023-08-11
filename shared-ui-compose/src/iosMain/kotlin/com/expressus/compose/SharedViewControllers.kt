@@ -1,10 +1,8 @@
+@file:Suppress("unused")
+
 package com.expressus.compose
 
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.window.ComposeUIViewController
 import com.expressus.compose.components.ExpressusMobile
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,26 +17,24 @@ object SharedViewControllers {
 //        }
 //    }
 
+    //https://github.com/JetBrains/compose-multiplatform/issues/3478
     private data class ComposeUIViewState(
         val isGrinding: Boolean = false,
         val isPouring: Boolean = false,
         val isMakingCoffee: Boolean = false,
         val status: String = ""
     )
-    private val _state = MutableStateFlow(ComposeUIViewState())
+    private val viewState = MutableStateFlow(ComposeUIViewState())
 
-    fun expressus(isGrinding: Boolean, isPouring: Boolean, isMakingCoffee: Boolean, status: String, makeCoffee: () -> Unit): UIViewController {
+    fun expressus(makeCoffee: () -> Unit): UIViewController {
         return ComposeUIViewController {
-            var state by remember { mutableStateOf(ComposeUIViewState(isGrinding, isPouring, isMakingCoffee, status)) }
-            ExpressusMobile(state.isGrinding, state.isPouring, state.isMakingCoffee, state.status, makeCoffee)
-            LaunchedEffect(Unit) {
-                _state.collect { state = it }
+            with(viewState.collectAsState().value) {
+                ExpressusMobile(this.isGrinding, this.isPouring, this.isMakingCoffee, this.status, makeCoffee)
             }
-
         }
     }
 
     fun updateExpressus(isGrinding: Boolean, isPouring: Boolean, isMakingCoffee: Boolean, status: String) {
-        _state.update { ComposeUIViewState(isGrinding = isGrinding, isPouring = isPouring, isMakingCoffee = isMakingCoffee, status = status) }
+        viewState.update { ComposeUIViewState(isGrinding = isGrinding, isPouring = isPouring, isMakingCoffee = isMakingCoffee, status = status) }
     }
 }
