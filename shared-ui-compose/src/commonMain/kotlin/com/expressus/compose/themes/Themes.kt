@@ -67,6 +67,7 @@ fun CoffeeSelectorsTheme(content: @Composable () -> Unit) {
             surface = whiteDirty,
             background = Color.DarkGray.copy(0.7f)
         ),
+        typography = machineTypography,
         content = content
     )
 }

@@ -34,7 +34,8 @@ fun Display(modifier: Modifier, text: String) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = text.uppercase(),
-                textAlign = TextAlign.Center, color = MaterialTheme.colors.onBackground,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colors.onBackground,
                 style = MaterialTheme.typography.h5
             )
         }

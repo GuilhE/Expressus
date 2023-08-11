@@ -2,6 +2,7 @@ package com.expressus.android.presentation.previews.rightPanel
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,7 +14,7 @@ import com.expressus.compose.themes.MachineTheme
 @Preview
 fun CoffeeTypeListPreview() {
     MachineTheme {
-        Box(Modifier.background(MaterialTheme.colors.background)) {
+        Column(Modifier.background(MaterialTheme.colors.background)) {
             CoffeeSelectors(Modifier, 2) {}
         }
     }

@@ -9,15 +9,22 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.unit.dp
 import com.expressus.compose.components.centerPanel.MachineFrame
 import com.expressus.compose.components.leftPanel.CoffeeSlot
 import com.expressus.compose.components.leftPanel.FaucetOffsets
 import com.expressus.compose.components.rightPanel.CircularButton
+import com.expressus.compose.components.rightPanel.CoffeeSelectors
 import com.expressus.compose.components.rightPanel.Display
+import com.expressus.compose.components.rightPanel.FanGrid
+import com.expressus.compose.components.rightPanel.MachineRightFrame
+import com.expressus.compose.components.rightPanel.PaymentSocket
 import com.expressus.compose.themes.CoffeeSelectorsTheme
 
 @Composable
@@ -50,6 +57,42 @@ fun ExpressusMobile(isGrinding: Boolean, isPouring: Boolean, isMakingCoffee: Boo
             CoffeeSelectorsTheme {
                 CircularButton(size = 70.dp, enabled = !isMakingCoffee) { makeCoffee() }
             }
+        }
+    }
+}
+
+@Composable
+internal fun CoffeeSelectorsMobile(onSwiftUiClick: () -> Unit, onComposeClick: () -> Unit) {
+    val options = remember { List(3) { "" } + listOf("SWIFT_UI", "COMPOSE") }
+    MachineRightFrame(Modifier) {
+        Column(
+            Modifier.weight(2f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceEvenly
+        ) {
+            CoffeeSelectors(Modifier, options) { index ->
+                when (index) {
+                    options.size - 1 -> onComposeClick()
+                    options.size - 2 -> onSwiftUiClick()
+                    else -> {}
+                }
+            }
+            PaymentSocket(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 40.dp)
+            )
+        }
+        Column(
+            Modifier.weight(1f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            FanGrid(
+                Modifier
+                    .width(120.dp)
+                    .scale(1.5f)
+            )
         }
     }
 }

@@ -30,6 +30,7 @@
 		23EAF2AA2824079200E4996F /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAF2A92824079200E4996F /* Slot.swift */; };
 		23EC51332827F02700CEDD5C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC51322827F02700CEDD5C /* Fonts.swift */; };
 		23EC5135282804F900CEDD5C /* VibratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC5134282804F900CEDD5C /* VibratorManager.swift */; };
+		5C68604B2A865B8200B3CB5D /* ExpressusSelectorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */; };
 		5C87604B2A7EA65D0088D2BC /* ExpressusComposeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */; };
 		959714E1739DD393E42800B3 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		23EC5134282804F900CEDD5C /* VibratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibratorManager.swift; sourceTree = "<group>"; };
 		256B406FFD1B35DDB345563D /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		501EB1427AFCA39E8B06CBA3 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusSelectorScreen.swift; sourceTree = "<group>"; };
 		5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusComposeScreen.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				2332250D27E9E3BC00D931E4 /* ExpressusScreen.swift */,
 				5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */,
+				5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				23D501952826F1950032BA7A /* CoffeeFaucet.swift in Sources */,
 				2350E6A828251CC60052E48C /* ThemeScope.swift in Sources */,
 				2350E6AA28251D9C0052E48C /* Themes.swift in Sources */,
+				5C68604B2A865B8200B3CB5D /* ExpressusSelectorScreen.swift in Sources */,
 				2332250E27E9E3BC00D931E4 /* ExpressusScreen.swift in Sources */,
 				23D5019728272E220032BA7A /* Cup.swift in Sources */,
 				231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */,
