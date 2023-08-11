@@ -1,21 +1,30 @@
 import SwiftUI
 import SharedUi
 
+private enum Destination: Hashable {
+    case swiftUi
+    case compose
+}
+
 struct ExpressusSelectorScreen: View {
     
-    @State private var isActiveA = false
-    @State private var isActiveB = false
+    @State var navigation = NavigationPath()
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                NavigationLink("", destination: ExpressusScreen(), isActive: $isActiveA)
-                NavigationLink("", destination: ExpressusComposeScreen(), isActive: $isActiveB)
-                CoffeeSelectorsUIViewController(
-                    onSwiftUI: { isActiveA = true},
-                    onCompose: { isActiveB = true}
-                )
-            }.ignoresSafeArea()
+        NavigationStack(path: $navigation) {
+            CoffeeSelectorsUIViewController(
+                onSwiftUI: { navigation.append(Destination.swiftUi) },
+                onCompose: { navigation.append(Destination.compose) }
+            )
+            .navigationDestination(for: Destination.self) { destination in
+                switch destination {
+                case .swiftUi:
+                    ExpressusScreen()
+                case .compose:
+                    ExpressusComposeScreen()
+                }
+            }
+            .ignoresSafeArea()
         }
     }
 }
