@@ -7,6 +7,7 @@ buildscript {
         classpath(libs.gradle.android.tools)
         classpath(libs.gradle.kotlin)
         classpath(libs.gradle.kotlin.serialization)
+        classpath(libs.gradle.compose.multiplatform)
     }
 }
 

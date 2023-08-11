@@ -17,8 +17,8 @@ import com.expressus.compose.components.rightPanel.*
 import com.expressus.domain.DependencyInjection
 import com.expressus.domain.ViewModels
 import com.expressus.domain.stateMachines.ExpressusUiState
-import com.expressus.domain.viewModels.ExpressusViewModel
 import org.koin.core.Koin
+import com.expressus.compose.components.leftPanel.MachineLeftFrame
 
 fun main() = application {
     val koin: Koin = remember { DependencyInjection.initKoinAndReturnInstance() }

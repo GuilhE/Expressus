@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Dp
 
 @Composable
-fun CircularButton(size: Dp, onClick: () -> Unit) {
+fun CircularButton(size: Dp, enabled: Boolean = true, onClick: () -> Unit) {
     Box(Modifier
         .size(size)
         //we could have specified a Shape, but this way ripple will respect shape
@@ -28,6 +28,6 @@ fun CircularButton(size: Dp, onClick: () -> Unit) {
                 colors = listOf(MaterialTheme.colors.surface, MaterialTheme.colors.background)
             )
         )
-        .clickable { onClick() }
+        .clickable(enabled) { onClick() }
     )
 }

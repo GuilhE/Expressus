@@ -1,16 +1,21 @@
 PODS:
   - shared (1.0)
+  - shared_ui_compose (1.0)
 
 DEPENDENCIES:
   - shared (from `../shared`)
+  - shared_ui_compose (from `../shared-ui-compose`)
 
 EXTERNAL SOURCES:
   shared:
     :path: "../shared"
+  shared_ui_compose:
+    :path: "../shared-ui-compose"
 
 SPEC CHECKSUMS:
-  shared: a812f65c5c53dc22910a05216b43f32eb0c6af6c
+  shared: 569adbaae677d6ea055cb10eb43d430bf2ed1d35
+  shared_ui_compose: 88f62f67da33b5916ee1eceb9a62e646e34b64fa
 
-PODFILE CHECKSUM: f282da88f39e69507b0a255187c8a6b644477756
+PODFILE CHECKSUM: 4662f9b9a06e26b6775e6d273806ad7161c7c161
 
 COCOAPODS: 1.11.3
