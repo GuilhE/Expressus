@@ -8,7 +8,8 @@
 KMP sample project acting as a playground to illustrate what's discussed in these articles:
 <p>
  <a href="https://guidelgado.medium.com/36d84056c616"><img src="/media/banner1.png"></a></br>
- <a href="https://guidelgado.medium.com/a67bd9a49882"><img src="/media/banner2.png"></a>
+ <a href="https://guidelgado.medium.com/a67bd9a49882"><img src="/media/banner2.png"></a></br>
+ <a href="https://guidelgado.medium.com/45d37effeda9"><img src="/media/banner3.png"></a>
 </p>
 
 ## Details
