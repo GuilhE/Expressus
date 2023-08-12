@@ -13,7 +13,7 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 ## Details
 
-### Shared Modules
+### Modules
 
 #### Shared
 
@@ -23,7 +23,7 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 #### Shared Ui Compose
 
-- Compose Multiplaform to share composables between Desktop, Android and iOS
+- Compose Multiplatform to share composables between Desktop, Android and iOS
 
 ### Platforms
 
@@ -34,7 +34,7 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 `./gradlew :androidApp:installDebug`
 
-**note:** to run iosApp you must open Android Studio, choose iosApp in run configurations, and then run it.
+To run iosApp open `iosApp/iosApp.xcworkspace` in Xcode and run standard configuration or use [KMM plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) for Android Studio and choose iosApp in `run configurations`.
 
 #### Desktop
 
