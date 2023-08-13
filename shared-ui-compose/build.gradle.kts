@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_VARIABLE")
+
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     id("org.jetbrains.compose")

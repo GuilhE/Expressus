@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_VARIABLE")
+
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -37,23 +39,6 @@ kotlin {
             }
         }
 
-        val jvmMain by getting
-
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.koin.android)
-            }
-        }
-
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-        }
-
         val commonMain by getting {
             dependencies {
                 implementation(libs.jetbrains.kotlinx.coroutines.core)
@@ -65,15 +50,33 @@ kotlin {
             }
         }
 
-        val shared by creating {
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.koin.android)
+            }
+        }
+
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+        }
+
+        val jvmMain by getting
+
+        val all by creating {
             dependencies {
                 api(libs.koin.core)
                 implementation(libs.multiplatform.multiplatformSettings)
             }
-            jvmMain.dependsOn(this)
+            commonMain.dependsOn(this)
             androidMain.dependsOn(this)
             iosMain.dependsOn(this)
-            commonMain.dependsOn(this)
+            jvmMain.dependsOn(this)
         }
 
         targets.withType<KotlinNativeTarget> {

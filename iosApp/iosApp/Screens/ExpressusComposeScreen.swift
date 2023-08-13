@@ -1,4 +1,3 @@
-import UIKit
 import SwiftUI
 import Shared
 import SharedUi
@@ -59,5 +58,12 @@ private struct ExpressusUIViewController: UIViewControllerRepresentable {
                 isMakingCoffee: makingCoffee,
                 status: status
             )
+    }
+}
+
+struct ExpressusComposeScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        ExpressusComposeScreen()
+            .previewInterfaceOrientation(.portrait)
     }
 }

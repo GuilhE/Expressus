@@ -40,3 +40,10 @@ private struct CoffeeSelectorsUIViewController: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
+
+struct ExpressusSelectorScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        ExpressusSelectorScreen()
+            .previewInterfaceOrientation(.portrait)
+    }
+}
