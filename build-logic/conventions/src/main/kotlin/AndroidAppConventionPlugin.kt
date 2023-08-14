@@ -61,7 +61,7 @@ class AndroidAppConventionPlugin : Plugin<Project> {
                 }
             }
 
-            packagingOptions {
+            packaging {
                 // Optimize APK size - remove excess files in the manifest and APK
                 resources {
                     excludes.addAll(
