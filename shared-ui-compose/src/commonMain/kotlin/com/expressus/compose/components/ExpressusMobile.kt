@@ -62,7 +62,7 @@ fun ExpressusMobile(isGrinding: Boolean, isPouring: Boolean, isMakingCoffee: Boo
 }
 
 @Composable
-internal fun CoffeeSelectorsMobile(onSwiftUiClick: () -> Unit, onComposeClick: () -> Unit) {
+internal fun CoffeeSelectorsMobile(isMakingCoffee: Boolean, onAnyClick: () -> Unit, onSwiftUiClick: () -> Unit, onComposeClick: () -> Unit) {
     val options = remember { List(3) { "" } + listOf("SWIFT_UI", "COMPOSE") }
     MachineRightFrame(Modifier) {
         Column(
@@ -70,11 +70,11 @@ internal fun CoffeeSelectorsMobile(onSwiftUiClick: () -> Unit, onComposeClick: (
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            CoffeeSelectors(Modifier, options) { index ->
+            CoffeeSelectors(Modifier, options, isMakingCoffee) { index ->
                 when (index) {
                     options.size - 1 -> onComposeClick()
                     options.size - 2 -> onSwiftUiClick()
-                    else -> {}
+                    else -> onAnyClick()
                 }
             }
             PaymentSocket(

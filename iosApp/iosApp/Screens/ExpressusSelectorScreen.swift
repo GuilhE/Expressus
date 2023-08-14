@@ -1,4 +1,5 @@
 import SwiftUI
+import Shared
 import SharedUi
 
 private enum Destination: Hashable {
@@ -8,14 +9,31 @@ private enum Destination: Hashable {
 
 struct ExpressusSelectorScreen: View {
     
-    @State var navigation = NavigationPath()
+    @StateObject private var viewModel = ViewModels().expressusStateViewModel().asObservableObject()
+    @State private var isMakingCoffee: Bool = false
+    @State private var navigation = NavigationPath()
+    
+    private let soundPlayer = SoundPlayer()
+    private let vibratorManager = VibratorManager()
     
     var body: some View {
         NavigationStack(path: $navigation) {
-            CoffeeSelectorsUIViewController(
-                onSwiftUI: { navigation.append(Destination.swiftUi) },
-                onCompose: { navigation.append(Destination.compose) }
+            CoffeeSelectorsRepresentable(
+                onAny: { if(!isMakingCoffee) { viewModel.makeCoffee() }},
+                onSwiftUI: { if(!isMakingCoffee) { navigation.append(Destination.swiftUi) }},
+                onCompose: { if(!isMakingCoffee) { navigation.append(Destination.compose) }},
+                isMakingCoffee: $isMakingCoffee
             )
+            .onReceive(viewModel.$state) { new in
+                isMakingCoffee = new.isMakingCoffee()
+                if(new.isPouring) {
+                    soundPlayer.playPouring()
+                    vibratorManager.stop()
+                } else if(new.isGrinding) {
+                    soundPlayer.playGriding()
+                    vibratorManager.vibrate()
+                }
+            }
             .navigationDestination(for: Destination.self) { destination in
                 switch destination {
                 case .swiftUi:
@@ -29,16 +47,25 @@ struct ExpressusSelectorScreen: View {
     }
 }
 
-private struct CoffeeSelectorsUIViewController: UIViewControllerRepresentable {
+private struct CoffeeSelectorsRepresentable: UIViewControllerRepresentable {
     
+    let onAny: () -> Void
     let onSwiftUI: () -> Void
     let onCompose: () -> Void
+    @Binding var isMakingCoffee: Bool
     
     func makeUIViewController(context: Context) -> UIViewController {
-        return SharedViewControllers().coffeeSelectors(onSwiftUiClick: onSwiftUI, onComposeClick: onCompose)
+        return CoffeeSelectorsUIViewController()
+            .composable(
+                onAnyClick: onAny,
+                onSwiftUiClick: onSwiftUI,
+                onComposeClick: onCompose
+            )
     }
     
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        CoffeeSelectorsUIViewController().update(isMakingCoffee: isMakingCoffee)
+    }
 }
 
 struct ExpressusSelectorScreen_Previews: PreviewProvider {

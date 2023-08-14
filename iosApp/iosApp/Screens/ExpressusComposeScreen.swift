@@ -14,7 +14,7 @@ struct ExpressusComposeScreen: View {
     private let vibratorManager = VibratorManager()
     
     var body: some View {
-        ExpressusUIViewController(
+        ExpressusRepresentable(
             grinding: $isGrinding,
             pouring: $isPouring,
             makingCoffee: $isMakingCoffee,
@@ -38,7 +38,7 @@ struct ExpressusComposeScreen: View {
     }
 }
 
-private struct ExpressusUIViewController: UIViewControllerRepresentable {
+private struct ExpressusRepresentable: UIViewControllerRepresentable {
     
     @Binding var grinding: Bool
     @Binding var pouring: Bool
@@ -47,12 +47,12 @@ private struct ExpressusUIViewController: UIViewControllerRepresentable {
     let action: () -> Void
     
     func makeUIViewController(context: Context) -> UIViewController {
-        return SharedViewControllers().expressus(makeCoffee: action)
+        return ExpressusUIViewController().composable(makeCoffee: action)
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        SharedViewControllers()
-            .updateExpressus(
+        ExpressusUIViewController()
+            .update(
                 isGrinding: grinding,
                 isPouring: pouring,
                 isMakingCoffee: makingCoffee,

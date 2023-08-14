@@ -15,5 +15,5 @@ private fun ExpressusMobilePreview() {
 @Composable
 @Preview
 private fun CoffeeSelectorsPreview() {
-    CoffeeSelectorsMobile({}, {})
+    CoffeeSelectorsMobile(false, {}, {}, {})
 }
