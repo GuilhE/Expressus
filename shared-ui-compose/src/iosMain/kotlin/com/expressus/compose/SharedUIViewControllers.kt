@@ -25,7 +25,7 @@ object ExpressusUIViewController {
     fun composable(makeCoffee: () -> Unit): UIViewController {
         return ComposeUIViewController {
             with(viewState.collectAsState().value) {
-                ExpressusMobile(this.isGrinding, this.isPouring, this.isMakingCoffee, this.status, makeCoffee)
+                ExpressusMobile(isGrinding, isPouring, isMakingCoffee, status, makeCoffee)
             }
         }
     }
