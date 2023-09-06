@@ -1,15 +1,16 @@
-@file:Suppress("UNUSED_VARIABLE")
+import org.gradle.kotlin.dsl.resolver.buildSrcSourceRootsFilePath
 
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     id("org.jetbrains.compose")
     kotlin("native.cocoapods")
+    alias(libs.plugins.ksp)
 }
 
-//compose {
-//    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
-//    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
-//}
+compose {
+    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.10")
+}
 
 android {
     namespace = "com.expressus.compose"
@@ -19,9 +20,9 @@ android {
 kotlin {
     jvm()
     androidTarget()
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
+    val iosX64 = iosX64()
+    val iosArm64 = iosArm64()
+    val iosSimulatorArm64 = iosSimulatorArm64()
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
@@ -30,7 +31,7 @@ kotlin {
         version = "1.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "SharedUi"
+            baseName = "SharedComposables"
         }
     }
 
@@ -49,14 +50,24 @@ kotlin {
                 implementation(compose.preview)
             }
         }
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation(libs.multiplatform.composeuiviewcontroller.annotations)
+            }
+        }
+        listOf(iosX64, iosArm64, iosSimulatorArm64).forEach { target ->
+            getByName("${target.targetName}Main") {
+                dependsOn(iosMain)
+            }
+
+            val kspConfigName = "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}"
+            dependencies.add(kspConfigName, libs.multiplatform.composeuiviewcontroller.ksp)
+
+            all {
+                //https://kotlinlang.org/docs/ksp-quickstart.html#make-ide-aware-of-generated-code
+                kotlin.srcDir("build/generated/ksp/${target.targetName}/${target.targetName}Main/kotlin")
+            }
         }
     }
 }

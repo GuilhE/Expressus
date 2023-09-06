@@ -1,5 +1,3 @@
-@file:Suppress("UNUSED_VARIABLE")
-
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -46,7 +44,7 @@ kotlin {
                 implementation(libs.jetbrains.kotlinx.atomicfu)
                 api(libs.multiplatform.kermit)
                 api(libs.multiplatform.mokoMvvm)
-                api(libs.helpers.orbitMvi.core)
+                api(libs.multiplatform.orbitMvi.core)
             }
         }
 

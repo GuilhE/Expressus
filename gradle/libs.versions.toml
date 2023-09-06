@@ -5,51 +5,46 @@ androidTargetSdk = "34"
 androidMinSdk = "24"
 
 #======Gradle
-gradleAndroidTools = "8.1.0"
-gradleGoogleKsp = "1.9.0-1.0.13"
-gradleComposeMultiplatform = "1.5.0-beta02"
+gradleAndroidTools = "8.1.1"
+gradleComposeMultiplatform = "1.5.0"
 
 #======Kotlin
-kotlin = "1.9.0"
-kotlinxCoroutines = "1.7.2"
+kotlin = "1.9.10"
+kotlinxCoroutines = "1.7.3"
 kotlinxSerialization = "1.5.1"
 kotlinxAtomicFu = "0.22.0"
+ksp = "1.9.10-1.0.13"
 
 #======Compose Multiplatform
 #https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md
-composeMultiplatformCompiler = "1.5.0"
-composeMultiplatform = "1.5.0-dev1147"
+composeMultiplatformCompiler = "1.5.2-beta01"
+composeMultiplatform = "1.5.0"
 
 #======Compose Jetpack
 #https://androidx.dev/storage/compose-compiler/repository
-androidxCompose = "1.6.0-alpha03"
-androidxComposeCompiler = "1.5.0"
+androidxCompose = "1.6.0-alpha04"
+androidxComposeCompiler = "1.5.3-dev-k1.9.10-593b4c95fce"
 androidxComposeLifecycle = "2.6.1"
-androidxComposeMaterial3 = "1.2.0-alpha05"
+androidxComposeMaterial3 = "1.2.0-alpha06"
 
 #======Android
-androidxCoreKtx = "1.12.0-alpha05"
-androidxActivityKtx = "1.8.0-alpha06"
+androidxActivityKtx = "1.8.0-alpha07"
 androidxLifecycle = "2.6.1"
-androidxAnnotations = "1.7.0-alpha02"
-androidMaterial = "1.11.0-alpha01"
-
-#======Helpers
-orbitMviViewModel = "6.0.0"
-orbitMviCompose = "6.0.0"
-stateMachine = "0.2.0"
+androidMaterial = "1.11.0-alpha02"
 
 #======Multiplatform
 kermit = "1.2.2"
 koin = "3.4.0"
-multiplatformSettings = "1.0.0-RC"
+multiplatformSettings = "1.0.0"
 mokoMvvm = "0.14.0"
 orbitMviCore = "6.0.0"
+composeuiviewcontroller = "1.0.0-ALPHA-1"
 
 [plugins]
 
-jetbrains-compose-desktop = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
-jetbrains-compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+#jetbrains-compose-desktop = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+#jetbrains-compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 
 [libraries]
 
@@ -58,10 +53,8 @@ gradle-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin",
 gradle-kotlin-serialization = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin" }
 gradle-android-tools = { group = "com.android.tools.build", name = "gradle", version.ref = "gradleAndroidTools" }
 gradle-compose-multiplatform = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "gradleComposeMultiplatform" }
-gradle-google-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "gradleGoogleKsp" }
 
 #======Jetbrains
-jetbrains-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 jetbrains-kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 jetbrains-kotlinx-atomicfu = { group = "org.jetbrains.kotlinx", name = "atomicfu", version.ref = "kotlinxAtomicFu" }
 jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
@@ -71,12 +64,9 @@ jetbrains-kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "
 multiplatform-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
 multiplatform-multiplatformSettings = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "multiplatformSettings" }
 multiplatform-mokoMvvm = { group = "dev.icerock.moko", name = "mvvm-core", version.ref = "mokoMvvm" }
-
-#======Helpers
-helpers-orbitMvi-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbitMviCore" }
-helpers-orbitMvi-compose = { group = "org.orbit-mvi", name = "orbit-compose", version.ref = "orbitMviCore" }
-helpers-stateMachine = { group = "com.tinder.statemachine", name = "statemachine", version.ref = "stateMachine" }
-
+multiplatform-orbitMvi-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbitMviCore" }
+multiplatform-composeuiviewcontroller-annotations = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-annotations", version.ref = "composeuiviewcontroller"}
+multiplatform-composeuiviewcontroller-ksp = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-ksp", version.ref = "composeuiviewcontroller"}
 #======Koin
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }

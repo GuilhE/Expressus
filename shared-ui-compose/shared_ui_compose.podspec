@@ -6,14 +6,14 @@ Pod::Spec.new do |spec|
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Expressus, a multiplatform coffee machine!'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/SharedUi.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/SharedComposables.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '16.0'
                 
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared-ui-compose',
-        'PRODUCT_MODULE_NAME' => 'SharedUi',
+        'PRODUCT_MODULE_NAME' => 'SharedComposables',
     }
                 
     spec.script_phases = [
@@ -35,5 +35,5 @@ Pod::Spec.new do |spec|
             SCRIPT
         }
     ]
-    spec.resources = ['build/compose/ios/SharedUi/compose-resources']
+    spec.resources = ['build/compose/ios/SharedComposables/compose-resources', 'build/generated/ksp']
 end

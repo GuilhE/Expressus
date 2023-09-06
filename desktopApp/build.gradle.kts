@@ -5,10 +5,10 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-//compose {
-//    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
-//    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.0")
-//}
+compose {
+    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.10")
+}
 
 compose.desktop {
     application {
