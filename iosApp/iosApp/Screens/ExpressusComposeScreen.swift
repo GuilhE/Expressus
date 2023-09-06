@@ -1,31 +1,33 @@
 import SwiftUI
 import Shared
-import SharedUi
+import SharedComposables
 
 struct ExpressusComposeScreen: View {
     
     @StateObject private var viewModel = ViewModels().expressusStateViewModel().asObservableObject()
-    @State private var isMakingCoffee: Bool = false
-    @State private var isPouring: Bool = false
-    @State private var isGrinding: Bool = false
-    @State private var status: String = ""
+    @State private var composableState: ExpressusMobileState = ExpressusMobileState(
+        isGrinding: false,
+        isPouring: false,
+        isMakingCoffee: false,
+        status: ""
+    )
     
     private let soundPlayer = SoundPlayer()
     private let vibratorManager = VibratorManager()
     
     var body: some View {
         ExpressusRepresentable(
-            grinding: $isGrinding,
-            pouring: $isPouring,
-            makingCoffee: $isMakingCoffee,
-            status: $status,
+            state: $composableState,
             action: { viewModel.makeCoffee() }
         )
         .onReceive(viewModel.$state) { new in
-            isMakingCoffee = new.isMakingCoffee()
-            isGrinding = new.isGrinding
-            isPouring = new.isPouring
-            status = new.label()
+            composableState = ExpressusMobileState(
+                isGrinding: new.isGrinding,
+                isPouring: new.isPouring,
+                isMakingCoffee: new.isMakingCoffee(),
+                status: new.label()
+            )
+            
             if(new.isPouring) {
                 soundPlayer.playPouring()
                 vibratorManager.stop()
@@ -40,24 +42,15 @@ struct ExpressusComposeScreen: View {
 
 private struct ExpressusRepresentable: UIViewControllerRepresentable {
     
-    @Binding var grinding: Bool
-    @Binding var pouring: Bool
-    @Binding var makingCoffee: Bool
-    @Binding var status: String
+    @Binding var state: ExpressusMobileState
     let action: () -> Void
     
     func makeUIViewController(context: Context) -> UIViewController {
-        return ExpressusUIViewController().composable(makeCoffee: action)
+        return ExpressusMobileUIViewController().make(makeCoffee: action)
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        ExpressusUIViewController()
-            .update(
-                isGrinding: grinding,
-                isPouring: pouring,
-                isMakingCoffee: makingCoffee,
-                status: status
-            )
+        ExpressusMobileUIViewController().update(state: state)
     }
 }
 

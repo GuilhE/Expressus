@@ -1,6 +1,6 @@
 import SwiftUI
 import Shared
-import SharedUi
+import SharedComposables
 
 private enum Destination: Hashable {
     case swiftUi
@@ -10,7 +10,7 @@ private enum Destination: Hashable {
 struct ExpressusSelectorScreen: View {
     
     @StateObject private var viewModel = ViewModels().expressusStateViewModel().asObservableObject()
-    @State private var isMakingCoffee: Bool = false
+    @State private var composableState: CoffeeSelectorsState = CoffeeSelectorsState(isMakingCoffee: false)
     @State private var navigation = NavigationPath()
     
     private let soundPlayer = SoundPlayer()
@@ -19,13 +19,13 @@ struct ExpressusSelectorScreen: View {
     var body: some View {
         NavigationStack(path: $navigation) {
             CoffeeSelectorsRepresentable(
-                onAny: { if(!isMakingCoffee) { viewModel.makeCoffee() }},
-                onSwiftUI: { if(!isMakingCoffee) { navigation.append(Destination.swiftUi) }},
-                onCompose: { if(!isMakingCoffee) { navigation.append(Destination.compose) }},
-                isMakingCoffee: $isMakingCoffee
+                onAny: { if(!composableState.isMakingCoffee) { viewModel.makeCoffee() }},
+                onSwiftUI: { if(!composableState.isMakingCoffee) { navigation.append(Destination.swiftUi) }},
+                onCompose: { if(!composableState.isMakingCoffee) { navigation.append(Destination.compose) }},
+                state: $composableState
             )
             .onReceive(viewModel.$state) { new in
-                isMakingCoffee = new.isMakingCoffee()
+                composableState = CoffeeSelectorsState(isMakingCoffee: new.isMakingCoffee())
                 if(new.isPouring) {
                     soundPlayer.playPouring()
                     vibratorManager.stop()
@@ -52,11 +52,11 @@ private struct CoffeeSelectorsRepresentable: UIViewControllerRepresentable {
     let onAny: () -> Void
     let onSwiftUI: () -> Void
     let onCompose: () -> Void
-    @Binding var isMakingCoffee: Bool
+    @Binding var state: CoffeeSelectorsState
     
     func makeUIViewController(context: Context) -> UIViewController {
-        return CoffeeSelectorsUIViewController()
-            .composable(
+        return CoffeeSelectorsMobileUIViewController()
+            .make(
                 onAnyClick: onAny,
                 onSwiftUiClick: onSwiftUI,
                 onComposeClick: onCompose
@@ -64,7 +64,7 @@ private struct CoffeeSelectorsRepresentable: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        CoffeeSelectorsUIViewController().update(isMakingCoffee: isMakingCoffee)
+        CoffeeSelectorsMobileUIViewController().update(state: state)
     }
 }
 
