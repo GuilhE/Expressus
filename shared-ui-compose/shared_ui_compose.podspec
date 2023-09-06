@@ -35,5 +35,5 @@ Pod::Spec.new do |spec|
             SCRIPT
         }
     ]
-    spec.resources = ['build/compose/ios/SharedComposables/compose-resources', 'build/generated/ksp']
+    spec.resources = ['build/compose/ios/SharedComposables/compose-resources']
 end

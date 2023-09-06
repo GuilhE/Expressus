@@ -9,7 +9,6 @@ plugins {
 
 compose {
     kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
-    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.10")
 }
 
 android {
@@ -46,6 +45,7 @@ kotlin {
             }
         }
         val jvmMain by getting {
+            dependsOn(commonMain)
             dependencies {
                 implementation(compose.preview)
             }
@@ -63,11 +63,6 @@ kotlin {
 
             val kspConfigName = "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}"
             dependencies.add(kspConfigName, libs.multiplatform.composeuiviewcontroller.ksp)
-
-            all {
-                //https://kotlinlang.org/docs/ksp-quickstart.html#make-ide-aware-of-generated-code
-                kotlin.srcDir("build/generated/ksp/${target.targetName}/${target.targetName}Main/kotlin")
-            }
         }
     }
 }
