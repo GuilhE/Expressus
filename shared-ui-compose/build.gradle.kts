@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.resolver.buildSrcSourceRootsFilePath
-
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     id("org.jetbrains.compose")
@@ -61,8 +59,9 @@ kotlin {
                 dependsOn(iosMain)
             }
 
-            val kspConfigName = "ksp${target.name.replaceFirstChar { it.uppercaseChar() }}"
-            dependencies.add(kspConfigName, libs.multiplatform.composeuiviewcontroller.ksp)
+            val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
+            dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
+            tasks.matching { it.name == "kspKotlin$targetName" }.configureEach { finalizedBy(":addFilesToXcodeproj") }
         }
     }
 }

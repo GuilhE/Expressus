@@ -16,9 +16,9 @@ struct ExpressusComposeScreen: View {
     private let vibratorManager = VibratorManager()
     
     var body: some View {
-        ExpressusRepresentable(
+        ExpressusMobileRepresentable(
             state: $composableState,
-            action: { viewModel.makeCoffee() }
+            makeCoffee: { viewModel.makeCoffee() }
         )
         .onReceive(viewModel.$state) { new in
             composableState = ExpressusMobileState(
@@ -37,20 +37,6 @@ struct ExpressusComposeScreen: View {
             }
         }
         .ignoresSafeArea()
-    }
-}
-
-private struct ExpressusRepresentable: UIViewControllerRepresentable {
-    
-    @Binding var state: ExpressusMobileState
-    let action: () -> Void
-    
-    func makeUIViewController(context: Context) -> UIViewController {
-        return ExpressusMobileUIViewController().make(makeCoffee: action)
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        ExpressusMobileUIViewController().update(state: state)
     }
 }
 
