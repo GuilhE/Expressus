@@ -61,7 +61,8 @@ kotlin {
 
             val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
             dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
-            tasks.matching { it.name == "kspKotlin$targetName" }.configureEach { finalizedBy(":addFilesToXcodeproj") }
         }
     }
 }
+
+tasks.matching { it.name == "embedAndSignAppleFrameworkForXcode" }.configureEach { finalizedBy(":addFilesToXcodeproj") }
