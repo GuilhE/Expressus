@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
+		20338413FD5C15E572548BF8 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E758FBA7B194C861220C1C70 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6EF2822B7E700DBABCA /* CircularButton.swift */; };
 		231BC6F22822BECE00DBABCA /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F12822BECE00DBABCA /* SoundPlayer.swift */; };
@@ -30,17 +31,15 @@
 		23EAF2AA2824079200E4996F /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAF2A92824079200E4996F /* Slot.swift */; };
 		23EC51332827F02700CEDD5C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC51322827F02700CEDD5C /* Fonts.swift */; };
 		23EC5135282804F900CEDD5C /* VibratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC5134282804F900CEDD5C /* VibratorManager.swift */; };
+		50C86D31A2FC5B098186C092 /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E622CF5C9BC7C30727EFE6E /* ExpressusMobileUIViewControllerRepresentable.swift */; };
 		5C68604B2A865B8200B3CB5D /* ExpressusSelectorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */; };
 		5C87604B2A7EA65D0088D2BC /* ExpressusComposeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */; };
-		6B9C17215034665F9542798B /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED78CB6C7D2FBF8760D083 /* ExpressusMobileUIViewControllerRepresentable.swift */; };
 		959714E1739DD393E42800B3 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */; };
-		CA2F2F25A3F027542D8D5E9E /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DF8133AB95E8D3A78F2A20 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		10ED78CB6C7D2FBF8760D083 /* ExpressusMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpressusMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/ExpressusMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		231BC6EF2822B7E700DBABCA /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		231BC6F12822BECE00DBABCA /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -66,9 +65,10 @@
 		501EB1427AFCA39E8B06CBA3 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusSelectorScreen.swift; sourceTree = "<group>"; };
 		5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusComposeScreen.swift; sourceTree = "<group>"; };
-		73DF8133AB95E8D3A78F2A20 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoffeeSelectorsMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/CoffeeSelectorsMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E622CF5C9BC7C30727EFE6E /* ExpressusMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpressusMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/ExpressusMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		E758FBA7B194C861220C1C70 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoffeeSelectorsMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/CoffeeSelectorsMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +158,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2B3CF4679B39BE915AAE9AAD /* SharedRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				E758FBA7B194C861220C1C70 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */,
+				8E622CF5C9BC7C30727EFE6E /* ExpressusMobileUIViewControllerRepresentable.swift */,
+			);
+			name = SharedRepresentables;
+			sourceTree = "<group>";
+		};
 		59BC73FCA6B95212E58A8654 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +182,7 @@
 				7555FF7C242A565900829871 /* Products */,
 				0D8ABA141A6D69FB4A1EF25C /* Pods */,
 				59BC73FCA6B95212E58A8654 /* Frameworks */,
-				B0E6D62255A704A1E484FEA9 /* SharedRepresentables */,
+				2B3CF4679B39BE915AAE9AAD /* SharedRepresentables */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,15 +208,6 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
-			sourceTree = "<group>";
-		};
-		B0E6D62255A704A1E484FEA9 /* SharedRepresentables */ = {
-			isa = PBXGroup;
-			children = (
-				73DF8133AB95E8D3A78F2A20 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */,
-				10ED78CB6C7D2FBF8760D083 /* ExpressusMobileUIViewControllerRepresentable.swift */,
-			);
-			name = SharedRepresentables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,8 +368,8 @@
 				234DED452823E1A90050F669 /* Panel.swift in Sources */,
 				5C87604B2A7EA65D0088D2BC /* ExpressusComposeScreen.swift in Sources */,
 				231BC6F22822BECE00DBABCA /* SoundPlayer.swift in Sources */,
-				CA2F2F25A3F027542D8D5E9E /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift in Sources */,
-				6B9C17215034665F9542798B /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */,
+				20338413FD5C15E572548BF8 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift in Sources */,
+				50C86D31A2FC5B098186C092 /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
