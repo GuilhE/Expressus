@@ -15,7 +15,7 @@ data class ExpressusMobileState(
     val status: String = ""
 )
 
-@ComposeUIViewController
+@ComposeUIViewController("SharedComposables")
 @Composable
 fun ExpressusMobile(@ComposeUIViewControllerState state: ExpressusMobileState, makeCoffee: () -> Unit) {
     with(state) {
@@ -25,7 +25,7 @@ fun ExpressusMobile(@ComposeUIViewControllerState state: ExpressusMobileState, m
 
 data class CoffeeSelectorsState(val isMakingCoffee: Boolean = false)
 
-@ComposeUIViewController
+@ComposeUIViewController("SharedComposables")
 @Composable
 fun CoffeeSelectorsMobile(
     @ComposeUIViewControllerState state: CoffeeSelectorsState,

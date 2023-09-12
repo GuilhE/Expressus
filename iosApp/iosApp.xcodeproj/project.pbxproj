@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
+		20338413FD5C15E572548BF8 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E758FBA7B194C861220C1C70 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		231BC6F02822B7E700DBABCA /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6EF2822B7E700DBABCA /* CircularButton.swift */; };
 		231BC6F22822BECE00DBABCA /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC6F12822BECE00DBABCA /* SoundPlayer.swift */; };
@@ -30,6 +31,7 @@
 		23EAF2AA2824079200E4996F /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAF2A92824079200E4996F /* Slot.swift */; };
 		23EC51332827F02700CEDD5C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC51322827F02700CEDD5C /* Fonts.swift */; };
 		23EC5135282804F900CEDD5C /* VibratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EC5134282804F900CEDD5C /* VibratorManager.swift */; };
+		50C86D31A2FC5B098186C092 /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E622CF5C9BC7C30727EFE6E /* ExpressusMobileUIViewControllerRepresentable.swift */; };
 		5C68604B2A865B8200B3CB5D /* ExpressusSelectorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */; };
 		5C87604B2A7EA65D0088D2BC /* ExpressusComposeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */; };
 		959714E1739DD393E42800B3 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */; };
@@ -65,6 +67,8 @@
 		5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusComposeScreen.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E622CF5C9BC7C30727EFE6E /* ExpressusMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpressusMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/ExpressusMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		E758FBA7B194C861220C1C70 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoffeeSelectorsMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/CoffeeSelectorsMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		EB625A244EE0CB65EE7EDA5F /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +158,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2B3CF4679B39BE915AAE9AAD /* SharedRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				E758FBA7B194C861220C1C70 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */,
+				8E622CF5C9BC7C30727EFE6E /* ExpressusMobileUIViewControllerRepresentable.swift */,
+			);
+			name = SharedRepresentables;
+			sourceTree = "<group>";
+		};
 		59BC73FCA6B95212E58A8654 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +182,7 @@
 				7555FF7C242A565900829871 /* Products */,
 				0D8ABA141A6D69FB4A1EF25C /* Pods */,
 				59BC73FCA6B95212E58A8654 /* Frameworks */,
+				2B3CF4679B39BE915AAE9AAD /* SharedRepresentables */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,14 +197,14 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				2350E6A628251C7C0052E48C /* Themes */,
 				231BC6F62822C82800DBABCA /* Resources */,
-				231BC6F32822C67100DBABCA /* Screens */,
-				23932F232805EACB006738B5 /* Views */,
+				2350E6A628251C7C0052E48C /* Themes */,
 				23932F222805EABB006738B5 /* Utils */,
+				23932F232805EACB006738B5 /* Views */,
+				231BC6F32822C67100DBABCA /* Screens */,
+				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF8C242A565B00829871 /* Info.plist */,
-				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
@@ -208,7 +222,7 @@
 				7555FF79242A565900829871 /* Resources */,
 				F70908A80EAB110BEA385F9B /* Frameworks */,
 				8F3C0F27264AD58366AB34B6 /* [CP] Embed Pods Frameworks */,
-				56418A151264DA9A09169067 /* [CP] Copy Pods Resources */,
+				CD8CDBC62115DBE95107F064 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,7 +286,7 @@
 		2FD358357056635B4C095A91 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -287,12 +301,30 @@
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-iosApp-checkManifestLockResult.txt",
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		56418A151264DA9A09169067 /* [CP] Copy Pods Resources */ = {
+		8F3C0F27264AD58366AB34B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD8CDBC62115DBE95107F064 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -307,23 +339,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8F3C0F27264AD58366AB34B6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -353,6 +368,8 @@
 				234DED452823E1A90050F669 /* Panel.swift in Sources */,
 				5C87604B2A7EA65D0088D2BC /* ExpressusComposeScreen.swift in Sources */,
 				231BC6F22822BECE00DBABCA /* SoundPlayer.swift in Sources */,
+				20338413FD5C15E572548BF8 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift in Sources */,
+				50C86D31A2FC5B098186C092 /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -465,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

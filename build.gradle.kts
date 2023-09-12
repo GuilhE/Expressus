@@ -26,3 +26,8 @@ allprojects {
         }
     }
 }
+
+tasks.register<Exec>("addFilesToXcodeproj") {
+    workingDir(layout.projectDirectory)
+    commandLine("bash", "-c", "./exportToXcode.sh")
+}

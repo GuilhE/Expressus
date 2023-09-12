@@ -1,6 +1,6 @@
 target 'iosApp' do
   use_frameworks!
-  platform :ios, '14.1'
+  platform :ios, '16.4'
   pod 'shared', :path => '../shared'
   pod 'shared_ui_compose', :path => '../shared-ui-compose'
 end

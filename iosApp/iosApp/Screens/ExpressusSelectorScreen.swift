@@ -18,11 +18,11 @@ struct ExpressusSelectorScreen: View {
     
     var body: some View {
         NavigationStack(path: $navigation) {
-            CoffeeSelectorsRepresentable(
-                onAny: { if(!composableState.isMakingCoffee) { viewModel.makeCoffee() }},
-                onSwiftUI: { if(!composableState.isMakingCoffee) { navigation.append(Destination.swiftUi) }},
-                onCompose: { if(!composableState.isMakingCoffee) { navigation.append(Destination.compose) }},
-                state: $composableState
+            CoffeeSelectorsMobileRepresentable(
+                state: $composableState,
+                onAnyClick: { if(!composableState.isMakingCoffee) { viewModel.makeCoffee() }},
+                onSwiftUiClick: { if(!composableState.isMakingCoffee) { navigation.append(Destination.swiftUi) }},
+                onComposeClick: { if(!composableState.isMakingCoffee) { navigation.append(Destination.compose) }}
             )
             .onReceive(viewModel.$state) { new in
                 composableState = CoffeeSelectorsState(isMakingCoffee: new.isMakingCoffee())
@@ -44,27 +44,6 @@ struct ExpressusSelectorScreen: View {
             }
             .ignoresSafeArea()
         }
-    }
-}
-
-private struct CoffeeSelectorsRepresentable: UIViewControllerRepresentable {
-    
-    let onAny: () -> Void
-    let onSwiftUI: () -> Void
-    let onCompose: () -> Void
-    @Binding var state: CoffeeSelectorsState
-    
-    func makeUIViewController(context: Context) -> UIViewController {
-        return CoffeeSelectorsMobileUIViewController()
-            .make(
-                onAnyClick: onAny,
-                onSwiftUiClick: onSwiftUI,
-                onComposeClick: onCompose
-            )
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        CoffeeSelectorsMobileUIViewController().update(state: state)
     }
 }
 
