@@ -6,30 +6,30 @@ androidMinSdk = "24"
 
 #======Gradle
 gradleAndroidTools = "8.1.1"
-gradleComposeMultiplatform = "1.5.0"
+gradleComposeMultiplatform = "1.5.1"
 
 #======Kotlin
 kotlin = "1.9.10"
 kotlinxCoroutines = "1.7.3"
-kotlinxSerialization = "1.5.1"
+kotlinxSerialization = "1.6.0"
 kotlinxAtomicFu = "0.22.0"
 ksp = "1.9.10-1.0.13"
 
 #======Compose Multiplatform
 #https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md
 composeMultiplatformCompiler = "1.5.2-beta01"
-composeMultiplatform = "1.5.0"
+composeMultiplatform = "1.5.1"
 
 #======Compose Jetpack
 #https://androidx.dev/storage/compose-compiler/repository
-androidxCompose = "1.6.0-alpha04"
+androidxCompose = "1.6.0-alpha05"
 androidxComposeCompiler = "1.5.3-dev-k1.9.10-593b4c95fce"
-androidxComposeLifecycle = "2.6.1"
-androidxComposeMaterial3 = "1.2.0-alpha06"
+androidxComposeLifecycle = "2.6.2"
+androidxComposeMaterial3 = "1.2.0-alpha07"
 
 #======Android
-androidxActivityKtx = "1.8.0-alpha07"
-androidxLifecycle = "2.6.1"
+androidxActivityKtx = "1.8.0-beta01"
+androidxLifecycle = "2.6.2"
 androidMaterial = "1.11.0-alpha02"
 
 #======Multiplatform
