@@ -17,27 +17,27 @@ ksp = "1.9.10-1.0.13"
 
 #======Compose Multiplatform
 #https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md
-composeMultiplatformCompiler = "1.5.2-beta01"
-composeMultiplatform = "1.5.1"
+composeMultiplatformCompiler = "1.5.2"
+composeMultiplatform = "1.5.10-beta01"
 
 #======Compose Jetpack
 #https://androidx.dev/storage/compose-compiler/repository
-androidxCompose = "1.6.0-alpha05"
+androidxCompose = "1.6.0-alpha06"
 androidxComposeCompiler = "1.5.3-dev-k1.9.10-593b4c95fce"
 androidxComposeLifecycle = "2.6.2"
-androidxComposeMaterial3 = "1.2.0-alpha07"
+androidxComposeMaterial3 = "1.2.0-alpha08"
 
 #======Android
-androidxActivityKtx = "1.8.0-beta01"
+androidxActivityKtx = "1.8.0-rc01"
 androidxLifecycle = "2.6.2"
-androidMaterial = "1.11.0-alpha02"
+androidMaterial = "1.11.0-alpha03"
 
 #======Multiplatform
-kermit = "1.2.2"
-koin = "3.4.0"
+kermit = "2.0.1"
+koin = "3.5.0"
 multiplatformSettings = "1.0.0"
-mokoMvvm = "0.14.0"
-orbitMviCore = "6.0.0"
+mokoMvvm = "0.16.1"
+orbitMviCore = "6.1.0"
 composeuiviewcontroller = "1.1.0-ALPHA"
 
 [plugins]
