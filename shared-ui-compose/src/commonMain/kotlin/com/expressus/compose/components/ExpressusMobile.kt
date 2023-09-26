@@ -41,7 +41,7 @@ fun ExpressusMobile(isGrinding: Boolean, isPouring: Boolean, isMakingCoffee: Boo
                     .padding(10.dp),
                 isGrinding = isGrinding,
                 isPouring = isPouring,
-                pouringSpeed = 2L,
+                pouringSpeed = 1L,
                 slotOffset = 50.dp,
                 faucetOffsets = FaucetOffsets(10.dp, 10.dp)
             )

@@ -17,7 +17,7 @@ struct CoffeeStream: View {
                 CoffeeStreamShape(topLeft: self.$topLeft, height: self.$finalHeight).fill(theme.primary)
             }
             .onChange(of: pouring) { isPouring in
-                let speed = geometry.size.height / 250
+                let speed = geometry.size.height * 0.020
                 Task.init() {
                     if (isPouring) {
                         if (!poured) {
