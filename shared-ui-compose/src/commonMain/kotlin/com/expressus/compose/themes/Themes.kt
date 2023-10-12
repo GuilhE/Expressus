@@ -13,7 +13,7 @@ fun MachineTheme(content: @Composable () -> Unit) {
             primaryVariant = Color.Black.copy(alpha = 0.7f),
             surface = Color.Black.copy(alpha = 0.9f),
             background = Color.Black,
-            onBackground = whiteDirty,
+            onBackground = ExpressusColorPallete.whiteDirty,
         ),
         content = content
     )
@@ -23,9 +23,9 @@ fun MachineTheme(content: @Composable () -> Unit) {
 fun CoffeeTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = darkColors(
-            primary = brown,
-            secondary = brownDark,
-            secondaryVariant = brownDark.copy(0.7f),
+            primary = ExpressusColorPallete.brown,
+            secondary = ExpressusColorPallete.brownDark,
+            secondaryVariant = ExpressusColorPallete.brownDark.copy(0.7f),
             background = Color.Black
         ),
         content = content
@@ -49,8 +49,8 @@ fun CoffeeSlotTheme(content: @Composable () -> Unit) {
 fun DisplayTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = darkColors(
-            background = greenDark,
-            onBackground = greenLight
+            background = ExpressusColorPallete.greenDark,
+            onBackground = ExpressusColorPallete.greenLight
         ),
         typography = machineTypography,
         content = content
@@ -61,10 +61,10 @@ fun DisplayTheme(content: @Composable () -> Unit) {
 fun CoffeeSelectorsTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = darkColors(
-            primary = redCandy.copy(0.5f),
-            primaryVariant = yellow,
-            secondary = redCandy,
-            surface = whiteDirty,
+            primary = ExpressusColorPallete.redCandy.copy(0.5f),
+            primaryVariant = ExpressusColorPallete.yellow,
+            secondary = ExpressusColorPallete.redCandy,
+            surface = ExpressusColorPallete.whiteDirty,
             background = Color.DarkGray.copy(0.7f)
         ),
         typography = machineTypography,
@@ -87,8 +87,8 @@ fun GlossyOverlayTheme(content: @Composable () -> Unit) {
 fun PaymentSocketTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = darkColors(
-            primary = yellow,
-            secondary = orange,
+            primary = ExpressusColorPallete.yellow,
+            secondary = ExpressusColorPallete.orange,
             background = Color.Black
         ),
         content = content
@@ -109,9 +109,9 @@ fun FanTheme(content: @Composable () -> Unit) {
 fun CupTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = darkColors(
-            primary = whiteDirty,
+            primary = ExpressusColorPallete.whiteDirty,
             secondary = Color.DarkGray,
-            onPrimary = redCandy
+            onPrimary = ExpressusColorPallete.redCandy
         ),
         content = content
     )
