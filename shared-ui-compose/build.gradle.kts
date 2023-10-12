@@ -21,6 +21,8 @@ kotlin {
     val iosArm64 = iosArm64()
     val iosSimulatorArm64 = iosSimulatorArm64()
 
+    applyDefaultHierarchyTemplate()
+
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
         homepage = "https://github.com/GuilhE/Expressus"
@@ -48,7 +50,7 @@ kotlin {
                 implementation(compose.preview)
             }
         }
-        val iosMain by creating {
+        val iosMain by getting {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.multiplatform.composeuiviewcontroller.annotations)
@@ -61,6 +63,11 @@ kotlin {
 
             val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
             dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
+
+//            all {
+//                //https://kotlinlang.org/docs/ksp-quickstart.html#make-ide-aware-of-generated-code
+//                kotlin.srcDir("build/generated/ksp/${target.targetName}/${target.targetName}Main/kotlin")
+//            }
         }
     }
 }

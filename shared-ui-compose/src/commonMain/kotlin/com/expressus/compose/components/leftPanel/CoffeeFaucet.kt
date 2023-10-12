@@ -8,6 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.Dp
 import com.expressus.compose.components.Panel
+import kotlin.experimental.ExperimentalObjCRefinement
+import kotlin.native.HiddenFromObjC
 
 @Composable
 fun CoffeeFaucet(modifier: Modifier, offsets: FaucetOffsets) {
@@ -39,4 +41,6 @@ fun CoffeeFaucet(modifier: Modifier, offsets: FaucetOffsets) {
     }
 }
 
+@OptIn(ExperimentalObjCRefinement::class)
+@HiddenFromObjC
 data class FaucetOffsets(val faucetOffset: Dp, val supportOffset: Dp)

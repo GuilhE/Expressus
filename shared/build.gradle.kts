@@ -14,9 +14,10 @@ android {
 kotlin {
     jvm()
     androidTarget()
-    iosX64()
     iosArm64()
     iosSimulatorArm64()
+
+    applyDefaultHierarchyTemplate()
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
@@ -45,6 +46,8 @@ kotlin {
                 api(libs.multiplatform.kermit)
                 api(libs.multiplatform.mokoMvvm)
                 api(libs.multiplatform.orbitMvi.core)
+                api(libs.koin.core)
+                implementation(libs.multiplatform.multiplatformSettings)
             }
         }
 
@@ -54,12 +57,10 @@ kotlin {
             }
         }
 
-        val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
-        val iosMain by creating {
+        val iosMain by getting {
             dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
@@ -71,7 +72,7 @@ kotlin {
                 api(libs.koin.core)
                 implementation(libs.multiplatform.multiplatformSettings)
             }
-            commonMain.dependsOn(this)
+//            commonMain.dependsOn(this)
             androidMain.dependsOn(this)
             iosMain.dependsOn(this)
             jvmMain.dependsOn(this)

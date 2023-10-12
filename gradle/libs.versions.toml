@@ -9,21 +9,22 @@ gradleAndroidTools = "8.1.2"
 gradleComposeMultiplatform = "1.5.10-beta02"
 
 #======Kotlin
-kotlin = "1.9.10"
+kotlin = "1.9.20-Beta2"
 kotlinxCoroutines = "1.7.3"
 kotlinxSerialization = "1.6.0"
 kotlinxAtomicFu = "0.22.0"
-ksp = "1.9.10-1.0.13"
+ksp = "1.9.20-Beta2-1.0.13"
 
 #======Compose Multiplatform
 #https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md
-composeMultiplatformCompiler = "1.5.2"
+#https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
+composeMultiplatformCompiler = "1.5.2.1-Beta3"
 #composeMultiplatform = "1.5.10-beta02"
 
 #======Compose Jetpack
 #https://androidx.dev/storage/compose-compiler/repository
 androidxCompose = "1.6.0-alpha07"
-androidxComposeCompiler = "1.5.3-dev-k1.9.10-593b4c95fce"
+androidxComposeCompiler = "1.5.4-dev-k1.9.20-Beta2-ac5f960bdaf"
 androidxComposeLifecycle = "2.6.2"
 androidxComposeMaterial3 = "1.2.0-alpha09"
 
