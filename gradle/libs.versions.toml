@@ -19,12 +19,12 @@ ksp = "1.9.20-RC2-1.0.13"
 #https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md
 #https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
 composeMultiplatformCompiler = "1.5.3-rc01"
-#composeMultiplatform = "1.5.10-beta02"
 
-#======Compose Jetpack
+#======Compose JetpackA
+
 #https://androidx.dev/storage/compose-compiler/repository
 androidxCompose = "1.6.0-alpha08"
-androidxComposeCompiler = "1.5.4-dev-k1.9.20-Beta2-ac5f960bdaf"
+androidxComposeCompiler = "1.5.4-dev-k1.9.20-RC2-93f1625925e"
 androidxComposeLifecycle = "2.6.2"
 androidxComposeMaterial3 = "1.2.0-alpha10"
 
@@ -44,8 +44,6 @@ composeuiviewcontroller = "1.1.0-ALPHA"
 [plugins]
 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-#jetbrains-compose-desktop = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
-#jetbrains-compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 
 [libraries]
 
