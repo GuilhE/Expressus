@@ -16,7 +16,6 @@ kotlin {
     androidTarget()
     iosArm64()
     iosSimulatorArm64()
-
     applyDefaultHierarchyTemplate()
 
     cocoapods {
@@ -50,21 +49,12 @@ kotlin {
                 implementation(libs.multiplatform.multiplatformSettings)
             }
         }
-
         val androidMain by getting {
             dependencies {
                 implementation(libs.koin.android)
             }
         }
-
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by getting {
-            dependsOn(commonMain)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-        }
-
+        val iosMain by getting
         val jvmMain by getting
 
         val all by creating {

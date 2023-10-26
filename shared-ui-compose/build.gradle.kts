@@ -20,7 +20,6 @@ kotlin {
     val iosX64 = iosX64()
     val iosArm64 = iosArm64()
     val iosSimulatorArm64 = iosSimulatorArm64()
-
     applyDefaultHierarchyTemplate()
 
     cocoapods {
@@ -51,21 +50,16 @@ kotlin {
             }
         }
         val iosMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 implementation(libs.multiplatform.composeuiviewcontroller.annotations)
             }
         }
         listOf(iosX64, iosArm64, iosSimulatorArm64).forEach { target ->
-            getByName("${target.targetName}Main") {
-                dependsOn(iosMain)
-            }
-
             val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
             dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
 
 //            all {
-//                //https://kotlinlang.org/docs/ksp-quickstart.html#make-ide-aware-of-generated-code
+//                https://kotlinlang.org/docs/ksp-quickstart.html#make-ide-aware-of-generated-code
 //                kotlin.srcDir("build/generated/ksp/${target.targetName}/${target.targetName}Main/kotlin")
 //            }
         }

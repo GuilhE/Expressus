@@ -70,7 +70,7 @@ fun CoffeeSelectors(modifier: Modifier, options: List<String>, isMakingCoffee: B
 }
 
 @Composable
-private fun CoffeeTile(title: String, animateIdle: Boolean = false, toggle: Boolean = false, onClick: () -> Unit) {
+fun CoffeeTile(title: String, animateIdle: Boolean = false, toggle: Boolean = false, onClick: () -> Unit) {
     CoffeeSelectorsTheme {
         Row(
             Modifier
@@ -93,7 +93,7 @@ private fun CoffeeTile(title: String, animateIdle: Boolean = false, toggle: Bool
                 Text(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(horizontal = 15.dp),
+                        .padding(start = 15.dp, end = 15.dp, top = 1.dp),
                     text = title,
                     textAlign = TextAlign.Right,
                     color = MaterialTheme.colors.surface,
