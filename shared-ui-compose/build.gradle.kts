@@ -17,7 +17,6 @@ android {
 kotlin {
     jvm()
     androidTarget()
-    applyDefaultHierarchyTemplate()
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"

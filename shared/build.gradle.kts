@@ -16,7 +16,6 @@ kotlin {
     androidTarget()
     iosArm64()
     iosSimulatorArm64()
-    applyDefaultHierarchyTemplate()
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
