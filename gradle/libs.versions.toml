@@ -6,25 +6,24 @@ androidMinSdk = "24"
 
 #======Gradle
 gradleAndroidTools = "8.1.2"
-gradleComposeMultiplatform = "1.5.10-rc02"
+gradleComposeMultiplatform = "1.5.10"
 
 #======Kotlin
-kotlin = "1.9.20-RC2"
+kotlin = "1.9.20"
 kotlinxCoroutines = "1.7.3"
 kotlinxSerialization = "1.6.0"
 kotlinxAtomicFu = "0.22.0"
-ksp = "1.9.20-RC2-1.0.13"
+ksp = "1.9.20-1.0.13"
 
 #======Compose Multiplatform
 #https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md
 #https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
-composeMultiplatformCompiler = "1.5.3-rc01"
+composeMultiplatformCompiler = "1.5.3"
 
-#======Compose JetpackA
-
+#======Jetpack Compose
 #https://androidx.dev/storage/compose-compiler/repository
 androidxCompose = "1.6.0-alpha08"
-androidxComposeCompiler = "1.5.4-dev-k1.9.20-RC2-93f1625925e"
+androidxComposeCompiler = "1.5.4-dev-k1.9.20-50f08dfa4b4"
 androidxComposeLifecycle = "2.6.2"
 androidxComposeMaterial3 = "1.2.0-alpha10"
 
@@ -66,7 +65,6 @@ multiplatform-mokoMvvm = { group = "dev.icerock.moko", name = "mvvm-core", versi
 multiplatform-orbitMvi-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbitMviCore" }
 multiplatform-composeuiviewcontroller-annotations = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-annotations", version.ref = "composeuiviewcontroller"}
 multiplatform-composeuiviewcontroller-ksp = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-ksp", version.ref = "composeuiviewcontroller"}
-#======Koin
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 
