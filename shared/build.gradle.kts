@@ -37,35 +37,28 @@ kotlin {
             }
         }
 
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.jetbrains.kotlinx.coroutines.core)
-                implementation(libs.jetbrains.kotlinx.serialization)
-                implementation(libs.jetbrains.kotlinx.atomicfu)
-                api(libs.multiplatform.kermit)
-                api(libs.multiplatform.mokoMvvm)
-                api(libs.multiplatform.orbitMvi.core)
-                api(libs.koin.core)
-                implementation(libs.multiplatform.multiplatformSettings)
-            }
+        commonMain.dependencies {
+            implementation(libs.jetbrains.kotlinx.coroutines.core)
+            implementation(libs.jetbrains.kotlinx.serialization)
+            implementation(libs.jetbrains.kotlinx.atomicfu)
+            api(libs.multiplatform.kermit)
+            api(libs.multiplatform.mokoMvvm)
+            api(libs.multiplatform.orbitMvi.core)
+            api(libs.koin.core)
+            implementation(libs.multiplatform.multiplatformSettings)
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.koin.android)
-            }
+        androidMain.dependencies {
+            implementation(libs.koin.android)
         }
-        val iosMain by getting
-        val jvmMain by getting
 
         val all by creating {
             dependencies {
                 api(libs.koin.core)
                 implementation(libs.multiplatform.multiplatformSettings)
             }
-//            commonMain.dependsOn(this)
-            androidMain.dependsOn(this)
-            iosMain.dependsOn(this)
-            jvmMain.dependsOn(this)
+            androidMain.configure { dependsOn(this) }
+            iosMain.configure { dependsOn(this) }
+            jvmMain.configure { dependsOn(this) }
         }
 
         targets.withType<KotlinNativeTarget> {

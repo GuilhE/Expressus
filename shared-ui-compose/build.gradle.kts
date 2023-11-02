@@ -17,9 +17,6 @@ android {
 kotlin {
     jvm()
     androidTarget()
-    val iosX64 = iosX64()
-    val iosArm64 = iosArm64()
-    val iosSimulatorArm64 = iosSimulatorArm64()
     applyDefaultHierarchyTemplate()
 
     cocoapods {
@@ -34,27 +31,20 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                implementation(compose.ui)
-                implementation(libs.jetbrains.kotlinx.coroutines.core)
-            }
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            implementation(compose.ui)
+            implementation(libs.jetbrains.kotlinx.coroutines.core)
         }
-        val jvmMain by getting {
-            dependsOn(commonMain)
-            dependencies {
-                implementation(compose.preview)
-            }
+        jvmMain.dependencies {
+            implementation(compose.preview)
         }
-        val iosMain by getting {
-            dependencies {
-                implementation(libs.multiplatform.composeuiviewcontroller.annotations)
-            }
+        iosMain.dependencies {
+            implementation(libs.multiplatform.composeuiviewcontroller.annotations)
         }
-        listOf(iosX64, iosArm64, iosSimulatorArm64).forEach { target ->
+        listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
             val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
             dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
 

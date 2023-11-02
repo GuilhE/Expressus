@@ -38,7 +38,7 @@ koin = "3.5.0"
 multiplatformSettings = "1.1.0"
 mokoMvvm = "0.16.1"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "1.1.0-ALPHA"
+composeuiviewcontroller = "1.2.0-ALPHA"
 
 [plugins]
 
