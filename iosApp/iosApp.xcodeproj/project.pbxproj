@@ -167,6 +167,30 @@
 			name = SharedRepresentables;
 			sourceTree = "<group>";
 		};
+		36B52787D0FF7E632112EF0D /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xcschemes;
+			sourceTree = "<group>";
+		};
+		36B52E126DBE5BB6238066C1 /* guilhermedelgado.xcuserdatad */ = {
+			isa = PBXGroup;
+			children = (
+				36B52787D0FF7E632112EF0D /* xcschemes */,
+			);
+			name = guilhermedelgado.xcuserdatad;
+			path = iosApp.xcodeproj/xcuserdata/guilhermedelgado.xcuserdatad;
+			sourceTree = "<group>";
+		};
+		36B52F84CBD2E3B89CF84CD1 /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = xcschemes;
+			path = iosApp.xcworkspace/xcuserdata/guilhermedelgado.xcuserdatad/xcschemes;
+			sourceTree = "<group>";
+		};
 		59BC73FCA6B95212E58A8654 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +207,8 @@
 				0D8ABA141A6D69FB4A1EF25C /* Pods */,
 				59BC73FCA6B95212E58A8654 /* Frameworks */,
 				2B3CF4679B39BE915AAE9AAD /* SharedRepresentables */,
+				36B52F84CBD2E3B89CF84CD1 /* xcschemes */,
+				36B52E126DBE5BB6238066C1 /* guilhermedelgado.xcuserdatad */,
 			);
 			sourceTree = "<group>";
 		};

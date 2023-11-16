@@ -20,7 +20,7 @@ kotlin {
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
         homepage = "https://github.com/GuilhE/Expressus"
-        ios.deploymentTarget = "16.0"
+        ios.deploymentTarget = "17.0"
         version = "1.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
@@ -46,10 +46,7 @@ kotlin {
             api(libs.koin.core)
             implementation(libs.multiplatform.multiplatformSettings)
         }
-        androidMain.dependencies {
-            implementation(libs.koin.android)
-        }
-
+        androidMain.dependencies { implementation(libs.koin.android) }
         val all by creating {
             dependencies {
                 api(libs.koin.core)

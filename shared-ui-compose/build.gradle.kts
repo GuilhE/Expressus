@@ -7,6 +7,7 @@ plugins {
 
 compose {
     kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+//    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=2.0.0-Beta1")
 }
 
 android {
@@ -21,7 +22,7 @@ kotlin {
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
         homepage = "https://github.com/GuilhE/Expressus"
-        ios.deploymentTarget = "16.0"
+        ios.deploymentTarget = "17.0"
         version = "1.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
@@ -37,12 +38,9 @@ kotlin {
             implementation(compose.ui)
             implementation(libs.jetbrains.kotlinx.coroutines.core)
         }
-        jvmMain.dependencies {
-            implementation(compose.preview)
-        }
-        iosMain.dependencies {
-            implementation(libs.multiplatform.composeuiviewcontroller.annotations)
-        }
+        jvmMain.dependencies { implementation(compose.preview) }
+        iosMain.dependencies { implementation(libs.multiplatform.composeuiviewcontroller.annotations) }
+
         listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
             val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
             dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
