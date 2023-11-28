@@ -20,7 +20,7 @@ private fun KotlinJvmOptions.addOptions(options: List<String> = emptyList()) {
         "-opt-in=kotlinx.coroutines.FlowPreview",
         "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
         "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
-//        "-P",
-//        "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=2.0.0-Beta1"
+        "-P",
+        "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=1.9.21"
     ) + options
 }
