@@ -6,31 +6,31 @@ androidMinSdk = "24"
 
 #======Gradle
 gradleAndroidTools = "8.1.4"
-gradleComposeMultiplatform = "1.5.11"
+gradleComposeMultiplatform = "1.6.0-beta01"
 
 #======Kotlin
-kotlin = "1.9.21"
+kotlin = "1.9.22"
 kotlinxCoroutines = "1.7.3"
 kotlinxSerialization = "1.6.1"
 kotlinxAtomicFu = "0.23.1"
-ksp = "1.9.21-1.0.15"
+ksp = "1.9.22-1.0.17"
 
 #======Compose Multiplatform
 #https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html
 #https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
-composeMultiplatformCompiler = "1.5.4"
+composeMultiplatformCompiler = "1.5.8-beta01"
 
 #======Jetpack Compose
 #https://androidx.dev/storage/compose-compiler/repository
-androidxCompose = "1.6.0-beta01"
-androidxComposeCompiler = "1.5.4-dev-k1.9.20-50f08dfa4b4"
-androidxComposeLifecycle = "2.7.0-rc01"
-androidxComposeMaterial3 = "1.2.0-alpha11"
+androidxCompose = "1.6.0"
+androidxComposeCompiler = "1.5.8-dev-k1.9.22-42b6ec2b037"
+androidxComposeLifecycle = "2.7.0"
+androidxComposeMaterial3 = "1.2.0-rc01"
 
 #======Android
-androidxActivityKtx = "1.8.1"
-androidxLifecycle = "2.7.0-rc01"
-androidMaterial = "1.11.0-rc01"
+androidxActivityKtx = "1.8.2"
+androidxLifecycle = "2.7.0"
+androidMaterial = "1.11.0"
 
 #======Multiplatform
 kermit = "2.0.2"

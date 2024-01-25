@@ -12,7 +12,7 @@ compose {
 
 android {
     namespace = "com.expressus.compose"
-    sourceSets["main"].res.srcDirs("src/commonMain/resources")
+    sourceSets["main"].res.srcDirs("src/commonMain/composeResources")
 }
 
 kotlin {
