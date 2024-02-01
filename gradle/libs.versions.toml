@@ -12,13 +12,13 @@ gradleComposeMultiplatform = "1.6.0-beta01"
 kotlin = "1.9.22"
 kotlinxCoroutines = "1.7.3"
 kotlinxSerialization = "1.6.1"
-kotlinxAtomicFu = "0.23.1"
+kotlinxAtomicFu = "0.23.2"
 ksp = "1.9.22-1.0.17"
 
 #======Compose Multiplatform
 #https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html
 #https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
-composeMultiplatformCompiler = "1.5.8-beta01"
+composeMultiplatformCompiler = "1.5.8.1-beta01"
 
 #======Jetpack Compose
 #https://androidx.dev/storage/compose-compiler/repository
@@ -38,7 +38,7 @@ koin = "3.5.0"
 multiplatformSettings = "1.1.0"
 mokoMvvm = "0.16.1"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "1.4.3-ALPHA"
+composeuiviewcontroller = "1.4.4-ALPHA"
 
 [plugins]
 
