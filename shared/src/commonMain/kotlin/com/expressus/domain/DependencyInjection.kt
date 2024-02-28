@@ -22,7 +22,7 @@ object DependencyInjection {
             modules(commonModule(), platformModule())
         }.koin
 
-    internal fun commonModule() = module {
+    private fun commonModule() = module {
         single { PlatformDependencies().getSettings() }
     }
 }

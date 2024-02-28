@@ -5,27 +5,27 @@ androidTargetSdk = "34"
 androidMinSdk = "24"
 
 #======Gradle
-gradleAndroidTools = "8.1.4"
-gradleComposeMultiplatform = "1.6.0-beta01"
+gradleAndroidTools = "8.2.2"
+gradleComposeMultiplatform = "1.6.0"
 
 #======Kotlin
 kotlin = "1.9.22"
-kotlinxCoroutines = "1.7.3"
-kotlinxSerialization = "1.6.1"
+kotlinxCoroutines = "1.8.0"
+kotlinxSerialization = "1.6.3"
 kotlinxAtomicFu = "0.23.2"
 ksp = "1.9.22-1.0.17"
 
 #======Compose Multiplatform
 #https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html
 #https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
-composeMultiplatformCompiler = "1.5.8.1-beta01"
+composeMultiplatformCompiler = "1.5.8.1-beta02"
 
 #======Jetpack Compose
 #https://androidx.dev/storage/compose-compiler/repository
-androidxCompose = "1.6.0"
+androidxCompose = "1.6.2"
 androidxComposeCompiler = "1.5.8-dev-k1.9.22-42b6ec2b037"
 androidxComposeLifecycle = "2.7.0"
-androidxComposeMaterial3 = "1.2.0-rc01"
+androidxComposeMaterial3 = "1.2.0"
 
 #======Android
 androidxActivityKtx = "1.8.2"
@@ -35,7 +35,7 @@ androidMaterial = "1.11.0"
 #======Multiplatform
 kermit = "2.0.2"
 koin = "3.5.0"
-multiplatformSettings = "1.1.0"
+multiplatformSettings = "1.1.1"
 mokoMvvm = "0.16.1"
 orbitMviCore = "6.1.0"
 composeuiviewcontroller = "1.4.4-ALPHA"
