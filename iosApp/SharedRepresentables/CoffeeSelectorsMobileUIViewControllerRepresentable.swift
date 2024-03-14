@@ -8,7 +8,7 @@ public struct CoffeeSelectorsMobileRepresentable: UIViewControllerRepresentable 
     let onComposeClick: () -> Void
     
     public func makeUIViewController(context: Context) -> UIViewController {
-        return CoffeeSelectorsMobileUIViewController().make(onAnyClick: onAnyClick, onSwiftUiClick: onSwiftUiClick, onComposeClick: onComposeClick)
+        CoffeeSelectorsMobileUIViewController().make(onAnyClick: onAnyClick, onSwiftUiClick: onSwiftUiClick, onComposeClick: onComposeClick)
     }
     
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) {

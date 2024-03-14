@@ -6,7 +6,7 @@ public struct ExpressusMobileRepresentable: UIViewControllerRepresentable {
     let makeCoffee: () -> Void
     
     public func makeUIViewController(context: Context) -> UIViewController {
-        return ExpressusMobileUIViewController().make(makeCoffee: makeCoffee)
+        ExpressusMobileUIViewController().make(makeCoffee: makeCoffee)
     }
     
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
