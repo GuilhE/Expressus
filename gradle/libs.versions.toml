@@ -21,9 +21,10 @@ ksp = "1.9.23-1.0.19"
 composeMultiplatformCompiler = "1.5.10.1"
 
 #======Jetpack Compose
+#https://developer.android.com/jetpack/androidx/releases/compose-kotlin?hl=pt-br#pre-release_kotlin_compatibility
 #https://androidx.dev/storage/compose-compiler/repository
 androidxCompose = "1.6.4"
-androidxComposeCompiler = "1.5.11-dev-k1.9.23-96ef9dc6af1"
+androidxComposeCompiler = "1.5.11"
 androidxComposeLifecycle = "2.7.0"
 androidxComposeMaterial3 = "1.2.1"
 
