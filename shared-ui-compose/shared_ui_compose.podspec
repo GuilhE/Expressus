@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'Expressus, a multiplatform coffee machine!'
     spec.vendored_frameworks      = 'build/cocoapods/framework/SharedComposables.framework'
     spec.libraries                = 'c++'
-    spec.ios.deployment_target = '17.0'
+    spec.ios.deployment_target    = '17.0'
                 
                 
     if !Dir.exist?('build/cocoapods/framework/SharedComposables.framework') || Dir.empty?('build/cocoapods/framework/SharedComposables.framework')
@@ -21,6 +21,10 @@ Pod::Spec.new do |spec|
 
         Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
     end
+                
+    spec.xcconfig = {
+        'ENABLE_USER_SCRIPT_SANDBOXING' => 'NO',
+    }
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared-ui-compose',
@@ -46,5 +50,5 @@ Pod::Spec.new do |spec|
             SCRIPT
         }
     ]
-    spec.resources = ['build/compose/ios/SharedComposables/compose-resources']
+    spec.resources = ['build/compose/ios/shared_ui_compose/compose-resources']
 end

@@ -1,6 +1,8 @@
-@file:Suppress("UnstableApiUsage", "unused")
-
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import extensions.addComposeDependencies
+import extensions.addComposeOptions
+import extensions.addKotlinCompileOptions
+import extensions.buildComposeMetricsParameters
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -22,8 +24,8 @@ class AndroidAppConventionPlugin : Plugin<Project> {
             extensions.configure<BaseAppModuleExtension> {
                 addKotlinAndroidConfigurations(versionCatalog)
                 addComposeOptions(versionCatalog)
-                addKotlinJvmOptions(buildComposeMetricsParameters())
             }
+            addKotlinCompileOptions(buildComposeMetricsParameters())
             addComposeDependencies(versionCatalog)
         }
     }
@@ -54,6 +56,7 @@ class AndroidAppConventionPlugin : Plugin<Project> {
                 abortOnError = false
             }
 
+            @Suppress("UnstableApiUsage")
             testOptions {
                 unitTests.apply {
                     isReturnDefaultValues = true
@@ -71,7 +74,8 @@ class AndroidAppConventionPlugin : Plugin<Project> {
                             "**/*.version",
                             "**/*.txt",
                             "**/*.xml",
-                            "**/*.properties"
+                            "**/*.properties",
+                            "/META-INF/{AL2.0,LGPL2.1}"
                         )
                     )
                 }

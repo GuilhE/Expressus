@@ -4,22 +4,19 @@ import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.expressus.compose.platformFont
+import expressus.shared_ui_compose.generated.resources.Res
+import expressus.shared_ui_compose.generated.resources.led_panel_panels_station_on
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.Font
 
+@OptIn(ExperimentalResourceApi::class)
 private val ledFontFamily
     @Composable
-    get() = FontFamily(
-        platformFont(
-            resourceId = "led_panel_panels_station_on",
-            weight = FontWeight.W400,
-            style = FontStyle.Normal
-        )
-    )
+    get() = FontFamily(Font(Res.font.led_panel_panels_station_on))
 
-val machineTypography
+internal val machineTypography
     @Composable
     get() = Typography(
         h1 = TextStyle(

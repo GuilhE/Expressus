@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
 buildscript {
     repositories {
         google()
         mavenCentral()
+        maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
         classpath(libs.gradle.android.tools)
@@ -13,15 +16,14 @@ buildscript {
 
 allprojects {
     afterEvaluate {
-        //https://discuss.kotlinlang.org/t/disabling-androidandroidtestrelease-source-set-in-gradle-kotlin-dsl-script
-        project.extensions.findByType<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>()?.let { kmpExt ->
-            kmpExt.sourceSets.removeAll {
-                setOf(
-                    "androidAndroidTestRelease",
-                    "androidTestFixtures",
-                    "androidTestFixturesDebug",
-                    "androidTestFixturesRelease",
-                ).contains(it.name)
+        project.extensions.findByType<KotlinMultiplatformExtension>()?.let { ext ->
+            ext.sourceSets {
+                //https://discuss.kotlinlang.org/t/disabling-androidandroidtestrelease-source-set-in-gradle-kotlin-dsl-script
+                sequenceOf("AndroidTest", "TestFixtures").forEach { artifact ->
+                    sequenceOf("", "Release", "Debug").forEach { variant ->
+                        findByName("android$artifact$variant")?.let(::remove)
+                    }
+                }
             }
         }
     }

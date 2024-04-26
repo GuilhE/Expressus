@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     id("kotlinx-serialization")
@@ -16,6 +14,7 @@ kotlin {
     androidTarget()
     iosArm64()
     iosSimulatorArm64()
+    iosX64()
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
@@ -31,8 +30,10 @@ kotlin {
     sourceSets {
         all {
             languageSettings.apply {
-                optIn("kotlin.RequiresOptIn")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                optIn("kotlinx.cinterop.ExperimentalForeignApi")
+                optIn("kotlin.experimental.ExperimentalObjCName")
+                optIn("kotlin.RequiresOptIn")
             }
         }
 
@@ -40,25 +41,18 @@ kotlin {
             implementation(libs.jetbrains.kotlinx.coroutines.core)
             implementation(libs.jetbrains.kotlinx.serialization)
             implementation(libs.jetbrains.kotlinx.atomicfu)
+            implementation(libs.multiplatform.multiplatformSettings)
             api(libs.multiplatform.kermit)
             api(libs.multiplatform.mokoMvvm)
             api(libs.multiplatform.orbitMvi.core)
             api(libs.koin.core)
-            implementation(libs.multiplatform.multiplatformSettings)
         }
         androidMain.dependencies { implementation(libs.koin.android) }
-        val all by creating {
-            dependencies {
-                api(libs.koin.core)
-                implementation(libs.multiplatform.multiplatformSettings)
+        iosMain {
+            @Suppress("OPT_IN_USAGE")
+            compilerOptions {
+                freeCompilerArgs.add("-Xexport-kdoc")
             }
-            androidMain.configure { dependsOn(this) }
-            iosMain.configure { dependsOn(this) }
-            jvmMain.configure { dependsOn(this) }
-        }
-
-        targets.withType<KotlinNativeTarget> {
-            compilations["main"].kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
         }
     }
 }

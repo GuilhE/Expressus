@@ -7,17 +7,18 @@ plugins {
 
 compose {
     kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
-//    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=1.9.23")
 }
 
 android {
     namespace = "com.expressus.compose"
-    sourceSets["main"].res.srcDirs("src/commonMain/composeResources")
 }
 
 kotlin {
-    jvm()
-    androidTarget()
+    jvm("desktop")
+    listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
+        val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
+        dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
+    }
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
@@ -36,19 +37,21 @@ kotlin {
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.ui)
+            implementation(compose.components.resources)
             implementation(libs.jetbrains.kotlinx.coroutines.core)
         }
-        jvmMain.dependencies { implementation(compose.preview) }
-        iosMain.dependencies { implementation(libs.multiplatform.composeuiviewcontroller.annotations) }
-
-        listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
-            val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
-            dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
-
-//            all {
-//                https://kotlinlang.org/docs/ksp-quickstart.html#make-ide-aware-of-generated-code
-//                kotlin.srcDir("build/generated/ksp/${target.targetName}/${target.targetName}Main/kotlin")
-//            }
+        val desktopMain by getting {
+            dependencies { implementation(compose.preview) }
+        }
+        iosMain {
+            dependencies {
+                implementation(projects.shared)
+                implementation(libs.multiplatform.composeuiviewcontroller.annotations)
+            }
+            @Suppress("OPT_IN_USAGE")
+            compilerOptions {
+                freeCompilerArgs.add("-Xbinary=bundleId=com.whosnext.ui")
+            }
         }
     }
 }

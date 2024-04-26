@@ -1,26 +1,24 @@
-import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import org.gradle.api.JavaVersion
-import org.gradle.api.plugins.ExtensionAware
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+package extensions
 
-internal fun LibraryExtension.addKotlinJvmOptions(options: List<String> = emptyList()) {
-    (this as ExtensionAware).extensions.configure<KotlinJvmOptions>("kotlinOptions") { addOptions(options) }
-}
+import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-internal fun BaseAppModuleExtension.addKotlinJvmOptions(options: List<String> = emptyList()) {
-    (this as ExtensionAware).extensions.configure<KotlinJvmOptions>("kotlinOptions") { addOptions(options) }
-}
-
-private fun KotlinJvmOptions.addOptions(options: List<String> = emptyList()) {
-    jvmTarget = JavaVersion.VERSION_17.toString()
-    freeCompilerArgs = freeCompilerArgs + listOf(
-        "-opt-in=kotlin.RequiresOptIn",
-        "-opt-in=kotlin.Experimental",
-        "-opt-in=kotlinx.coroutines.FlowPreview",
-        "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-        "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
-        "-P",
-        "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=1.9.21"
-    ) + options
+internal fun Project.addKotlinCompileOptions(options: List<String> = emptyList()) {
+    tasks.withType(KotlinCompile::class.java).configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+            freeCompilerArgs.addAll(
+                options + listOf(
+                    "-opt-in=kotlin.RequiresOptIn",
+                    "-opt-in=kotlin.Experimental",
+                    "-opt-in=kotlinx.coroutines.FlowPreview",
+                    "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                    "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
+//                    "-P",
+//                    "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=1.9.23"
+                )
+            )
+        }
+    }
 }

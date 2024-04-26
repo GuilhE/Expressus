@@ -7,37 +7,34 @@ plugins {
 
 compose {
     kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
-}
+    desktop {
+        application {
+            mainClass = "presentation.ExpressusKt"
+            jvmArgs += listOf("-Xmx2G")
+            nativeDistributions {
+                targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
 
-compose.desktop {
-    application {
-        mainClass = "presentation.ExpressusKt"
-        jvmArgs += listOf("-Xmx2G")
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+                version = "1.0.0"
+                packageVersion = version as String
+                packageName = "Expressus"
+                description = "Kotlin Multiplatform Coffee Machine"
+                copyright = "Copyright (c) 2022-present GuilhE"
+                licenseFile.set(project.file("../LICENSE"))
 
-            version = "1.0.0"
-            packageVersion = version as String
-            packageName = "Expressus"
-            description = "Kotlin Multiplatform Coffee Machine"
-            copyright = "Copyright (c) 2022-present GuilhE"
-            licenseFile.set(project.file("../LICENSE"))
-
-            with(project.file("src/jvmMain/resources")) {
-                macOS { iconFile.set(resolve("icon.icns")) }
-                linux { iconFile.set(resolve("icon.png")) }
-                windows { iconFile.set(resolve("icon.ico")) }
+                with(project.file("src/desktopMain/resources")) {
+                    macOS { iconFile.set(resolve("icon.icns")) }
+                    linux { iconFile.set(resolve("icon.png")) }
+                    windows { iconFile.set(resolve("icon.ico")) }
+                }
             }
         }
     }
 }
 
 kotlin {
-    jvm {
-        withJava()
-    }
+    jvm("desktop")
     sourceSets {
-        named("jvmMain") {
+        val desktopMain by getting {
             dependencies {
                 implementation(projects.shared)
                 implementation(projects.sharedUiCompose)
