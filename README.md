@@ -1,4 +1,4 @@
-<img src="/media/icon.png" width="100" align="right">
+<img src="/media/icon.png" width="100" align="right"></br></br>
 
 # Expressus
 
