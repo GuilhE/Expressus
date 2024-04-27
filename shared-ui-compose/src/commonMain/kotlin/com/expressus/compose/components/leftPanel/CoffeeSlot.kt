@@ -10,7 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -65,11 +65,11 @@ fun CoffeeSlot(
                 convexTop = false,
                 convexBottom = true,
                 flatBottom = true,
-                top = MaterialTheme.colors.primary,
-                start = MaterialTheme.colors.primary,
-                end = MaterialTheme.colors.primary,
-                bottom = MaterialTheme.colors.primaryVariant,
-                background = Brush.verticalGradient(listOf(MaterialTheme.colors.primary, MaterialTheme.colors.secondary))
+                top = MaterialTheme.colorScheme.primary,
+                start = MaterialTheme.colorScheme.primary,
+                end = MaterialTheme.colorScheme.primary,
+                bottom = MaterialTheme.colorScheme.primaryContainer,
+                background = Brush.verticalGradient(listOf(MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.secondary))
             )
             Box(
                 Modifier.fillMaxSize(),
@@ -114,8 +114,8 @@ fun CoffeeSlot(
                 flatBottom = true,
                 top = Color.Transparent,
                 bottom = Color.Transparent,
-                start = MaterialTheme.colors.primary,
-                end = MaterialTheme.colors.primary,
+                start = MaterialTheme.colorScheme.primary,
+                end = MaterialTheme.colorScheme.primary,
                 background = Brush.horizontalGradient(
                     0.0f to Color.Black.copy(0.85f),
                     0.4f to Color.Transparent,

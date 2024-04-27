@@ -5,15 +5,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -79,25 +79,22 @@ fun CoffeeTile(title: String, animateIdle: Boolean = false, toggle: Boolean = fa
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Box(
-                Modifier
-                    .fillMaxSize(0.8f)
-                    .fillMaxHeight()
-            ) {
+            Box(Modifier.fillMaxSize(0.8f)) {
                 PlasticTile(
                     Modifier.fillMaxSize(),
                     withGlossy = false,
                     backgroundColor =
-                    if (animateIdle) MaterialTheme.colors.primaryVariant else if (toggle) MaterialTheme.colors.secondary else MaterialTheme.colors.primary
+                    if (animateIdle) MaterialTheme.colorScheme.primaryContainer else if (toggle) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.primary
                 )
                 Text(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(start = 15.dp, end = 15.dp, top = 1.dp),
+                        .padding(start = 15.dp, end = 15.dp)
+                        .offset(y = (-2).dp),
                     text = title,
                     textAlign = TextAlign.Right,
-                    color = MaterialTheme.colors.surface,
-                    style = MaterialTheme.typography.h6
+                    color = MaterialTheme.colorScheme.surface,
+                    style = MaterialTheme.typography.titleMedium
                 )
             }
             Spacer(Modifier.size(10.dp))

@@ -2,7 +2,7 @@ package com.expressus.compose.components.centerPanel
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,11 +15,11 @@ fun MachineFrame(modifier: Modifier, content: @Composable ColumnScope.() -> Unit
     MachineTheme {
         val gradient = Brush.horizontalGradient(
             colors = listOf(
-                MaterialTheme.colors.primary,
-                MaterialTheme.colors.surface,
-                MaterialTheme.colors.surface,
-                MaterialTheme.colors.surface,
-                MaterialTheme.colors.primary,
+                MaterialTheme.colorScheme.primary,
+                MaterialTheme.colorScheme.surface,
+                MaterialTheme.colorScheme.surface,
+                MaterialTheme.colorScheme.surface,
+                MaterialTheme.colorScheme.primary,
             )
         )
 

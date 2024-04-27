@@ -2,7 +2,7 @@ package com.expressus.compose.components.leftPanel
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
@@ -16,10 +16,10 @@ fun TopPanel() {
     CoffeeTheme {
         val gradient = Brush.horizontalGradient(
             colors = listOf(
-                MaterialTheme.colors.primary,
-                MaterialTheme.colors.secondaryVariant,
-                MaterialTheme.colors.secondary,
-                MaterialTheme.colors.secondary
+                MaterialTheme.colorScheme.primary,
+                MaterialTheme.colorScheme.secondaryContainer,
+                MaterialTheme.colorScheme.secondary,
+                MaterialTheme.colorScheme.secondary
             )
         )
         Panel(

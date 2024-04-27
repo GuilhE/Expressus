@@ -3,7 +3,7 @@ package com.expressus.compose.components.leftPanel
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -54,7 +54,7 @@ fun CoffeeStream(modifier: Modifier, speed: Long, pouring: Boolean) {
         }
 
         CoffeeTheme {
-            val primary = MaterialTheme.colors.primary
+            val primary = MaterialTheme.colorScheme.primary
             Canvas(Modifier.fillMaxSize()) {
                 drawRoundRect(
                     color = primary,

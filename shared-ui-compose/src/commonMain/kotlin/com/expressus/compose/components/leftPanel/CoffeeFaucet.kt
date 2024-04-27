@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,8 +19,8 @@ import kotlin.native.HiddenFromObjC
 fun CoffeeFaucet(modifier: Modifier, offsets: FaucetOffsets) {
     val gradient = Brush.verticalGradient(
         colors = listOf(
-            MaterialTheme.colors.primary,
-            MaterialTheme.colors.primaryVariant
+            MaterialTheme.colorScheme.primary,
+            MaterialTheme.colorScheme.primaryContainer
         )
     )
     BoxWithConstraints(modifier, contentAlignment = Alignment.Center) {
