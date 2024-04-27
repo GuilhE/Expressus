@@ -10,13 +10,14 @@
             android:label="@string/app_name_label"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Main"
+            android:theme="@style/Theme.Design.NoActionBar"
             tools:ignore="LockedOrientationActivity">
 
         <activity
                 android:name=".presentation.ExpressusActivity"
                 android:exported="true"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                tools:ignore="DiscouragedApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
