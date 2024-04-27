@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,10 +24,10 @@ fun MachineRightFrame(modifier: Modifier, content: @Composable ColumnScope.() ->
                 Modifier
                     .background(
                         Brush.horizontalGradient(
-                            0.0f to MaterialTheme.colors.primary,
-                            0.05f to MaterialTheme.colors.primaryVariant,
-                            0.5f to MaterialTheme.colors.surface,
-                            1.0f to MaterialTheme.colors.primary,
+                            0.0f to MaterialTheme.colorScheme.primary,
+                            0.05f to MaterialTheme.colorScheme.primaryContainer,
+                            0.5f to MaterialTheme.colorScheme.surface,
+                            1.0f to MaterialTheme.colorScheme.primary,
                         )
                     )
                     .padding(horizontal = 10.dp)

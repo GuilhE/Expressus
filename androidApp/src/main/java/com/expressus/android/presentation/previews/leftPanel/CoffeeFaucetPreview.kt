@@ -1,6 +1,6 @@
 package com.expressus.android.presentation.previews.leftPanel
 
-import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,7 +15,7 @@ import com.expressus.compose.themes.CoffeeSlotTheme
 @Preview
 fun CoffeeFaucetPreview() {
     CoffeeSlotTheme {
-        BoxWithConstraints(contentAlignment = Alignment.Center) {
+        Box(contentAlignment = Alignment.Center) {
             CoffeeFaucet(Modifier.fillMaxWidth(), FaucetOffsets(50.dp, 50.dp))
         }
     }

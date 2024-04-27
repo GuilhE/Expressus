@@ -2,7 +2,7 @@ package com.expressus.compose.components.leftPanel
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
@@ -15,9 +15,9 @@ import com.expressus.compose.themes.CupTheme
 @Composable
 fun Cup(height: Dp) {
     CupTheme {
-        val primary = MaterialTheme.colors.primary
-        val secondary = MaterialTheme.colors.secondary
-        val onPrimary = MaterialTheme.colors.onPrimary
+        val primary = MaterialTheme.colorScheme.primary
+        val secondary = MaterialTheme.colorScheme.secondary
+        val onPrimary = MaterialTheme.colorScheme.onPrimary
 
         Canvas(Modifier.size(height)) {
             val w = size.width
