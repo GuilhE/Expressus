@@ -1,6 +1,5 @@
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import extensions.addComposeDependencies
-import extensions.addComposeOptions
 import extensions.addKotlinCompileOptions
 import extensions.buildComposeMetricsParameters
 import org.gradle.api.JavaVersion
@@ -18,12 +17,12 @@ class AndroidAppConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
+                apply("org.jetbrains.kotlin.plugin.compose")
             }
 
             val versionCatalog = target.extensions.getByType<VersionCatalogsExtension>().named("libs")
             extensions.configure<BaseAppModuleExtension> {
                 addKotlinAndroidConfigurations(versionCatalog)
-                addComposeOptions(versionCatalog)
             }
             addKotlinCompileOptions(buildComposeMetricsParameters())
             addComposeDependencies(versionCatalog)
@@ -73,7 +72,7 @@ class AndroidAppConventionPlugin : Plugin<Project> {
                             "**/*.kotlin_module",
                             "**/*.version",
                             "**/*.txt",
-                            "**/*.xml",
+//                            "**/*.xml",  //if not commented it will delete all shared-ui resources
                             "**/*.properties",
                             "/META-INF/{AL2.0,LGPL2.1}"
                         )

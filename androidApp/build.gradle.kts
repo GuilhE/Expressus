@@ -31,5 +31,5 @@ dependencies {
 
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.android.material)
-    implementation(libs.koin.android)
+    implementation(libs.kmp.koin.android)
 }

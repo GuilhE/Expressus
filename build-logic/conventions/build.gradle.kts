@@ -34,5 +34,9 @@ gradlePlugin {
             id = "${project.group}.kmp.library.android"
             implementationClass = "KMPAndroidLibraryConventionPlugin"
         }
+        register("CMPLibraryConventionPlugin") {
+            id = "${project.group}.kmp.compose"
+            implementationClass = "CMPLibraryConventionPlugin"
+        }
     }
 }

@@ -16,7 +16,7 @@ internal fun Project.addKotlinCompileOptions(options: List<String> = emptyList()
                     "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                     "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
 //                    "-P",
-//                    "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=1.9.23"
+//                    "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=2.0.0-RC2"
                 )
             )
         }

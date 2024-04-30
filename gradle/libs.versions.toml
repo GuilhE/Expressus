@@ -1,37 +1,26 @@
 [versions]
 
-androidCompileSdk = "34"
-androidTargetSdk = "34"
-androidMinSdk = "24"
-
-#======Gradle
-gradleAndroidTools = "8.3.2"
-gradleComposeMultiplatform = "1.6.10-beta02"
-
 #======Kotlin
-kotlin = "2.0.0-RC1"
+kotlin = "2.0.0-RC2"
 kotlinxCoroutines = "1.8.0"
 kotlinxSerialization = "1.6.3"
 kotlinxAtomicFu = "0.24.0"
-ksp = "2.0.0-RC1-1.0.20"
+kotlinxCompose = "1.6.10-beta03"
 
-#======Compose Multiplatform
-#https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html
-#https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
-composeMultiplatformCompiler = "1.5.11-kt-2.0.0-RC1"
-
-#======Jetpack Compose
-#https://developer.android.com/jetpack/androidx/releases/compose-kotlin?hl=pt-br#pre-release_kotlin_compatibility
-#https://androidx.dev/storage/compose-compiler/repository
-androidxCompose = "1.6.6"
-androidxComposeCompiler = "1.5.13-dev-k2.0.0-RC1-50f08dfa4b4"
-androidxComposeLifecycle = "2.7.0"
-androidxComposeMaterial3 = "1.2.1"
+#======Google
+ksp = "2.0.0-RC2-1.0.20"
 
 #======Android
+androidCompileSdk = "34"
+androidTargetSdk = "34"
+androidMinSdk = "24"
+androidGradlePlugin = "8.3.2"
+androidMaterial = "1.11.0"
 androidxActivityKtx = "1.9.0"
 androidxLifecycle = "2.7.0"
-androidMaterial = "1.11.0"
+androidxCompose = "1.6.6"
+androidxComposeLifecycle = "2.7.0"
+androidxComposeMaterial3 = "1.2.1"
 
 #======Multiplatform
 kermit = "2.0.2"
@@ -43,31 +32,35 @@ composeuiviewcontroller = "1.6.0-ALPHA"
 
 [plugins]
 
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlinx-compose = { id = "org.jetbrains.compose", version.ref = "kotlinxCompose" }
+kotlinx-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
 
 [libraries]
 
 #======Gradle
 gradle-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
-gradle-kotlin-serialization = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin" }
-gradle-android-tools = { group = "com.android.tools.build", name = "gradle", version.ref = "gradleAndroidTools" }
-gradle-compose-multiplatform = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "gradleComposeMultiplatform" }
+gradle-android-tools = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 
 #======Jetbrains
-jetbrains-kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
-jetbrains-kotlinx-atomicfu = { group = "org.jetbrains.kotlinx", name = "atomicfu", version.ref = "kotlinxAtomicFu" }
-jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
-jetbrains-kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinxCoroutines" }
+kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+kotlinx-atomicfu = { group = "org.jetbrains.kotlinx", name = "atomicfu", version.ref = "kotlinxAtomicFu" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinxCoroutines" }
 
 #======Multiplatform
-multiplatform-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
-multiplatform-multiplatformSettings = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "multiplatformSettings" }
-multiplatform-mokoMvvm = { group = "dev.icerock.moko", name = "mvvm-core", version.ref = "mokoMvvm" }
-multiplatform-orbitMvi-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbitMviCore" }
-multiplatform-composeuiviewcontroller-annotations = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-annotations", version.ref = "composeuiviewcontroller"}
-multiplatform-composeuiviewcontroller-ksp = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-ksp", version.ref = "composeuiviewcontroller"}
-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+kmp-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
+kmp-settings = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "multiplatformSettings" }
+kmp-mokoMvvm = { group = "dev.icerock.moko", name = "mvvm-core", version.ref = "mokoMvvm" }
+kmp-orbitMvi-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbitMviCore" }
+kmp-composeuiviewcontroller-annotations = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-annotations", version.ref = "composeuiviewcontroller"}
+kmp-composeuiviewcontroller-ksp = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-ksp", version.ref = "composeuiviewcontroller"}
+kmp-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+kmp-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 
 #======Android
 android-material = { group = "com.google.android.material", name = "material", version.ref = "androidMaterial" }

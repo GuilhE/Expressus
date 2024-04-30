@@ -1,6 +1,7 @@
 plugins {
     id("buildlogic.plugins.kmp.library.android")
-    id("kotlinx-serialization")
+    alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.google.ksp)
     id("kotlin-parcelize")
     kotlin("native.cocoapods")
 }
@@ -38,16 +39,16 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(libs.jetbrains.kotlinx.coroutines.core)
-            implementation(libs.jetbrains.kotlinx.serialization)
-            implementation(libs.jetbrains.kotlinx.atomicfu)
-            implementation(libs.multiplatform.multiplatformSettings)
-            api(libs.multiplatform.kermit)
-            api(libs.multiplatform.mokoMvvm)
-            api(libs.multiplatform.orbitMvi.core)
-            api(libs.koin.core)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.serialization)
+            implementation(libs.kotlinx.atomicfu)
+            implementation(libs.kmp.settings)
+            api(libs.kmp.kermit)
+            api(libs.kmp.mokoMvvm)
+            api(libs.kmp.orbitMvi.core)
+            api(libs.kmp.koin.core)
         }
-        androidMain.dependencies { implementation(libs.koin.android) }
+        androidMain.dependencies { implementation(libs.kmp.koin.android) }
         iosMain {
             @Suppress("OPT_IN_USAGE")
             compilerOptions {

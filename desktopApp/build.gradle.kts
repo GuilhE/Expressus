@@ -1,12 +1,10 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    kotlin("multiplatform")
-    id("org.jetbrains.compose")
+    id("buildlogic.plugins.kmp.compose")
 }
 
 compose {
-    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
     desktop {
         application {
             mainClass = "presentation.ExpressusKt"
@@ -39,7 +37,7 @@ kotlin {
                 implementation(projects.shared)
                 implementation(projects.sharedUiCompose)
                 implementation(compose.desktop.currentOs)
-                implementation(libs.jetbrains.kotlinx.coroutines.swing)
+                implementation(libs.kotlinx.coroutines.swing)
             }
         }
     }

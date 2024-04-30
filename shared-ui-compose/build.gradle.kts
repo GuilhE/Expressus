@@ -1,12 +1,8 @@
 plugins {
     id("buildlogic.plugins.kmp.library.android")
-    id("org.jetbrains.compose")
+    id("buildlogic.plugins.kmp.compose")
     kotlin("native.cocoapods")
-    alias(libs.plugins.ksp)
-}
-
-compose {
-    kotlinCompilerPlugin.set(libs.versions.composeMultiplatformCompiler)
+    alias(libs.plugins.google.ksp)
 }
 
 android {
@@ -17,7 +13,7 @@ kotlin {
     jvm("desktop")
     listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
         val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
-        dependencies.add("ksp$targetName", libs.multiplatform.composeuiviewcontroller.ksp)
+        dependencies.add("ksp$targetName", libs.kmp.composeuiviewcontroller.ksp)
     }
 
     cocoapods {
@@ -38,7 +34,7 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation(libs.jetbrains.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.coroutines.core)
         }
         val desktopMain by getting {
             dependencies { implementation(compose.preview) }
@@ -46,7 +42,7 @@ kotlin {
         iosMain {
             dependencies {
                 implementation(projects.shared)
-                implementation(libs.multiplatform.composeuiviewcontroller.annotations)
+                implementation(libs.kmp.composeuiviewcontroller.annotations)
             }
             @Suppress("OPT_IN_USAGE")
             compilerOptions {
