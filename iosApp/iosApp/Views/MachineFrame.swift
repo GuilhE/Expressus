@@ -18,11 +18,9 @@ struct MachineFrame<Content : View> : View {
     }
 }
 
-struct MachineLeftFrame_Previews: PreviewProvider {
-    static var previews: some View {
-        MachineFrame {
-            Text("Hello World")
-                .foregroundColor(Color.white)
-        }
+#Preview {
+    MachineFrame {
+        Text("Hello World")
+            .foregroundColor(Color.white)
     }
 }

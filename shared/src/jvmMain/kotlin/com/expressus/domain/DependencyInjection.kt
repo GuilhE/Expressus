@@ -10,5 +10,5 @@ actual fun platformModule() = module {
 }
 
 object ViewModels : KoinComponent {
-    fun expressusStateViewModel() = get<ExpressusViewModel>()
+    fun expressusViewModel() = get<ExpressusViewModel>()
 }

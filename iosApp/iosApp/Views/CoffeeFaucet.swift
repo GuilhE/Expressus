@@ -31,8 +31,6 @@ struct CoffeeFaucet: View {
     }
 }
 
-struct CoffeeFaucet_Previews: PreviewProvider {
-    static var previews: some View {
-        CoffeeFaucet().padding()
-    }
+#Preview {
+    CoffeeFaucet().padding()
 }

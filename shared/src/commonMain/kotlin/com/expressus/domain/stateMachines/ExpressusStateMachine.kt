@@ -1,26 +1,36 @@
+@file:Suppress("unused")
+
 package com.expressus.domain.stateMachines
 
 import co.touchlab.kermit.Logger
-import com.expressus.domain.stateMachines.base.StateMachine
-import com.expressus.domain.stateMachines.base.StateMachineBehavior
-import com.expressus.domain.stateMachines.base.StateMachineCache
-import com.expressus.domain.stateMachines.base.StateMachineState
+import com.expressus.domain.stateMachines.core.StateMachine
+import com.expressus.domain.stateMachines.core.StateMachineLogDecorator
+import com.expressus.domain.stateMachines.core.cache.StateMachineCacheBehavior
+import com.expressus.domain.stateMachines.core.cache.StateMachineSnapshot
+import com.whosnext.app.fsm.core.cache.StateMachineCache
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 
 internal class ExpressusStateMachine(
-    mayRestoreState: Boolean,
-    onTransition: (effect: ExpressusState.SideEffect) -> Unit
-) : StateMachineBehavior<ExpressusState.State, ExpressusState.Event, ExpressusState.SideEffect>, KoinComponent {
+    shouldRestoreState: Boolean,
+    onTransition: (effect: ExpressusState.SideEffect) -> Unit,
+    onRestored: ((state: ExpressusState.State) -> Unit)? = null
+) : StateMachineLogDecorator<ExpressusState.State, ExpressusState.Event, ExpressusState.SideEffect>,
+    StateMachineCacheBehavior<ExpressusState.State, ExpressusState.Event, ExpressusState.SideEffect>,
+    KoinComponent {
 
     override val stateMachineName: String = "Expressus"
     override val logger = Logger.withTag(stateMachineName)
-    private val cache = StateMachineCache(stateMachineName, get())
+    override val disableLogs: Boolean = false
 
-    override val stateMachine = StateMachine.create<ExpressusState.State, ExpressusState.Event, ExpressusState.SideEffect> {
-        val cachedState: StateMachineState<ExpressusState.State, ExpressusState.Event>? = if (mayRestoreState) cache.restoreState() else null
-        val initialState = cachedState?.state ?: ExpressusState.State.Idle
-        initialState(initialState).apply { logInitState(initialState) }
+    private val cache = StateMachineCache(stateMachineName, get())
+    private val stateMachine = StateMachine.create<ExpressusState.State, ExpressusState.Event, ExpressusState.SideEffect> {
+        val snapshot: StateMachineSnapshot<ExpressusState.State, ExpressusState.Event>? = if (shouldRestoreState) cache.restoreState() else null
+        val initialState = snapshot?.state ?: ExpressusState.State.Idle
+        initialState(initialState).apply {
+            logInitState(initialState)
+            onRestored?.invoke(initialState)
+        }
 
         state<ExpressusState.State.Idle> {
             on<ExpressusState.Event.OnStartGrinding> {
@@ -47,23 +57,43 @@ internal class ExpressusStateMachine(
             val validTransition = it as? StateMachine.Transition.Valid ?: return@onTransition
             with(validTransition) {
                 logTransition(this)
-                cache.saveState(StateMachineState(fromState, event))
+                cache.saveState(StateMachineSnapshot(fromState, event))
                 onTransition((sideEffect as ExpressusState.SideEffect))
             }
         }
     }
 
-    override fun restoreStateIfAvailable(): Boolean {
-        val cachedState: StateMachineState<ExpressusState.State, ExpressusState.Event>? = cache.restoreState()
-        return cachedState?.let { current ->
-            clearState()
+    init {
+        handleCache(shouldRestoreState)
+    }
+
+    private fun handleCache(shouldRestoreState: Boolean) {
+        if (shouldRestoreState) {
+            if (!restoreStateIfAvailable()) {
+                clearSavedState()
+            }
+        } else {
+            clearSavedState()
+        }
+    }
+
+    fun currentState(): ExpressusState.State = stateMachine.state
+
+    fun transitionOn(event: ExpressusState.Event) {
+        stateMachine.transition(event)
+    }
+
+    private fun restoreStateIfAvailable(): Boolean {
+        val snapshot: StateMachineSnapshot<ExpressusState.State, ExpressusState.Event>? = cache.restoreState()
+        return snapshot?.let { current ->
+            cache.clear()
             logStateRestore(current.state, current.event)
             stateMachine.transition(current.event)
             true
         } ?: false
     }
 
-    override fun clearState() {
-        cache.clearSavedState()
+    override fun clearSavedState() {
+        cache.clear()
     }
 }

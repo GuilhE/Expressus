@@ -15,7 +15,6 @@ public class ExpressusViewModelObservableObject : ObservableObject {
     
     init(wrapped: ExpressusViewModel) {
         self.wrapped = wrapped
-        self.wrapped.handleSavedState(restore: false)
         state = wrapped.state.value as! ExpressusUiState
         (wrapped.state.asPublisher() as AnyPublisher<ExpressusUiState, Never>)
             .receive(on: RunLoop.main)

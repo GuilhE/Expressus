@@ -197,76 +197,75 @@ private struct SlotEndShape: Shape {
     }
 }
 
-struct Slot_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            let grad = LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow]), startPoint: .top, endPoint: .bottom)
-            Slot(
-                 strokeWidth: 50,
-                 top: Color.red,
-                 bottom: Color.red,
-                 start: Color.black,
-                 end: Color.black,
-                 gradient: grad
-            )
-            
-            Slot(
-                 strokeWidth: 50,
-                 topOffset: 10,
-                 bottomOffset: 10,
-                 flatTop: true,
-                 flatBottom: true,
-                 top: Color.red,
-                 bottom: Color.red,
-                 start: Color.black,
-                 end: Color.black,
-                 gradient: grad
-            )
-            
-            Slot(
-                 strokeWidth: 50,
-                 topOffset: 10,
-                 bottomOffset: 10,
-                 convexTop: false,
-                 flatTop: true,
-                 convexBottom: false,
-                 flatBottom: true,
-                 top: Color.red,
-                 bottom: Color.red,
-                 start: Color.black,
-                 end: Color.black,
-                 gradient: grad
-            )
-            
-            Slot(
-                 strokeWidth: 50,
-                 topOffset: 10,
-                 bottomOffset: 10,
-                 convexTop: true,
-                 flatTop: false,
-                 convexBottom: true,
-                 flatBottom: false,
-                 top: Color.red,
-                 bottom: Color.red,
-                 start: Color.black,
-                 end: Color.black,
-                 gradient: grad
-            )
-            
-            Slot(
-                 strokeWidth: 50,
-                 topOffset: 10,
-                 bottomOffset: 10,
-                 convexTop: true,
-                 flatTop: false,
-                 convexBottom: true,
-                 flatBottom: false,
-                 top: Color.red,
-                 bottom: Color.red,
-                 start: Color.black,
-                 end: Color.black,
-                 gradient: grad
-            )
-        }.padding(.horizontal, 100)
+#Preview {
+    VStack {
+        let grad = LinearGradient(gradient: Gradient(colors: [Color.green, Color.yellow]), startPoint: .top, endPoint: .bottom)
+        Slot(
+             strokeWidth: 50,
+             top: Color.red,
+             bottom: Color.red,
+             start: Color.black,
+             end: Color.black,
+             gradient: grad
+        )
+        
+        Slot(
+             strokeWidth: 50,
+             topOffset: 10,
+             bottomOffset: 10,
+             flatTop: true,
+             flatBottom: true,
+             top: Color.red,
+             bottom: Color.red,
+             start: Color.black,
+             end: Color.black,
+             gradient: grad
+        )
+        
+        Slot(
+             strokeWidth: 50,
+             topOffset: 10,
+             bottomOffset: 10,
+             convexTop: false,
+             flatTop: true,
+             convexBottom: false,
+             flatBottom: true,
+             top: Color.red,
+             bottom: Color.red,
+             start: Color.black,
+             end: Color.black,
+             gradient: grad
+        )
+        
+        Slot(
+             strokeWidth: 50,
+             topOffset: 10,
+             bottomOffset: 10,
+             convexTop: true,
+             flatTop: false,
+             convexBottom: true,
+             flatBottom: false,
+             top: Color.red,
+             bottom: Color.red,
+             start: Color.black,
+             end: Color.black,
+             gradient: grad
+        )
+        
+        Slot(
+             strokeWidth: 50,
+             topOffset: 10,
+             bottomOffset: 10,
+             convexTop: true,
+             flatTop: false,
+             convexBottom: true,
+             flatBottom: false,
+             top: Color.red,
+             bottom: Color.red,
+             start: Color.black,
+             end: Color.black,
+             gradient: grad
+        )
     }
+    .padding(.horizontal, 100)
 }

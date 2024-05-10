@@ -13,10 +13,10 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.core.view.WindowCompat
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.expressus.compose.components.ExpressusMobile
-import com.expressus.domain.stateMachines.ExpressusUiState
+import com.expressus.domain.viewModels.ExpressusUiState
 import com.expressus.domain.viewModels.ExpressusViewModel
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -50,11 +50,10 @@ class ExpressusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        val viewModel = getViewModel<ExpressusViewModel>().also { it.handleSavedState(savedInstanceState != null) }
-        with(viewModel) {
+        with(getViewModel<ExpressusViewModel>()) {
             setContent {
                 Surface {
-                    val state = state.collectAsStateWithLifecycle().value
+                    val state = state.collectAsState().value
                     Expressus(state) { makeCoffee() }
                     when {
                         state.isGrinding -> {

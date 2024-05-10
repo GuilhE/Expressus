@@ -97,11 +97,9 @@ private struct CupStripeShape : Shape {
     }
 }
 
-struct Cup_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.gray
-            Cup(height: CGFloat(150))
-        }
+#Preview {
+    ZStack {
+        Color.gray
+        Cup(height: CGFloat(150))
     }
 }

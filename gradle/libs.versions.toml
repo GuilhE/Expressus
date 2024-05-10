@@ -1,11 +1,11 @@
 [versions]
 
 #======Kotlin
-kotlin = "2.0.0-RC2"
+kotlin = "2.0.0-RC3"
 kotlinxCoroutines = "1.8.0"
 kotlinxSerialization = "1.6.3"
 kotlinxAtomicFu = "0.24.0"
-kotlinxCompose = "1.6.10-beta03"
+kotlinxCompose = "1.6.10-rc01"
 
 #======Google
 ksp = "2.0.0-RC2-1.0.20"
@@ -15,10 +15,10 @@ androidCompileSdk = "34"
 androidTargetSdk = "34"
 androidMinSdk = "24"
 androidGradlePlugin = "8.3.2"
-androidMaterial = "1.11.0"
+androidMaterial = "1.12.0"
 androidxActivityKtx = "1.9.0"
-androidxLifecycle = "2.7.0"
-androidxCompose = "1.6.6"
+androidxLifecycle = "2.8.0-rc01"
+androidxCompose = "1.6.7"
 androidxComposeLifecycle = "2.7.0"
 androidxComposeMaterial3 = "1.2.1"
 
@@ -26,9 +26,8 @@ androidxComposeMaterial3 = "1.2.1"
 kermit = "2.0.2"
 koin = "3.6.0-Beta2"
 multiplatformSettings = "1.1.1"
-mokoMvvm = "0.16.1"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "1.6.0-ALPHA"
+composeuiviewcontroller = "1.7.0-ALPHA"
 
 [plugins]
 
@@ -38,7 +37,6 @@ kotlinx-compose = { id = "org.jetbrains.compose", version.ref = "kotlinxCompose"
 kotlinx-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-
 
 [libraries]
 
@@ -55,7 +53,6 @@ kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-co
 #======Multiplatform
 kmp-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
 kmp-settings = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "multiplatformSettings" }
-kmp-mokoMvvm = { group = "dev.icerock.moko", name = "mvvm-core", version.ref = "mokoMvvm" }
 kmp-orbitMvi-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbitMviCore" }
 kmp-composeuiviewcontroller-annotations = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-annotations", version.ref = "composeuiviewcontroller"}
 kmp-composeuiviewcontroller-ksp = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-ksp", version.ref = "composeuiviewcontroller"}
@@ -65,7 +62,8 @@ kmp-koin-android = { group = "io.insert-koin", name = "koin-android", version.re
 #======Android
 android-material = { group = "com.google.android.material", name = "material", version.ref = "androidMaterial" }
 
-androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidxLifecycle" }
 
 androidx-compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityKtx" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxCompose" }

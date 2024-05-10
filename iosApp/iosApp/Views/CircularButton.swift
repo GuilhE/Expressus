@@ -4,7 +4,7 @@ struct CircularButton: View {
     
     let size: CGFloat
     let action: () -> Void
-       
+    
     var body: some View {
         ThemeScope(theme: Themes.CircularButton()) { theme in
             Button(action: action) {
@@ -23,11 +23,9 @@ struct CircularButton: View {
     }
 }
 
-struct CircularButton_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-            CircularButton(size: 100, action: {})
-        }
+#Preview {
+    ZStack {
+        Color.black
+        CircularButton(size: 100, action: {})
     }
 }

@@ -43,8 +43,8 @@ kotlin {
             implementation(libs.kotlinx.serialization)
             implementation(libs.kotlinx.atomicfu)
             implementation(libs.kmp.settings)
+            api(libs.androidx.lifecycle.viewmodel)
             api(libs.kmp.kermit)
-            api(libs.kmp.mokoMvvm)
             api(libs.kmp.orbitMvi.core)
             api(libs.kmp.koin.core)
         }

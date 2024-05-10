@@ -47,9 +47,6 @@ struct ExpressusSelectorScreen: View {
     }
 }
 
-struct ExpressusSelectorScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        ExpressusSelectorScreen()
-            .previewInterfaceOrientation(.portrait)
-    }
+#Preview {
+    ExpressusSelectorScreen()
 }

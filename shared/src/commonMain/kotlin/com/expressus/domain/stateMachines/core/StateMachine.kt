@@ -1,4 +1,4 @@
-package com.expressus.domain.stateMachines.base
+package com.expressus.domain.stateMachines.core
 
 import kotlinx.atomicfu.atomic
 import kotlinx.atomicfu.locks.SynchronizedObject
@@ -7,19 +7,20 @@ import kotlin.reflect.KClass
 
 //Taken from https://github.com/Tinder/StateMachine/pull/28 authored by https://github.com/evengard88
 
-/*Copyright (c) 2018, Match Group, LLC
+/**
+Copyright (c) 2018, Match Group, LLC
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in the
-      documentation and/or other materials provided with the distribution.
-    * Neither the name of Match Group, LLC nor the names of its contributors
-      may be used to endorse or promote products derived from this software
-      without specific prior written permission.
+ * Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+ * Neither the name of Match Group, LLC nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -31,8 +32,9 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+ */
 
+@Suppress("unused", "UnusedReceiverParameter")
 internal class StateMachine<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> private constructor(
     private val graph: Graph<STATE, EVENT, SIDE_EFFECT>
 ) {
@@ -238,11 +240,9 @@ internal class StateMachine<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> private
 
             fun build() = stateDefinition
 
-            @Suppress("UNUSED") // The unused warning is probably a compiler bug.
             fun S.transitionTo(state: STATE, sideEffect: SIDE_EFFECT? = null) =
                 Graph.State.TransitionTo(state, sideEffect)
 
-            @Suppress("UNUSED") // The unused warning is probably a compiler bug.
             fun S.dontTransition(sideEffect: SIDE_EFFECT? = null) = transitionTo(this, sideEffect)
         }
     }

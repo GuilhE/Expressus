@@ -41,13 +41,13 @@ import com.expressus.compose.components.rightPanel.MachineRightFrame
 import com.expressus.compose.components.rightPanel.PaymentSocket
 import com.expressus.domain.DependencyInjection
 import com.expressus.domain.ViewModels
-import com.expressus.domain.stateMachines.ExpressusUiState
-import org.koin.core.Koin
+import com.expressus.domain.viewModels.ExpressusUiState
 
 fun main() = application {
-    val koin: Koin = remember { DependencyInjection.initKoinAndReturnInstance() }
-//    val viewModel = remember { koin.get<ExpressusViewModel>() }
-    val viewModel = ViewModels.expressusStateViewModel()
+    val viewModel = remember {
+        DependencyInjection.initKoin()
+        ViewModels.expressusViewModel()
+    }
     var resizable by remember { mutableStateOf(true) }
 
     Window(

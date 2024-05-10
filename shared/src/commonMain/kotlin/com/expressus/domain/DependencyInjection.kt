@@ -16,12 +16,6 @@ object DependencyInjection {
         }
     }
 
-    fun initKoinAndReturnInstance(appDeclaration: KoinAppDeclaration = {}): org.koin.core.Koin =
-        startKoin {
-            appDeclaration()
-            modules(commonModule(), platformModule())
-        }.koin
-
     private fun commonModule() = module {
         single { PlatformDependencies().getSettings() }
     }

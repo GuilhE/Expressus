@@ -40,9 +40,6 @@ struct ExpressusComposeScreen: View {
     }
 }
 
-struct ExpressusComposeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        ExpressusComposeScreen()
-            .previewInterfaceOrientation(.portrait)
-    }
+#Preview {
+    ExpressusComposeScreen()
 }

@@ -1,6 +1,6 @@
-package com.expressus.domain.viewModels.base
+package com.expressus.domain.viewModels.core
 
-import com.expressus.domain.stateMachines.ExpressusUiState
+import com.expressus.domain.viewModels.ExpressusUiState
 import com.expressus.domain.viewModels.containerHostSavedState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -29,6 +29,14 @@ internal fun CoroutineScope.stateHolderVisibilityWrapper(
     override val containerStateHolder = this@stateHolderVisibilityWrapper.containerHostSavedState(stateFlow, onRestore)
 
     override fun handleSavedState(restore: Boolean) {
-        containerStateHolder.handleSavedState(restore)
+        if (restore) {
+            containerStateHolder.restoreState()
+        } else {
+            containerStateHolder.clearState()
+        }
+    }
+
+    override fun clear() {
+        containerStateHolder.clearState()
     }
 }

@@ -1,4 +1,4 @@
-package com.expressus.domain.viewModels.base
+package com.expressus.domain.viewModels.core
 
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.contains
@@ -16,12 +16,10 @@ internal class UiStateCache(
     private val settings: Settings,
     private val decoder: Json = Json { ignoreUnknownKeys = true }
 ) {
-    @OptIn(ExperimentalSerializationApi::class)
     inline fun <reified UI_STATE : Any> saveState(state: UI_STATE) {
         settings.putString("${uiStateName}_cache", decoder.encodeToString(state))
     }
 
-    @OptIn(ExperimentalSerializationApi::class)
     inline fun <reified UI_STATE> restoreState(): UI_STATE? {
         val key = "${uiStateName}_cache"
         return if (settings.contains(key)) {

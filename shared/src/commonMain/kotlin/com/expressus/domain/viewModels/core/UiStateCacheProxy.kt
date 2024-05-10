@@ -1,7 +1,8 @@
-package com.expressus.domain.viewModels.base
+package com.expressus.domain.viewModels.core
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
 
 /**
@@ -9,13 +10,11 @@ import kotlinx.coroutines.launch
  * @param scope Where [stateFlow] will collect new state emissions.
  * @param stateFlow Flow to collect and save states from.
  */
-internal abstract class ContainerHostSavedState<STATE : Any>(scope: CoroutineScope, stateFlow: Flow<STATE>) {
+internal abstract class UiStateCacheProxy<STATE : Any>(scope: CoroutineScope, stateFlow: Flow<STATE>) {
 
     init {
         scope.launch {
-            stateFlow.collect {
-                saveState(it)
-            }
+            stateFlow.drop(1).collect { saveState(it) }
         }
     }
 
@@ -23,11 +22,4 @@ internal abstract class ContainerHostSavedState<STATE : Any>(scope: CoroutineSco
     abstract fun restoreState()
     abstract fun clearState()
 
-    fun handleSavedState(restore: Boolean) {
-        if (restore) {
-            restoreState()
-        } else {
-            clearState()
-        }
-    }
 }
