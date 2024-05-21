@@ -10,8 +10,7 @@ struct iOSApp: App {
 
 	var body: some Scene {
 		WindowGroup {
-            //ExpressusSelectorScreen()
-            ExpressusScreen()
+            ExpressusSelectorScreen()            
 		}
 	}
 }
