@@ -15,6 +15,10 @@ import com.expressus.compose.components.Panel
 import kotlin.experimental.ExperimentalObjCRefinement
 import kotlin.native.HiddenFromObjC
 
+@OptIn(ExperimentalObjCRefinement::class)
+@HiddenFromObjC
+data class FaucetOffsets(val faucetOffset: Dp, val supportOffset: Dp)
+
 @Composable
 fun CoffeeFaucet(modifier: Modifier, offsets: FaucetOffsets) {
     val gradient = Brush.verticalGradient(
@@ -44,7 +48,3 @@ fun CoffeeFaucet(modifier: Modifier, offsets: FaucetOffsets) {
         )
     }
 }
-
-@OptIn(ExperimentalObjCRefinement::class)
-@HiddenFromObjC
-data class FaucetOffsets(val faucetOffset: Dp, val supportOffset: Dp)

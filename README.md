@@ -38,6 +38,10 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 To run iosApp open `iosApp/iosApp.xcworkspace` in Xcode and run standard configuration or use [KMM plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) for Android Studio and choose iosApp in `run configurations`.
 
+*note:* on [iosApp](https://github.com/JetBrains/compose-multiplatform/issues/4720#issuecomment-2100898893) you must first run the following commands:
+1. call `./gradlew generateDummyFramework`
+2. reconfigure the xcode project `cd ./iosApp` and `pod install`
+
 #### Desktop
 
 - UI State emissions using Kotlin Flow

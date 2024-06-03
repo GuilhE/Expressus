@@ -1,12 +1,8 @@
 package com.expressus.compose.themes
 
 import androidx.compose.ui.graphics.Color
-import kotlin.experimental.ExperimentalObjCRefinement
-import kotlin.native.HiddenFromObjC
 
-@OptIn(ExperimentalObjCRefinement::class)
-@HiddenFromObjC
-object ExpressusColorPallete {
+internal object ExpressusColorPallete {
     val redCandy = Color(0xFFF34737)
     val greenLight = Color(0xFF58C7C7)
     val greenDark = Color(0xFF00323C)
