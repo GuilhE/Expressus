@@ -9,15 +9,15 @@ import com.github.guilhe.kmp.composeuiviewcontroller.ComposeUIViewController
 import com.github.guilhe.kmp.composeuiviewcontroller.ComposeUIViewControllerState
 
 data class ExpressusMobileState(
-    val isGrinding: Boolean = false,
-    val isPouring: Boolean = false,
-    val isMakingCoffee: Boolean = false,
-    val status: String = ""
+    val isGrinding: Boolean,
+    val isPouring: Boolean,
+    val isMakingCoffee: Boolean,
+    val status: String
 )
 
 @ComposeUIViewController("SharedComposables")
 @Composable
-fun ExpressusMobile(@ComposeUIViewControllerState state: ExpressusMobileState, makeCoffee: () -> Unit) {
+internal fun ExpressusMobile(@ComposeUIViewControllerState state: ExpressusMobileState, makeCoffee: () -> Unit) {
     with(state) {
         ExpressusMobile(isGrinding, isPouring, isMakingCoffee, status, makeCoffee)
     }
@@ -27,7 +27,7 @@ data class CoffeeSelectorsState(val isMakingCoffee: Boolean = false)
 
 @ComposeUIViewController("SharedComposables")
 @Composable
-fun CoffeeSelectorsMobile(
+internal fun CoffeeSelectorsMobile(
     @ComposeUIViewControllerState state: CoffeeSelectorsState,
     onAnyClick: () -> Unit,
     onSwiftUiClick: () -> Unit,
