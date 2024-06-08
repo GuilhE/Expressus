@@ -8,7 +8,7 @@ kotlinxAtomicFu = "0.24.0"
 kotlinxCompose = "1.6.11"
 
 #======Google
-ksp = "2.0.0-1.0.21"
+ksp = "2.0.0-1.0.22"
 
 #======Android
 androidCompileSdk = "34"
@@ -27,7 +27,7 @@ kermit = "2.0.2"
 koin = "3.6.0-Beta4"
 multiplatformSettings = "1.1.1"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "2.0.0-1.6.11"
+composeuiviewcontroller = "2.0.0-1.6.11-BETA-1"
 
 [plugins]
 

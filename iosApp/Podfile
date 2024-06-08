@@ -1,4 +1,4 @@
-target 'iosApp' do
+target 'Expressus' do
   use_frameworks!
   platform :ios, '16.4'
   pod 'shared', :path => '../shared'

@@ -2,7 +2,7 @@ import SwiftUI
 import Shared
 
 @main
-struct iOSApp: App {
+struct ExpressusApp: App {
 
     init() {
         DependencyInjection().doInitKoin { _ in }        

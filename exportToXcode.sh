@@ -2,14 +2,15 @@
 
 # DEFAULT VALUES
 kmp_module="shared-ui-compose"
-ios_app="iosApp"
-target_name="iosApp"
+iosApp_project_folder="iosApp"
+iosApp_name="Expressus"
+iosApp_target_name="Expressus"
 #####################
 
-xcodeproj_path="$ios_app.xcodeproj"
+xcodeproj_path="$iosApp_name.xcodeproj"
 files_source="$kmp_module/build/generated/ksp/"
 group_name="SharedRepresentables"
-files_destination="$ios_app/$group_name/"
+files_destination="$iosApp_project_folder/$group_name/"
 copied_count=0
 
 check_for_xcodeproj() {
@@ -35,14 +36,14 @@ copy_files() {
 
 add_file_references() {
   local xcodeproj_path="$1"
-  local target_name="$2"
+  local iosApp_target_name="$2"
   local group_name="$3"
 
   ruby_script='
     require "xcodeproj"
 
     xcodeproj_path = ARGV[0]
-    target_name = ARGV[1]
+    iosApp_target_name = ARGV[1]
     group_name = ARGV[2]
 
     files_to_copy = Dir.glob("#{group_name}/*")
@@ -53,7 +54,7 @@ add_file_references() {
 
     xcodeproj = Xcodeproj::Project.open(xcodeproj_path)
     group = xcodeproj[group_name] || xcodeproj.new_group(group_name)
-    target = xcodeproj.targets.find { |t| t.name == target_name }
+    target = xcodeproj.targets.find { |t| t.name == iosApp_target_name }
 
     existing_file_references = target.source_build_phase.files_references
     files_added = false
@@ -73,7 +74,7 @@ add_file_references() {
 
     xcodeproj.save
   '
-  ruby -e "$ruby_script" "$xcodeproj_path" "$target_name" "$group_name"
+  ruby -e "$ruby_script" "$xcodeproj_path" "$iosApp_target_name" "$group_name"
 }
 
 check_for_xcodeproj
@@ -81,8 +82,8 @@ echo "> Copying files to $files_destination"
 copy_files "$files_source" "$files_destination"
 if [ "$copied_count" -gt 0 ]; then
   echo "> Checking for new references to be added to xcodeproj"
-  cd iosApp || exit
-  add_file_references "$xcodeproj_path" "$target_name" "$group_name"
+  cd $iosApp_project_folder || exit
+  add_file_references "$xcodeproj_path" "$iosApp_target_name" "$group_name"
   echo "> Done"
 else
   echo "> No files were copied, skipping reference check"

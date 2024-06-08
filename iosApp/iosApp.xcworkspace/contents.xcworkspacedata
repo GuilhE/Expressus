@@ -12,7 +12,7 @@
       </FileRef>
    </Group>
    <FileRef
-      location = "group:iosApp.xcodeproj">
+      location = "group:/Users/guilhermedelgado/Code/KMM/Expressus/iosApp/Expressus.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
