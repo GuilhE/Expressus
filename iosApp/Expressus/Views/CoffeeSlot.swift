@@ -124,9 +124,9 @@ struct CoffeeSlot_Previews: PreviewProvider {
 }
 
 /*
-#Preview {
-    Previewable @State var grinding : Bool = false
-    Previewable @State var pouring : Bool = false
+ #Preview {
+    @Previewable @State var grinding : Bool = false
+    @Previewable @State var pouring : Bool = false
     return VStack {
         CoffeeSlot(grinding: $grinding, pouring: $pouring)
             .frame(maxWidth: .infinity, alignment: .center)

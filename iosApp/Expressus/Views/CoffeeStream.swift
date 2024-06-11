@@ -7,14 +7,14 @@ struct CoffeeStream: View {
     @State private var poured: Bool = false
     @State private var height: CGFloat = 0
     @State private var finalHeight: CGFloat = 0
-    @State private var topLeft: CGPoint = CGPoint(x: 0, y: 0)
+    @State private var topLeft: CGFloat = 0
     
     private let step: CGFloat = 10
     
     var body: some View {
         GeometryReader { geometry in
             ThemeScope(theme: Themes.CoffeeStream()) { theme in
-                CoffeeStreamShape(topLeft: self.$topLeft, height: self.$finalHeight).fill(theme.primary)
+                CoffeeStreamShape(y: $topLeft, height: $finalHeight).fill(theme.primary)
             }
             .onChange(of: pouring) { isPouring in
                 let speed = geometry.size.height * 0.020
@@ -29,14 +29,14 @@ struct CoffeeStream: View {
                         }
                     } else {
                         if (poured) {
-                            while (topLeft.y < geometry.size.height) {
-                                topLeft = CGPoint(x: 0, y: topLeft.y + step)
+                            while (finalHeight > 0) {
+                                topLeft += step
                                 finalHeight -= step
                                 try await Task.sleep(nanoseconds: 1_000_000 * UInt64(speed))
                             }
                         }
                         finalHeight = 0
-                        topLeft = CGPoint(x: 0, y: 0)
+                        topLeft = 0
                         poured = false
                     }
                 }
@@ -45,15 +45,15 @@ struct CoffeeStream: View {
     }
 }
 
-private struct CoffeeStreamShape: Shape, @unchecked Sendable  {
+private struct CoffeeStreamShape: Shape  {
     
-    @Binding var topLeft: CGPoint
+    @Binding var y: CGFloat
     @Binding var height: CGFloat
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.addRoundedRect(
-            in: CGRect(origin: topLeft, size: CGSize(width: rect.width, height: self.height)),
+            in: CGRect(origin: CGPoint(x: 0, y: y), size: CGSize(width: rect.width, height: height)),
             cornerSize: CGSize(width: 20, height: 20)
         )
         return path
@@ -78,8 +78,8 @@ struct CoffeeStream_Previews: PreviewProvider {
 }
 
 /*
-#Preview {
-    Previewable @State var pouring : Bool = false
+ #Preview {
+    @Previewable @State var pouring : Bool = false
     return VStack {
         CoffeeStream(pouring: $pouring).padding(.horizontal, 170)
         Button("Animate", action: { pouring.toggle() }).padding()

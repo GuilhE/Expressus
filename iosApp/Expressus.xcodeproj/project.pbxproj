@@ -184,15 +184,15 @@
 		7555FF7D242A565900829871 /* Expressus */ = {
 			isa = PBXGroup;
 			children = (
+				058557D7273AAEEB004C7B11 /* Preview Content */,
+				058557BA273AAA24004C7B11 /* Assets.xcassets */,
+				7555FF8C242A565B00829871 /* Info.plist */,
 				231BC6F62822C82800DBABCA /* Resources */,
 				2350E6A628251C7C0052E48C /* Themes */,
 				23932F222805EABB006738B5 /* Utils */,
 				23932F232805EACB006738B5 /* Views */,
 				231BC6F32822C67100DBABCA /* Screens */,
 				2152FB032600AC8F00CF470E /* ExpressusApp.swift */,
-				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF8C242A565B00829871 /* Info.plist */,
-				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = Expressus;
 			sourceTree = "<group>";

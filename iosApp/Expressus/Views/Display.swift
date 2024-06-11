@@ -38,8 +38,8 @@ struct Display_Previews: PreviewProvider {
 }
 
 /*
-#Preview {
-    PreviewProvider @State var text : String = ""
+ #Preview {
+    @Previewable @State var text : String = ""
     return Display(text: $text).padding(10)
 }
 */
