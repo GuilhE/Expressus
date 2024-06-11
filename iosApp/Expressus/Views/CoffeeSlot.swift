@@ -122,3 +122,18 @@ struct CoffeeSlot_Previews: PreviewProvider {
         }
     }
 }
+
+/*
+#Preview {
+    Previewable @State var grinding : Bool = false
+    Previewable @State var pouring : Bool = false
+    return VStack {
+        CoffeeSlot(grinding: $grinding, pouring: $pouring)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .aspectRatio(1, contentMode: .fit)
+            .padding()
+        Button("Grind", action: { grinding.toggle() }).padding()
+        Button("Pour", action: { pouring.toggle() }).padding()
+    }
+}
+*/

@@ -34,7 +34,6 @@
 		500D31A5DB1F1CD0EBD199D0 /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AEED1CCEEBB88646C7EC2B /* ExpressusMobileUIViewControllerRepresentable.swift */; };
 		5C68604B2A865B8200B3CB5D /* ExpressusSelectorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */; };
 		5C87604B2A7EA65D0088D2BC /* ExpressusComposeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */; };
-		FBE05B86E2E1A7C0ECABABF5 /* Pods_Expressus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D828C2BA0DCF7F514F25CC0D /* Pods_Expressus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,15 +60,12 @@
 		23EAF2A92824079200E4996F /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		23EC51322827F02700CEDD5C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		23EC5134282804F900CEDD5C /* VibratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibratorManager.swift; sourceTree = "<group>"; };
-		256B406FFD1B35DDB345563D /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		30AEED1CCEEBB88646C7EC2B /* ExpressusMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpressusMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/ExpressusMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
-		501EB1427AFCA39E8B06CBA3 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusSelectorScreen.swift; sourceTree = "<group>"; };
 		5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusComposeScreen.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* Expressus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expressus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFEDF79F35AEA76B27B63B48 /* Pods-Expressus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expressus.debug.xcconfig"; path = "Target Support Files/Pods-Expressus/Pods-Expressus.debug.xcconfig"; sourceTree = "<group>"; };
-		D828C2BA0DCF7F514F25CC0D /* Pods_Expressus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expressus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7845A7C740D819EB136A05 /* Pods-Expressus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expressus.release.xcconfig"; path = "Target Support Files/Pods-Expressus/Pods-Expressus.release.xcconfig"; sourceTree = "<group>"; };
 		F4D38C1BC133C4B7D4AB2334 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoffeeSelectorsMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/CoffeeSelectorsMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBE05B86E2E1A7C0ECABABF5 /* Pods_Expressus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +92,6 @@
 		0D8ABA141A6D69FB4A1EF25C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				501EB1427AFCA39E8B06CBA3 /* Pods-iosApp.debug.xcconfig */,
-				256B406FFD1B35DDB345563D /* Pods-iosApp.release.xcconfig */,
 				CFEDF79F35AEA76B27B63B48 /* Pods-Expressus.debug.xcconfig */,
 				DA7845A7C740D819EB136A05 /* Pods-Expressus.release.xcconfig */,
 			);
@@ -162,34 +155,9 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		36B52787D0FF7E632112EF0D /* xcschemes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = xcschemes;
-			sourceTree = "<group>";
-		};
-		36B52E126DBE5BB6238066C1 /* guilhermedelgado.xcuserdatad */ = {
-			isa = PBXGroup;
-			children = (
-				36B52787D0FF7E632112EF0D /* xcschemes */,
-			);
-			name = guilhermedelgado.xcuserdatad;
-			path = iosApp.xcodeproj/xcuserdata/guilhermedelgado.xcuserdatad;
-			sourceTree = "<group>";
-		};
-		36B52F84CBD2E3B89CF84CD1 /* xcschemes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = xcschemes;
-			path = iosApp.xcworkspace/xcuserdata/guilhermedelgado.xcuserdatad/xcschemes;
-			sourceTree = "<group>";
-		};
 		59BC73FCA6B95212E58A8654 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D828C2BA0DCF7F514F25CC0D /* Pods_Expressus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,8 +169,6 @@
 				7555FF7C242A565900829871 /* Products */,
 				0D8ABA141A6D69FB4A1EF25C /* Pods */,
 				59BC73FCA6B95212E58A8654 /* Frameworks */,
-				36B52F84CBD2E3B89CF84CD1 /* xcschemes */,
-				36B52E126DBE5BB6238066C1 /* guilhermedelgado.xcuserdatad */,
 				976FDF2A37C4C129EB762F96 /* SharedRepresentables */,
 			);
 			sourceTree = "<group>";
@@ -547,6 +513,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -573,6 +540,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -45,7 +45,7 @@ struct CoffeeStream: View {
     }
 }
 
-private struct CoffeeStreamShape: Shape {
+private struct CoffeeStreamShape: Shape, @unchecked Sendable  {
     
     @Binding var topLeft: CGPoint
     @Binding var height: CGFloat
@@ -76,3 +76,13 @@ struct CoffeeStream_Previews: PreviewProvider {
         }
     }
 }
+
+/*
+#Preview {
+    Previewable @State var pouring : Bool = false
+    return VStack {
+        CoffeeStream(pouring: $pouring).padding(.horizontal, 170)
+        Button("Animate", action: { pouring.toggle() }).padding()
+    }
+}
+*/
