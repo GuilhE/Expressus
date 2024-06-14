@@ -34,6 +34,7 @@
 		500D31A5DB1F1CD0EBD199D0 /* ExpressusMobileUIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AEED1CCEEBB88646C7EC2B /* ExpressusMobileUIViewControllerRepresentable.swift */; };
 		5C68604B2A865B8200B3CB5D /* ExpressusSelectorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C68604A2A865B8200B3CB5D /* ExpressusSelectorScreen.swift */; };
 		5C87604B2A7EA65D0088D2BC /* ExpressusComposeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */; };
+		F3AB54ADA61590F41CFA8DC4 /* Pods_Expressus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0A08842846FDD0E7FF0828 /* Pods_Expressus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		5C87604A2A7EA65D0088D2BC /* ExpressusComposeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressusComposeScreen.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* Expressus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expressus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A0A08842846FDD0E7FF0828 /* Pods_Expressus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expressus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFEDF79F35AEA76B27B63B48 /* Pods-Expressus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expressus.debug.xcconfig"; path = "Target Support Files/Pods-Expressus/Pods-Expressus.debug.xcconfig"; sourceTree = "<group>"; };
 		DA7845A7C740D819EB136A05 /* Pods-Expressus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expressus.release.xcconfig"; path = "Target Support Files/Pods-Expressus/Pods-Expressus.release.xcconfig"; sourceTree = "<group>"; };
 		F4D38C1BC133C4B7D4AB2334 /* CoffeeSelectorsMobileUIViewControllerRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoffeeSelectorsMobileUIViewControllerRepresentable.swift; path = SharedRepresentables/CoffeeSelectorsMobileUIViewControllerRepresentable.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3AB54ADA61590F41CFA8DC4 /* Pods_Expressus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +161,7 @@
 		59BC73FCA6B95212E58A8654 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A0A08842846FDD0E7FF0828 /* Pods_Expressus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
