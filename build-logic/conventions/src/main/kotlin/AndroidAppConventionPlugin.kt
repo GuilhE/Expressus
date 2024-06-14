@@ -70,7 +70,7 @@ class AndroidAppConventionPlugin : Plugin<Project> {
                         listOf(
                             "**/kotlin/**",
                             "**/*.kotlin_module",
-                            "**/*.version",
+//                            "**/*.version",
                             "**/*.txt",
 //                            "**/*.xml",  //if not commented it will delete all shared-ui resources
                             "**/*.properties",
