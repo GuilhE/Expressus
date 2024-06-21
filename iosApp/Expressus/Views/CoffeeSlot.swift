@@ -49,7 +49,7 @@ struct CoffeeSlot: View {
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10 + cupVrtPadding, trailing: cupHrzPadding))
                     }
                     .frame(maxWidth: cupSize, maxHeight: .infinity, alignment: .bottom)
-                    .onChange(of: grinding) { isGrinding in
+                    .onChange(of: grinding) { _, isGrinding in
                         if(isGrinding) {
                             grindTask = Task { await grind() }
                         } else {

@@ -1,6 +1,6 @@
 target 'Expressus' do
   use_frameworks!
-  platform :ios, '16.4'
+  platform :ios, '17.0'
   pod 'shared', :path => '../shared'
   pod 'shared_ui_compose', :path => '../shared-ui-compose'
 end
