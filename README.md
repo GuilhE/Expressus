@@ -36,9 +36,10 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 To run iosApp open `iosApp/Expressus.xcworkspace` in Xcode and run standard configuration.
 
-*note:* on iosApp due to this [issue](https://github.com/JetBrains/compose-multiplatform/issues/4720#issuecomment-2100898893) you must first run the following commands:
-1. call `./gradlew generateDummyFramework`
-2. reconfigure the xcode project `cd ./iosApp` and `pod install`
+>[!NOTE]
+> On iosApp due to this [issue](https://github.com/JetBrains/compose-multiplatform/issues/4720#issuecomment-2100898893) you must first run the following commands:
+> 1. call `./gradlew generateDummyFramework`
+> 2. reconfigure the xcode project `cd ./iosApp` and `pod install`
 
 #### Desktop
 
