@@ -38,8 +38,8 @@ To run iosApp open `iosApp/Expressus.xcworkspace` in Xcode and run standard conf
 
 >[!NOTE]
 > On iosApp due to this [issue](https://github.com/JetBrains/compose-multiplatform/issues/4720#issuecomment-2100898893) you must first run the following commands:
-> 1. call `./gradlew generateDummyFramework`
-> 2. reconfigure the xcode project `cd ./iosApp` and `pod install`
+> 1. run `./gradlew generateDummyFramework`
+> 2. `cd ./iosApp` and run `pod install`
 
 #### Desktop
 
