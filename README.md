@@ -2,9 +2,7 @@
 
 # Expressus
 
-[![Featured in Kotlin Weekly - Issue #299](https://img.shields.io/badge/Featured_in_Kotlin_Weekly-Issue_%23299-7878b4)](https://mailchi.mp/kotlinweekly/kotlin-weekly-299) [![Featured in Kotlin Weekly - Issue #301](https://img.shields.io/badge/Featured_in_Kotlin_Weekly-Issue_%23301-7878b4)](https://mailchi.mp/kotlinweekly/kotlin-weekly-301)  
-[![Android Weekly](https://androidweekly.net/issues/issue-515/badge)](https://androidweekly.net/issues/issue-515) [![Android Weekly](https://androidweekly.net/issues/issue-583/badge)](https://androidweekly.net/issues/issue-583)  
-<a href="https://jetc.dev/issues/177.html"><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23177-blue?logo=Jetpack+Compose&amp;logoColor=white" alt="As Seen In - jetc.dev Newsletter Issue #177"></a>
+[![Featured in Kotlin Weekly - Issue #299](https://img.shields.io/badge/Featured_in_Kotlin_Weekly-Issue_%23299-7878b4)](https://mailchi.mp/kotlinweekly/kotlin-weekly-299) [![Featured in Kotlin Weekly - Issue #301](https://img.shields.io/badge/Featured_in_Kotlin_Weekly-Issue_%23301-7878b4)](https://mailchi.mp/kotlinweekly/kotlin-weekly-301) [![Android Weekly](https://androidweekly.net/issues/issue-515/badge)](https://androidweekly.net/issues/issue-515) [![Android Weekly](https://androidweekly.net/issues/issue-583/badge)](https://androidweekly.net/issues/issue-583) <a href="https://jetc.dev/issues/177.html"><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23177-blue?logo=Jetpack+Compose&amp;logoColor=white" alt="As Seen In - jetc.dev Newsletter Issue #177"></a>
 
 KMP sample project acting as a playground to illustrate what's discussed in these articles:
 <p>
@@ -38,9 +36,10 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 To run iosApp open `iosApp/Expressus.xcworkspace` in Xcode and run standard configuration.
 
-*note:* on iosApp due to this [issue](https://github.com/JetBrains/compose-multiplatform/issues/4720#issuecomment-2100898893) you must first run the following commands:
-1. call `./gradlew generateDummyFramework`
-2. reconfigure the xcode project `cd ./iosApp` and `pod install`
+>[!NOTE]
+> On iosApp due to this [issue](https://github.com/JetBrains/compose-multiplatform/issues/4720#issuecomment-2100898893) you must first run the following commands:
+> 1. run `./gradlew generateDummyFramework`
+> 2. `cd ./iosApp` and run `pod install`
 
 #### Desktop
 
