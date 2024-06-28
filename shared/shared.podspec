@@ -6,15 +6,15 @@ Pod::Spec.new do |spec|
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Expressus, a multiplatform coffee machine!'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/Shared.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/ExpressusShared.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '17.0'
                 
                 
-    if !Dir.exist?('build/cocoapods/framework/Shared.framework') || Dir.empty?('build/cocoapods/framework/Shared.framework')
+    if !Dir.exist?('build/cocoapods/framework/ExpressusShared.framework') || Dir.empty?('build/cocoapods/framework/ExpressusShared.framework')
         raise "
 
-        Kotlin framework 'Shared' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'ExpressusShared' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
             ./gradlew :shared:generateDummyFramework
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared',
-        'PRODUCT_MODULE_NAME' => 'Shared',
+        'PRODUCT_MODULE_NAME' => 'ExpressusShared',
     }
                 
     spec.script_phases = [

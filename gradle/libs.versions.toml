@@ -3,7 +3,7 @@
 #======Kotlin
 kotlin = "2.0.20-Beta1"
 kotlinxCoroutines = "1.8.1"
-kotlinxSerialization = "1.6.3"
+kotlinxSerialization = "1.7.1"
 kotlinxAtomicFu = "0.24.0"
 kotlinxCompose = "1.6.11"
 
@@ -27,7 +27,7 @@ kermit = "2.0.4"
 koin = "3.6.0-alpha3"
 multiplatformSettings = "1.1.1"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "2.0.20-Beta1-1.6.11-BETA"
+composeuiviewcontroller = "1.1.1"
 
 [plugins]
 
@@ -37,6 +37,7 @@ kotlinx-compose = { id = "org.jetbrains.compose", version.ref = "kotlinxCompose"
 kotlinx-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+composeuiviewcontroller = { id = "io.github.guilhe.kmp.plugin-composeuiviewcontroller", version.ref = "composeuiviewcontroller" }
 
 [libraries]
 
@@ -54,8 +55,6 @@ kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-co
 kmp-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
 kmp-settings = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "multiplatformSettings" }
 kmp-orbitMvi-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbitMviCore" }
-kmp-composeuiviewcontroller-annotations = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-annotations", version.ref = "composeuiviewcontroller"}
-kmp-composeuiviewcontroller-ksp = {group = "com.github.guilhe.kmp", name = "kmp-composeuiviewcontroller-ksp", version.ref = "composeuiviewcontroller"}
 kmp-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 kmp-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 

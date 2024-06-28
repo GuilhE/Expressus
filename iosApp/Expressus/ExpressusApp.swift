@@ -1,5 +1,5 @@
 import SwiftUI
-import Shared
+import ExpressusShared
 
 @main
 struct ExpressusApp: App {

@@ -24,7 +24,7 @@ kotlin {
         version = "1.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "Shared"
+            baseName = "ExpressusShared"
         }
     }
 

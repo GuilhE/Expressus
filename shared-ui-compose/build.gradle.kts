@@ -3,6 +3,12 @@ plugins {
     id("buildlogic.plugins.kmp.compose")
     kotlin("native.cocoapods")
     alias(libs.plugins.google.ksp)
+    alias(libs.plugins.composeuiviewcontroller)
+}
+
+ComposeUiViewController {
+    iosAppName="Expressus"
+    targetName="Expressus"
 }
 
 android {
@@ -12,8 +18,7 @@ android {
 kotlin {
     jvm("desktop")
     listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
-        val targetName = target.name.replaceFirstChar { it.uppercaseChar() }
-        dependencies.add("ksp$targetName", libs.kmp.composeuiviewcontroller.ksp)
+        target.name.replaceFirstChar { it.uppercaseChar() }
     }
 
     cocoapods {
@@ -23,7 +28,7 @@ kotlin {
         version = "1.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "SharedComposables"
+            baseName = "ExpressusComposables"
         }
     }
 
@@ -42,7 +47,6 @@ kotlin {
         iosMain {
             dependencies {
                 implementation(projects.shared)
-                implementation(libs.kmp.composeuiviewcontroller.annotations)
             }
             @Suppress("OPT_IN_USAGE")
             compilerOptions {
@@ -51,5 +55,3 @@ kotlin {
         }
     }
 }
-
-tasks.matching { it.name == "syncFramework" }.configureEach { finalizedBy(":addFilesToXcodeproj") }

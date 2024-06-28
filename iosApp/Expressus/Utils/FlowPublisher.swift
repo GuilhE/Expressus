@@ -1,5 +1,5 @@
 import Combine
-import Shared
+import ExpressusShared
 
 public extension Kotlinx_coroutines_coreFlow {
     func asPublisher<T: AnyObject>() -> AnyPublisher<T, Never> {

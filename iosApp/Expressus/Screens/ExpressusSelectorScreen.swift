@@ -1,6 +1,6 @@
 import SwiftUI
-import Shared
-import SharedComposables
+import ExpressusShared
+import ExpressusComposables
 
 private enum Destination: Hashable {
     case swiftUi

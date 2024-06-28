@@ -1,5 +1,5 @@
 import SwiftUI
-import SharedComposables
+import ExpressusComposables
 
 public struct CoffeeSelectorsMobileRepresentable: UIViewControllerRepresentable {
     @Binding var state: CoffeeSelectorsState

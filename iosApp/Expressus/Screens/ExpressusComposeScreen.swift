@@ -1,6 +1,6 @@
 import SwiftUI
-import Shared
-import SharedComposables
+import ExpressusShared
+import ExpressusComposables
 
 struct ExpressusComposeScreen: View {
     
