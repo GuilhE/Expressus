@@ -1,6 +1,7 @@
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.kotlinx.atomicfu)
     alias(libs.plugins.google.ksp)
     id("kotlin-parcelize")
     kotlin("native.cocoapods")
@@ -41,7 +42,6 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization)
-            implementation(libs.kotlinx.atomicfu)
             implementation(libs.kmp.settings)
             api(libs.androidx.lifecycle.viewmodel)
             api(libs.kmp.kermit)
