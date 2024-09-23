@@ -106,6 +106,7 @@ internal class StateMachine<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> private
         abstract val fromState: STATE
         abstract val event: EVENT
 
+        @ConsistentCopyVisibility
         data class Valid<out STATE : Any, out EVENT : Any, out SIDE_EFFECT : Any> internal constructor(
             override val fromState: STATE,
             override val event: EVENT,
@@ -113,6 +114,7 @@ internal class StateMachine<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> private
             val sideEffect: SIDE_EFFECT?
         ) : Transition<STATE, EVENT, SIDE_EFFECT>()
 
+        @ConsistentCopyVisibility
         data class Invalid<out STATE : Any, out EVENT : Any, out SIDE_EFFECT : Any> internal constructor(
             override val fromState: STATE,
             override val event: EVENT
@@ -130,6 +132,7 @@ internal class StateMachine<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> private
             val onExitListeners = mutableListOf<(STATE, EVENT) -> Unit>()
             val transitions = linkedMapOf<Matcher<EVENT, EVENT>, (STATE, EVENT) -> TransitionTo<STATE, SIDE_EFFECT>>()
 
+            @ConsistentCopyVisibility
             data class TransitionTo<out STATE : Any, out SIDE_EFFECT : Any> internal constructor(
                 val toState: STATE,
                 val sideEffect: SIDE_EFFECT?

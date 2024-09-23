@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     alias(libs.plugins.kotlinx.serialization)
@@ -14,9 +16,12 @@ android {
 kotlin {
     jvm()
     androidTarget()
-    iosArm64()
-    iosSimulatorArm64()
-    iosX64()
+    listOf(iosArm64(), iosSimulatorArm64(), iosX64()).forEach { _ ->
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            freeCompilerArgs.add("-Xexport-kdoc")
+        }
+    }
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
@@ -49,11 +54,5 @@ kotlin {
             api(libs.kmp.koin.core)
         }
         androidMain.dependencies { implementation(libs.kmp.koin.android) }
-        iosMain {
-            @Suppress("OPT_IN_USAGE")
-            compilerOptions {
-                freeCompilerArgs.add("-Xexport-kdoc")
-            }
-        }
     }
 }
