@@ -20,7 +20,6 @@ android {
 kotlin {
     jvm("desktop")
     listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
-        target.name.replaceFirstChar { it.uppercaseChar() }
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             freeCompilerArgs.add("-Xbinary=bundleId=com.expressus.compose")
@@ -49,11 +48,6 @@ kotlin {
         }
         val desktopMain by getting {
             dependencies { implementation(compose.preview) }
-        }
-        iosMain {
-            dependencies {
-                implementation(projects.shared)
-            }
         }
     }
 }
