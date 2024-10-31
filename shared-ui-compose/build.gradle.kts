@@ -20,7 +20,6 @@ android {
 kotlin {
     jvm("desktop")
     listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             freeCompilerArgs.add("-Xbinary=bundleId=com.expressus.compose")
         }

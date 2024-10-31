@@ -17,7 +17,6 @@ kotlin {
     jvm()
     androidTarget()
     listOf(iosArm64(), iosSimulatorArm64(), iosX64()).forEach { _ ->
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             freeCompilerArgs.add("-Xexport-kdoc")
         }
@@ -52,6 +51,8 @@ kotlin {
             api(libs.kmp.kermit)
             api(libs.kmp.orbitMvi.core)
             api(libs.kmp.koin.core)
+            //https://github.com/Kotlin/kotlinx-atomicfu/issues/469#issuecomment-2326868412
+            implementation("org.jetbrains.kotlinx:atomicfu:0.26.0")
         }
         androidMain.dependencies { implementation(libs.kmp.koin.android) }
     }

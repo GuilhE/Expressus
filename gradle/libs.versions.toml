@@ -1,14 +1,14 @@
 [versions]
 
 #======Kotlin
-kotlin = "2.1.0-Beta1"
+kotlin = "2.1.0-Beta2"
 kotlinxCoroutines = "1.9.0"
 kotlinxSerialization = "1.7.3"
-kotlinxAtomicFu = "0.25.0"
+kotlinxAtomicFu = "0.26.0"
 kotlinxCompose = "1.7.0"
 
 #======Google
-ksp = "2.1.0-Beta1-1.0.25"
+ksp = "2.1.0-Beta2-1.0.26"
 
 #======Android
 androidCompileSdk = "35"
@@ -16,16 +16,16 @@ androidTargetSdk = "35"
 androidMinSdk = "24"
 androidGradlePlugin = "8.6.1"
 androidMaterial = "1.12.0"
-androidxActivityKtx = "1.9.2"
-androidxLifecycle = "2.8.6"
-androidxCompose = "1.7.3"
-androidxComposeLifecycle = "2.8.6"
-androidxComposeMaterial3 = "1.3.0"
+androidxActivityKtx = "1.9.3"
+androidxLifecycle = "2.8.7"
+androidxCompose = "1.7.5"
+androidxComposeLifecycle = "2.8.7"
+androidxComposeMaterial3 = "1.3.1"
 
 #======Multiplatform
 kermit = "2.0.4"
 koin = "4.0.0"
-multiplatformSettings = "1.1.1"
+multiplatformSettings = "1.2.0"
 orbitMviCore = "6.1.0"
 composeuiviewcontroller = "1.1.11"
 
