@@ -27,7 +27,7 @@ kermit = "2.0.4"
 koin = "4.0.0"
 multiplatformSettings = "1.2.0"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "1.1.11"
+composeuiviewcontroller = "1.2.0"
 
 [plugins]
 
