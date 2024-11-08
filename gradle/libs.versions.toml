@@ -1,14 +1,14 @@
 [versions]
 
 #======Kotlin
-kotlin = "2.1.0-Beta2"
+kotlin = "2.1.0-RC"
 kotlinxCoroutines = "1.9.0"
 kotlinxSerialization = "1.7.3"
 kotlinxAtomicFu = "0.26.0"
 kotlinxCompose = "1.7.0"
 
 #======Google
-ksp = "2.1.0-Beta2-1.0.26"
+ksp = "2.1.0-RC-1.0.27"
 
 #======Android
 androidCompileSdk = "35"

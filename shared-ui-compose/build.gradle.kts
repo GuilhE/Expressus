@@ -50,6 +50,3 @@ kotlin {
         }
     }
 }
-
-//https://youtrack.jetbrains.com/issue/CMP-6707
-tasks.findByName("checkSandboxAndWriteProtection")?.dependsOn("syncComposeResourcesForIos")
