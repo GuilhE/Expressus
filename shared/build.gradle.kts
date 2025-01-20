@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     alias(libs.plugins.kotlinx.serialization)
@@ -34,15 +32,6 @@ kotlin {
     }
 
     sourceSets {
-        all {
-            languageSettings.apply {
-                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
-                optIn("kotlinx.cinterop.ExperimentalForeignApi")
-                optIn("kotlin.experimental.ExperimentalObjCName")
-                optIn("kotlin.RequiresOptIn")
-            }
-        }
-
         commonMain.dependencies {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization)
@@ -52,7 +41,7 @@ kotlin {
             api(libs.kmp.orbitMvi.core)
             api(libs.kmp.koin.core)
             //https://github.com/Kotlin/kotlinx-atomicfu/issues/469#issuecomment-2326868412
-            implementation("org.jetbrains.kotlinx:atomicfu:0.26.0")
+            implementation("org.jetbrains.kotlinx:atomicfu:0.26.1")
         }
         androidMain.dependencies { implementation(libs.kmp.koin.android) }
     }

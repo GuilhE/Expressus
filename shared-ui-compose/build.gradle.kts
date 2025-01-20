@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     id("buildlogic.plugins.kmp.library.android")
     id("buildlogic.plugins.kmp.compose")
