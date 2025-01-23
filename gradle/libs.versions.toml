@@ -3,7 +3,7 @@
 #======Kotlin
 kotlin = "2.1.0"
 kotlinxCoroutines = "1.10.1"
-kotlinxSerialization = "1.7.3"
+kotlinxSerialization = "1.8.0"
 kotlinxAtomicFu = "0.26.1"
 kotlinxCompose = "1.7.2"
 
@@ -27,7 +27,7 @@ kermit = "2.0.4"
 koin = "4.0.0"
 multiplatformSettings = "1.2.0"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "1.2.2"
+composeuiviewcontroller = "1.2.4"
 
 [plugins]
 
