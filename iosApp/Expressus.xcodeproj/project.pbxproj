@@ -222,6 +222,7 @@
 				7555FF79242A565900829871 /* Resources */,
 				F70908A80EAB110BEA385F9B /* Frameworks */,
 				8F3C0F27264AD58366AB34B6 /* [CP] Embed Pods Frameworks */,
+				BD48834246C2FD5873ABCC9A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,6 +322,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expressus/Pods-Expressus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD48834246C2FD5873ABCC9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expressus/Pods-Expressus-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expressus/Pods-Expressus-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expressus/Pods-Expressus-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

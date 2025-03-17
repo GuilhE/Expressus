@@ -4,11 +4,11 @@
 kotlin = "2.1.10"
 kotlinxCoroutines = "1.10.1"
 kotlinxSerialization = "1.8.0"
-kotlinxAtomicFu = "0.26.1"
-kotlinxCompose = "1.8.0-alpha03"
+kotlinxAtomicFu = "0.27.0"
+kotlinxCompose = "1.8.0-alpha04"
 
 #======Google
-ksp = "2.1.10-1.0.30"
+ksp = "2.1.10-1.0.31"
 
 #======Android
 androidCompileSdk = "35"
@@ -16,7 +16,7 @@ androidTargetSdk = "35"
 androidMinSdk = "24"
 androidGradlePlugin = "8.6.1"
 androidMaterial = "1.12.0"
-androidxActivityKtx = "1.10.0"
+androidxActivityKtx = "1.10.1"
 androidxLifecycle = "2.8.7"
 androidxCompose = "1.7.8"
 androidxComposeLifecycle = "2.8.7"
@@ -27,7 +27,7 @@ kermit = "2.0.4"
 koin = "4.0.0"
 multiplatformSettings = "1.2.0"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "1.2.5"
+composeuiviewcontroller = "1.2.6"
 
 [plugins]
 
