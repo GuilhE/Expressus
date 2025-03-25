@@ -1,14 +1,14 @@
 [versions]
 
 #======Kotlin
-kotlin = "2.1.10"
+kotlin = "2.1.20"
 kotlinxCoroutines = "1.10.1"
 kotlinxSerialization = "1.8.0"
 kotlinxAtomicFu = "0.27.0"
-kotlinxCompose = "1.8.0-alpha04"
+kotlinxCompose = "1.8.0-beta01"
 
 #======Google
-ksp = "2.1.10-1.0.31"
+ksp = "2.1.20-1.0.31"
 
 #======Android
 androidCompileSdk = "35"
@@ -27,7 +27,7 @@ kermit = "2.0.4"
 koin = "4.0.0"
 multiplatformSettings = "1.2.0"
 orbitMviCore = "6.1.0"
-composeuiviewcontroller = "1.2.6"
+composeuiviewcontroller = "1.2.7"
 
 [plugins]
 
