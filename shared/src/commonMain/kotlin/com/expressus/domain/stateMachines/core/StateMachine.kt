@@ -1,8 +1,6 @@
 package com.expressus.domain.stateMachines.core
 
-import kotlinx.atomicfu.atomic
-import kotlinx.atomicfu.locks.SynchronizedObject
-import kotlinx.atomicfu.locks.synchronized
+import kotlin.concurrent.Volatile
 import kotlin.reflect.KClass
 
 //Taken from https://github.com/Tinder/StateMachine/pull/28 authored by https://github.com/evengard88
@@ -25,7 +23,7 @@ without specific prior written permission.
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL MATCH GROUP, LLC BE LIABLE FOR ANY
+disclaimed. IN NO EVENT SHALL MATCH GROUP, LLC BE LIABLE FOR ANY
 DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
 (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
 LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -38,34 +36,46 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 internal class StateMachine<STATE : Any, EVENT : Any, SIDE_EFFECT : Any> private constructor(
     private val graph: Graph<STATE, EVENT, SIDE_EFFECT>
 ) {
-    private val lock = SynchronizedObject()
-    private val stateRef = atomic(graph.initialState)
+    @Volatile
+    private var _state = graph.initialState
 
     var state: STATE
-        get() = stateRef.value
+        get() = _state
         private set(value) {
-            stateRef.value = value
+            _state = value
         }
 
     fun transition(event: EVENT): Transition<STATE, EVENT, SIDE_EFFECT> {
-        val transition = synchronized(lock) {
-            val fromState = state
-            val transition = fromState.getTransition(event)
+        // Thread-safe approach using compare-and-swap pattern
+        var currentState: STATE
+        var transition: Transition<STATE, EVENT, SIDE_EFFECT>
+
+        do {
+            currentState = state
+            transition = currentState.getTransition(event)
+
             if (transition is Transition.Valid) {
-                state = transition.toState
+                // Atomic state update - only update if state hasn't changed
+                val oldState = _state
+                if (oldState === currentState) {
+                    _state = transition.toState
+                    break
+                } else {
+                    // State changed by another thread, retry
+                    continue
+                }
+            } else {
+                break
             }
-            transition
-        }
+        } while (true)
+
+        // Notifications after state is safely updated
         transition.notifyOnTransition()
-        if (transition is Transition.Valid) {
-            with(transition) {
-                with(fromState) {
-                    notifyOnExit(event)
-                }
-                with(toState) {
-                    notifyOnEnter(event)
-                }
-            }
+        if (transition is Transition.Valid<*, *, *>) {
+            @Suppress("UNCHECKED_CAST")
+            val validTransition = transition as Transition.Valid<STATE, EVENT, SIDE_EFFECT>
+            validTransition.fromState.notifyOnExit(event)
+            validTransition.toState.notifyOnEnter(event)
         }
         return transition
     }

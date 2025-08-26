@@ -37,6 +37,7 @@ kotlin {
                 implementation(projects.shared)
                 implementation(projects.sharedUiCompose)
                 implementation(compose.desktop.currentOs)
+                implementation(compose.components.uiToolingPreview)
                 implementation(libs.kotlinx.coroutines.swing)
             }
         }

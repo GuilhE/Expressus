@@ -18,7 +18,7 @@ android {
 kotlin {
     jvm("desktop")
     listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { target ->
-        compilerOptions {
+        target.compilerOptions {
             freeCompilerArgs.add("-Xbinary=bundleId=com.expressus.compose")
         }
     }
@@ -41,10 +41,8 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
             implementation(libs.kotlinx.coroutines.core)
-        }
-        val desktopMain by getting {
-            dependencies { implementation(compose.preview) }
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.expressus.compose.desktop.rightPanel
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.expressus.compose.components.rightPanel.CircularButton
