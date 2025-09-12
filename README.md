@@ -36,15 +36,6 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 To run iosApp open `iosApp/Expressus.xcworkspace` in Xcode.
 
->[!NOTE]
-> If you run into troubles building the iosApp, try the following:
-> Due to this [issue](https://github.com/JetBrains/compose-multiplatform/issues/4720#issuecomment-2100898893) you must first run the following steps:
-> 1. run `./gradlew clean`
-> 2. run build project in Xcode
-> 3. run `./gradlew generateDummyFramework`
-> 4. `cd ./iosApp` and run `pod install`
-> 5. run standard configuration.
-
 #### Desktop
 
 - UI State emissions using Kotlin Flow
