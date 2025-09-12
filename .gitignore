@@ -265,7 +265,7 @@ DerivedData/
 !default.perspectivev3
 
 ## Obj-C/Swift specific
-*.hmap
+*.hmapc
 
 ## App packaging
 *.ipa
@@ -402,6 +402,7 @@ obj/
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 .idea/jarRepositories.xml
+.idea/copilot.*
 
 # OS-specific files
 .DS_Store
