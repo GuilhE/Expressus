@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'Expressus, a multiplatform coffee machine!'
     spec.vendored_frameworks      = 'build/cocoapods/framework/ExpressusShared.framework'
     spec.libraries                = 'c++'
-    spec.ios.deployment_target    = '17.0'
+    spec.ios.deployment_target    = '26.0'
                 
                 
     if !Dir.exist?('build/cocoapods/framework/ExpressusShared.framework') || Dir.empty?('build/cocoapods/framework/ExpressusShared.framework')

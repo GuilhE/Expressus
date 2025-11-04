@@ -1,13 +1,14 @@
 [versions]
 
 #======Kotlin
-kotlin = "2.2.20"
+kotlin = "2.2.21"
 kotlinxCoroutines = "1.10.2"
+kotlinxCollections = "0.4.0"
 kotlinxSerialization = "1.9.0"
-kotlinxCompose = "1.9.0"
+kotlinxCompose = "1.9.2"
 
 #======Google
-ksp = "2.2.20-2.0.2"
+ksp = "2.3.0"
 
 #======Android
 androidCompileSdk = "35"
@@ -16,17 +17,17 @@ androidMinSdk = "24"
 androidGradlePlugin = "8.13.0"
 androidMaterial = "1.13.0"
 androidxActivityKtx = "1.11.0"
-androidxLifecycle = "2.9.3"
-androidxCompose = "1.9.1"
-androidxComposeLifecycle = "2.9.3"
-androidxComposeMaterial3 = "1.3.2"
+androidxLifecycle = "2.9.4"
+androidxCompose = "1.9.4"
+androidxComposeLifecycle = "2.9.4"
+androidxComposeMaterial3 = "1.4.0"
 
 #======Multiplatform
 kermit = "2.0.8"
 koin = "4.1.1"
 multiplatformSettings = "1.3.0"
 orbitMviCore = "10.0.0"
-composeuiviewcontroller = "2.2.20-1.9.0"
+composeuiviewcontroller = "2.2.21-1.9.1"
 
 [plugins]
 
@@ -48,6 +49,7 @@ gradle-android-tools = { group = "com.android.tools.build", name = "gradle", ver
 kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinxCoroutines" }
+kotlinx-collections  = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinxCollections" }
 
 #======Multiplatform
 kmp-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }

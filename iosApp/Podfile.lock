@@ -13,9 +13,9 @@ EXTERNAL SOURCES:
     :path: "../shared-ui-compose"
 
 SPEC CHECKSUMS:
-  shared: bce2fb3b5c8a6581309939d1931bd440caf9e2ac
-  shared_ui_compose: 63bcc58d80b2fc9eb60ca0698d826034a0d19c65
+  shared: 5ab356583c39886a7e8437e6d6256eebc9b7973d
+  shared_ui_compose: 23e2042e3ab8c2fec5e25e85d09562a42a0f277e
 
-PODFILE CHECKSUM: 1b409b477da1ed070a5a501d95c26b6d79d1c56d
+PODFILE CHECKSUM: e43a087e9382d2b50a2620b09691ec5dd8e3defd
 
 COCOAPODS: 1.15.2

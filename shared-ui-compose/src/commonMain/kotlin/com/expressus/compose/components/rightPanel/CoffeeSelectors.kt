@@ -25,16 +25,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.expressus.compose.themes.CoffeeSelectorsTheme
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.yield
 
 @Composable
 fun CoffeeSelectors(modifier: Modifier, count: Int, isMakingCoffee: Boolean = false, onClick: (Int) -> Unit) {
-    CoffeeSelectors(modifier, List(count) { "" }, isMakingCoffee, onClick)
+    CoffeeSelectors(modifier, List(count) { "" }.toImmutableList(), isMakingCoffee, onClick)
 }
 
 @Composable
-fun CoffeeSelectors(modifier: Modifier, options: List<String>, isMakingCoffee: Boolean = false, onClick: (Int) -> Unit) {
+fun CoffeeSelectors(modifier: Modifier, options: ImmutableList<String>, isMakingCoffee: Boolean = false, onClick: (Int) -> Unit) {
     var animateIndex by remember { mutableStateOf(-1) }
     var toggle by remember { mutableStateOf(false) }
 

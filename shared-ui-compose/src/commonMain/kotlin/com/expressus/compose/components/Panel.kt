@@ -26,14 +26,18 @@ fun Panel(
                 brush = brush,
                 path = Path().apply {
                     moveTo(0f, if (convexTop) topOffset.value else 0f)
-                    quadraticBezierTo(
-                        x1 = size.center.x, y1 = if (convexTop) -topOffset.value else topOffset.value,
-                        x2 = size.width, y2 = if (convexTop) topOffset.value else 0f
+                    quadraticTo(
+                        x1 = size.center.x,
+                        y1 = if (convexTop) -topOffset.value else topOffset.value,
+                        x2 = size.width,
+                        y2 = if (convexTop) topOffset.value else 0f
                     )
                     lineTo(size.width, size.height - if (convexBottom) bottomOffset.value else 0f)
-                    quadraticBezierTo(
-                        x1 = size.center.x, y1 = size.height + if (convexBottom) bottomOffset.value else -bottomOffset.value,
-                        x2 = 0f, y2 = size.height - if (convexBottom) bottomOffset.value else 0f
+                    quadraticTo(
+                        x1 = size.center.x,
+                        y1 = size.height + if (convexBottom) bottomOffset.value else -bottomOffset.value,
+                        x2 = 0f,
+                        y2 = size.height - if (convexBottom) bottomOffset.value else 0f
                     )
                     close()
                 }

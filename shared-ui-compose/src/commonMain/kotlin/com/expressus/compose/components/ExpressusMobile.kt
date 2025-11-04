@@ -26,6 +26,7 @@ import com.expressus.compose.components.rightPanel.FanGrid
 import com.expressus.compose.components.rightPanel.MachineRightFrame
 import com.expressus.compose.components.rightPanel.PaymentSocket
 import com.expressus.compose.themes.CoffeeSelectorsTheme
+import kotlinx.collections.immutable.toImmutableList
 
 @Composable
 fun ExpressusMobile(isGrinding: Boolean, isPouring: Boolean, isMakingCoffee: Boolean, status: String, makeCoffee: () -> Unit) {
@@ -70,7 +71,7 @@ internal fun CoffeeSelectorsMobile(isMakingCoffee: Boolean, onAnyClick: () -> Un
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            CoffeeSelectors(Modifier, options, isMakingCoffee) { index ->
+            CoffeeSelectors(Modifier, options.toImmutableList(), isMakingCoffee) { index ->
                 when (index) {
                     options.size - 1 -> onComposeClick()
                     options.size - 2 -> onSwiftUiClick()

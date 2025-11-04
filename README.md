@@ -34,7 +34,7 @@ KMP sample project acting as a playground to illustrate what's discussed in thes
 
 `./gradlew :androidApp:installDebug`
 
-To run iosApp open `iosApp/Expressus.xcworkspace` in Xcode.
+To run iosApp open `iosApp/Expressus.xcworkspace` in Xcode and run standard configuration or use [KMP plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform) for Android Studio and choose `Expressus` in `run configurations`.
 
 #### Desktop
 

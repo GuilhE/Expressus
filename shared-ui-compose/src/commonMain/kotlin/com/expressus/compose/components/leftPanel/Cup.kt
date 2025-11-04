@@ -41,14 +41,14 @@ fun Cup(height: Dp) {
                     lineTo(topRight.x, topRight.y)
 
                     lineTo(bottomRight.x + bezierOffset2, bottomRight.y - bezierOffset)
-                    quadraticBezierTo(
+                    quadraticTo(
                         x1 = bottomRight.x, y1 = bottomRight.y,
                         x2 = bottomRight.x - bezierOffset, y2 = bottomRight.y
                     )
                     lineTo(bottomRight.x - bezierOffset, bottomRight.y)
 
                     lineTo(bottomLeft.x + bezierOffset, bottomLeft.y)
-                    quadraticBezierTo(
+                    quadraticTo(
                         x1 = bottomLeft.x, y1 = bottomLeft.y,
                         x2 = bottomLeft.x - bezierOffset2, y2 = bottomRight.y - bezierOffset
                     )
@@ -61,7 +61,7 @@ fun Cup(height: Dp) {
                     moveTo((bottomLeft.x + topLeft.x) / 2, (bottomLeft.y + topLeft.y) / 2)
                     lineTo(bottomRight.x - bezierOffset, bottomRight.y)
                     lineTo(bottomLeft.x + bezierOffset, bottomLeft.y)
-                    quadraticBezierTo(
+                    quadraticTo(
                         x1 = bottomLeft.x, y1 = bottomLeft.y,
                         x2 = bottomLeft.x - bezierOffset2, y2 = bottomRight.y - bezierOffset
                     )

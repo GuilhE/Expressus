@@ -26,7 +26,7 @@ kotlin {
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"
         homepage = "https://github.com/GuilhE/Expressus"
-        ios.deploymentTarget = "17.0"
+        ios.deploymentTarget = "26.0"
         version = "1.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
@@ -43,6 +43,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.collections)
         }
     }
 }
