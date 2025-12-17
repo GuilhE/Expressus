@@ -16,7 +16,7 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
 
         getByName("debug") {
@@ -29,7 +29,11 @@ dependencies {
     implementation(projects.shared)
     implementation(projects.sharedUiCompose)
 
-    implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.android.material)
+    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.compose.activity)
+    implementation(libs.bundles.jetbrains.compose)
+    implementation(libs.jetbrains.compose.ui.tooling)
+
     implementation(libs.kmp.koin.android)
 }

@@ -1,19 +1,15 @@
 plugins {
-    id("buildlogic.plugins.kmp.library.android")
-    id("kotlin-parcelize")
+    id("buildlogic.plugins.kmp.library")
     kotlin("native.cocoapods")
-    alias(libs.plugins.google.ksp)
     alias(libs.plugins.kotlinx.serialization)
-}
-
-android {
-    namespace = "com.expressus"
 }
 
 kotlin {
     jvm()
-    androidTarget()
-    listOf(iosArm64(), iosSimulatorArm64(), iosX64()).forEach { target ->
+
+    android { namespace = "com.expressus" }
+
+    listOf(iosArm64(), iosSimulatorArm64()).forEach { target ->
         target.compilerOptions { freeCompilerArgs.add("-Xexport-kdoc") }
     }
 
@@ -23,9 +19,7 @@ kotlin {
         ios.deploymentTarget = "26.0"
         version = "1.0"
         podfile = project.file("../iosApp/Podfile")
-        framework {
-            baseName = "ExpressusShared"
-        }
+        framework { baseName = "ExpressusShared" }
     }
 
     sourceSets {

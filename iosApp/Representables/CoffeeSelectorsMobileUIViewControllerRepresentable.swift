@@ -3,7 +3,7 @@ import SwiftUI
 import ExpressusComposables
 
 public struct CoffeeSelectorsMobileRepresentable: UIViewControllerRepresentable {
-    @Binding var state: CoffeeSelectorsState
+    @Binding var isMakingCoffee: Bool
     let onAnyClick: () -> Void
     let onSwiftUiClick: () -> Void
     let onComposeClick: () -> Void
@@ -13,6 +13,6 @@ public struct CoffeeSelectorsMobileRepresentable: UIViewControllerRepresentable 
     }
 
     public func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        CoffeeSelectorsMobileUIViewController().update(state: state)
+        CoffeeSelectorsMobileUIViewController().update(isMakingCoffee: isMakingCoffee)
     }
 }

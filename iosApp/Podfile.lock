@@ -13,8 +13,8 @@ EXTERNAL SOURCES:
     :path: "../shared-ui-compose"
 
 SPEC CHECKSUMS:
-  shared: 5ab356583c39886a7e8437e6d6256eebc9b7973d
-  shared_ui_compose: 23e2042e3ab8c2fec5e25e85d09562a42a0f277e
+  shared: f0ba6785aeffd64bc76a04c30caba3b6c4120aac
+  shared_ui_compose: 81251198ee116e9d64c17dd903913a16715907fc
 
 PODFILE CHECKSUM: e43a087e9382d2b50a2620b09691ec5dd8e3defd
 

@@ -7,6 +7,7 @@ class CMPLibraryConventionPlugin : Plugin<Project> {
             pluginManager.apply("org.jetbrains.kotlin.multiplatform")
             pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
             pluginManager.apply("org.jetbrains.compose")
+            pluginManager.apply("org.jetbrains.compose.hot-reload")
         }
     }
 }

@@ -1,51 +1,58 @@
 [versions]
-
 #======Kotlin
-kotlin = "2.2.21"
+kotlin = "2.3.0"
 kotlinxCoroutines = "1.10.2"
 kotlinxCollections = "0.4.0"
 kotlinxSerialization = "1.9.0"
-kotlinxCompose = "1.10.0-beta01"
+composeMultiplatform = "1.10.0-rc02"
+composeMaterial3 = "1.9.0"
+composeHotReload = "1.1.0-alpha02"
 
 #======Google
-ksp = "2.3.0"
+ksp = "2.3.4"
 
 #======Android
 androidCompileSdk = "35"
 androidTargetSdk = "35"
 androidMinSdk = "24"
-androidGradlePlugin = "8.13.0"
+androidGradlePlugin = "9.0.0-beta05"
 androidMaterial = "1.13.0"
-androidxActivityKtx = "1.11.0"
-androidxLifecycle = "2.9.4"
-androidxCompose = "1.9.4"
-androidxComposeLifecycle = "2.9.4"
-androidxComposeMaterial3 = "1.4.0"
+androidxActivityKtx = "1.12.1"
+androidxLifecycle = "2.10.0"
 
 #======Multiplatform
 kermit = "2.0.8"
 koin = "4.1.1"
 multiplatformSettings = "1.3.0"
-orbitMviCore = "10.0.0"
-composeuiviewcontroller = "2.2.21-1.9.1"
+orbitMviCore = "11.0.0"
+composeuiviewcontroller = "2.3.0-1.10.0-rc02-1"
 
 [plugins]
-
-android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
-kotlinx-compose = { id = "org.jetbrains.compose", version.ref = "kotlinxCompose" }
-kotlinx-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose-hotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "composeHotReload"}
 composeuiviewcontroller = { id = "io.github.guilhe.kmp.plugin-composeuiviewcontroller", version.ref = "composeuiviewcontroller" }
 
 [libraries]
-
 #======Gradle
 gradle-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 gradle-android-tools = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 
 #======Jetbrains
+jetbrains-compose-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "composeMultiplatform" }
+jetbrains-compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "composeMultiplatform" }
+jetbrains-compose-runtimeSaveable = { group = "org.jetbrains.compose.runtime", name = "runtime-saveable", version.ref = "composeMultiplatform" }
+jetbrains-compose-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "composeMultiplatform" }
+jetbrains-compose-ui-tooling = { group = "org.jetbrains.compose.ui", name = "ui-tooling", version.ref = "composeMultiplatform" }
+jetbrains-compose-ui-tooling-preview = { group = "org.jetbrains.compose.ui", name = "ui-tooling-preview", version.ref = "composeMultiplatform" }
+jetbrains-compose-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "composeMaterial3" }
+jetbrains-compose-material3-windowSizeClass = { group = "org.jetbrains.compose.material3", name = "material3-window-size-class", version.ref = "composeMaterial3" }
+jetbrains-compose-componentsResources = { group = "org.jetbrains.compose.components", name = "components-resources", version.ref = "composeMultiplatform" }
+
 kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinxCoroutines" }
@@ -65,31 +72,15 @@ androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-r
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidxLifecycle" }
 
 androidx-compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityKtx" }
-androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxCompose" }
-androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "androidxCompose" }
-androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidxCompose" }
-androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
-androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidxCompose" }
-androidx-compose-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxComposeLifecycle" }
-androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }
-androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "androidxCompose" }
-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidxCompose" }
-androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidxCompose" }
-androidx-compose-ui-util = { group = "androidx.compose.ui", name = "ui-util", version.ref = "androidxCompose" }
 
 [bundles]
-
-androidx-compose = [
-    "androidx-compose-activity",
-    "androidx-compose-foundation",
-    "androidx-compose-foundation-layout",
-    "androidx-compose-material",
-    "androidx-compose-material3",
-    "androidx-compose-runtime",
-    "androidx-compose-lifecycle-runtime",
-    "androidx-compose-ui",
-    "androidx-compose-ui-graphics",
-    "androidx-compose-ui-tooling",
-    "androidx-compose-ui-tooling-preview",
-    "androidx-compose-ui-util",
+jetbrains-compose = [
+    "jetbrains-compose-foundation",
+    "jetbrains-compose-runtime",
+    "jetbrains-compose-runtimeSaveable",
+    "jetbrains-compose-ui",
+    "jetbrains-compose-ui-tooling-preview",
+    "jetbrains-compose-material3",
+    "jetbrains-compose-material3-windowSizeClass",
+    "jetbrains-compose-componentsResources"
 ]

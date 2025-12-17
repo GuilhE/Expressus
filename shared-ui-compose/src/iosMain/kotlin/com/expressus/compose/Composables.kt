@@ -23,15 +23,13 @@ internal fun ExpressusMobile(@ComposeUIViewControllerState state: ExpressusMobil
     }
 }
 
-data class CoffeeSelectorsState(val isMakingCoffee: Boolean = false)
-
 @ComposeUIViewController
 @Composable
 internal fun CoffeeSelectorsMobile(
-    @ComposeUIViewControllerState state: CoffeeSelectorsState,
+    @ComposeUIViewControllerState isMakingCoffee: Boolean,
     onAnyClick: () -> Unit,
     onSwiftUiClick: () -> Unit,
     onComposeClick: () -> Unit
 ) {
-    CoffeeSelectorsMobile(state.isMakingCoffee, onAnyClick, onSwiftUiClick, onComposeClick)
+    CoffeeSelectorsMobile(isMakingCoffee, onAnyClick, onSwiftUiClick, onComposeClick)
 }

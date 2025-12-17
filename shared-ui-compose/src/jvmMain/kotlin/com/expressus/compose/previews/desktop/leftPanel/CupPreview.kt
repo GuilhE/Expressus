@@ -1,6 +1,6 @@
-package com.expressus.compose.desktop.leftPanel
+package com.expressus.compose.previews.desktop.leftPanel
 
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.BoxWithConstraints
