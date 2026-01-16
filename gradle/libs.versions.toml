@@ -4,9 +4,9 @@ kotlin = "2.3.0"
 kotlinxCoroutines = "1.10.2"
 kotlinxCollections = "0.4.0"
 kotlinxSerialization = "1.9.0"
-composeMultiplatform = "1.10.0-rc02"
+composeMultiplatform = "1.10.0"
 composeMaterial3 = "1.9.0"
-composeHotReload = "1.1.0-alpha02"
+composeHotReload = "1.1.0-alpha04"
 
 #======Google
 ksp = "2.3.4"
@@ -15,9 +15,9 @@ ksp = "2.3.4"
 androidCompileSdk = "35"
 androidTargetSdk = "35"
 androidMinSdk = "24"
-androidGradlePlugin = "9.0.0-beta05"
+androidGradlePlugin = "9.0.0"
 androidMaterial = "1.13.0"
-androidxActivityKtx = "1.12.1"
+androidxActivityKtx = "1.12.2"
 androidxLifecycle = "2.10.0"
 
 #======Multiplatform
@@ -25,7 +25,7 @@ kermit = "2.0.8"
 koin = "4.1.1"
 multiplatformSettings = "1.3.0"
 orbitMviCore = "11.0.0"
-composeuiviewcontroller = "2.3.0-1.10.0-rc02-1"
+composeuiviewcontroller = "2.3.20-Beta1-1.10.0"
 
 [plugins]
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
