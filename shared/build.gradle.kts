@@ -9,9 +9,8 @@ kotlin {
 
     android { namespace = "com.expressus" }
 
-    listOf(iosArm64(), iosSimulatorArm64()).forEach { target ->
-        target.compilerOptions { freeCompilerArgs.add("-Xexport-kdoc") }
-    }
+    iosArm64()
+    iosSimulatorArm64()
 
     cocoapods {
         summary = "Expressus, a multiplatform coffee machine!"

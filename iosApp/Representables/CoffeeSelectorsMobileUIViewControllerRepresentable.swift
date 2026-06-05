@@ -3,10 +3,17 @@ import ExpressusComposables
 import SwiftUI
 
 public struct CoffeeSelectorsMobileRepresentable: UIViewControllerRepresentable {
-    @Binding var isMakingCoffee: Bool
-    let onAnyClick: () -> Void
-    let onSwiftUiClick: () -> Void
-    let onComposeClick: () -> Void
+    @Binding public var isMakingCoffee: Bool
+    public let onAnyClick: () -> Void
+    public let onSwiftUiClick: () -> Void
+    public let onComposeClick: () -> Void
+
+    public init(isMakingCoffee: Binding<Bool>, onAnyClick: @escaping () -> Void, onSwiftUiClick: @escaping () -> Void, onComposeClick: @escaping () -> Void) {
+        _isMakingCoffee = isMakingCoffee
+        self.onAnyClick = onAnyClick
+        self.onSwiftUiClick = onSwiftUiClick
+        self.onComposeClick = onComposeClick
+    }
 
     public func makeUIViewController(context _: Context) -> UIViewController {
         CoffeeSelectorsMobileUIViewController().make(onAnyClick: onAnyClick, onSwiftUiClick: onSwiftUiClick, onComposeClick: onComposeClick)

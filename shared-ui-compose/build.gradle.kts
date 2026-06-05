@@ -1,5 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-
 plugins {
     id("buildlogic.plugins.kmp.library")
     id("buildlogic.plugins.kmp.compose")
@@ -15,8 +13,10 @@ ComposeUiViewController {
 kotlin {
     jvm()
 
-    android { namespace = "com.expressus.compose" }
-    androidLibrary { androidResources.enable = true }
+    android {
+        namespace = "com.expressus.compose"
+        androidResources.enable = true
+    }
 
     listOf(iosArm64(), iosSimulatorArm64()).forEach { target ->
         target.compilerOptions {

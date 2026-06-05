@@ -3,8 +3,13 @@ import ExpressusComposables
 import SwiftUI
 
 public struct ExpressusMobileRepresentable: UIViewControllerRepresentable {
-    @Binding var state: ExpressusMobileState
-    let makeCoffee: () -> Void
+    @Binding public var state: ExpressusMobileState
+    public let makeCoffee: () -> Void
+
+    public init(state: Binding<ExpressusMobileState>, makeCoffee: @escaping () -> Void) {
+        _state = state
+        self.makeCoffee = makeCoffee
+    }
 
     public func makeUIViewController(context _: Context) -> UIViewController {
         ExpressusMobileUIViewController().make(makeCoffee: makeCoffee)
