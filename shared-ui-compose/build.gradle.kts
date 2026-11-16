@@ -8,6 +8,7 @@ plugins {
 ComposeUiViewController {
     iosAppName = "Expressus"
     targetName = "Expressus"
+    legacyMode = true
 }
 
 kotlin {
